@@ -3,33 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:57:36 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/20 21:37:10 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/02/21 15:16:52 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int	main()
+int	main(int argc, char **argv)
 {
-/* 	for (int i = 0; i < argc; i++)
+ 	for (int i = 0; i < argc; i++)
 	{
-		char* p = argv[i];
+		char *p = argv[i];
 		while (*p)
 		{
 			*p = std::toupper(*p);
 			p++;
 		}
-		std::cout << argv[i] << std::endl;
-	} */
-
-	char	buff[512];
-
-	std::cout << "Hello World" << std::endl;
-	std::cout << "Input a word: ";
-	std::cin >> buff;
-	std::cout << "You entered: [" << buff << "]" << std::endl;
+		std::cout << argv[i];
+		std::cout << " ";
+	}
+	std::cout << std::endl;
 	return (0);
 }

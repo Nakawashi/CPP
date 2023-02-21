@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/02/20 17:02:21 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/02/21 14:34:59 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,9 @@ NAME		= megaphone
 
 ## rules ##
 
-$(NAME):	$(OBJS)
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(SRCS_FILES)
-	@printf "$(GREEN) END\n$(NONE)"
+	@printf "$(GREEN) $(NAME) compilation OK\n$(NONE)"
 
 $(OBJS): $(SRCS_FILES)
 	$(CC) $(CFLAGS) -c $(SRCS_FILES)

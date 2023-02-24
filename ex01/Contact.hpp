@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 18:51:24 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/24 18:21:49 by lgenevey         ###   ########.fr       */
+/*   Created: 2023/02/24 16:01:00 by lgenevey          #+#    #+#             */
+/*   Updated: 2023/02/24 16:01:35 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-# include "Contact.hpp"
+#include <iostream>
 
-# define MAX_CONTACTS 8
+class Contact {
 
-class Phonebook {
-public:
-
-	Phonebook(void);	// constructeur
-	~Phonebook(void);	// destructeur
 private:
-	Contact	contacts[MAX_CONTACTS];
+	std::string contact;
+
 };
 
 #endif

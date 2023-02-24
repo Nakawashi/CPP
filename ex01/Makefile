@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/02/21 18:36:34 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/02/24 19:06:36 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,13 @@ endif
 
 ## Files ##
 
-SRCS_FILES	= megaphone.cpp
+SRCS_FILES	=	Phonebook.cpp \
+				Contact.cpp \
+				main.cpp
 
 ## Compiled Files ##
 
-NAME		= megaphone
+NAME		= phonebook
 
 # ----------------------------------------------------------------------------#
 
@@ -46,7 +48,7 @@ NAME		= megaphone
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(SRCS_FILES)
-	@printf "$(GREEN) $(NAME) compilation OK\n$(NONE)"
+	@printf "$(GREEN)$(NAME) compilation OK\n$(NONE)"
 
 $(OBJS): $(SRCS_FILES)
 	$(CC) $(CFLAGS) -c $(SRCS_FILES)

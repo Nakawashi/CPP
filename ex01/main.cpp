@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 18:51:24 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/24 18:21:49 by lgenevey         ###   ########.fr       */
+/*   Created: 2023/02/24 15:58:30 by lgenevey          #+#    #+#             */
+/*   Updated: 2023/02/24 18:59:47 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Phonebook.hpp"
 
-# include "Contact.hpp"
+int	main(void)
+{
+	Phonebook	instance;
 
-# define MAX_CONTACTS 8
-
-class Phonebook {
-public:
-
-	Phonebook(void);	// constructeur
-	~Phonebook(void);	// destructeur
-private:
-	Contact	contacts[MAX_CONTACTS];
-};
-
-#endif
+	return 0;
+}

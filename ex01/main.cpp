@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:58:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/26 18:46:38 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:30:37 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	Phonebook	annuaire;
+	Phonebook	phonebook;
 	std::string	command;
 	bool		ret = true;
 
@@ -29,12 +29,19 @@ int	main(void)
 		std::cout << "-------------------------------------------------" << std::endl;
 		std::getline(std::cin, command);
 		if (command == "ADD")
-			annuaire.addContact();
-		// else if (command == "SEARCH")
+			phonebook.addContact();
+		else if (command == "SEARCH")
+		{
+			for (int i = 0; i < MAX_CONTACTS; i++)
+			{
+				phonebook.contacts[i].showContact(i);
+			}
+			std::cout << "vous avez choisi SEARCH" << std::endl;
+		}
 		// 	displayPhonebook();
 			// afficher l'annuaire
 			// demander quel contact afficher
-		else if (command == "EXIT")
+		else if (command == "EXIT" || command == "exit")
 			ret = false;
 	} while (ret);
 	return 0;

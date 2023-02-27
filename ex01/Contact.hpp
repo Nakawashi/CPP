@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:01:00 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/27 14:37:44 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:25:08 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Contact {
 
 private:
-	static std::string fields[5];
+	static std::string labels[5]; //sera instantié une seule fois pour tous les objets. Pas de sens d'init dans le constructeur, c'est contradictoire.
 	std::string fieldsInput[5];
 
 public:
@@ -26,7 +26,7 @@ public:
 	~Contact(void);
 
 	void	setContact();
-	void	displayContacts(void) const;
+	void	showContact(int i) const;
 
 };
 

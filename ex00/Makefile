@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/02/21 18:36:26 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/02/27 14:55:19 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NONE		= \033[0m
 
 CC			= g++
 rm			= rm -rf
-OBJS		= $(SRCS_FILES:.c=.o)
+OBJS		= $(SRCS_FILES:.cpp=.o)
 CFLAGS		= -Wall -Wextra -Werror
 CFLAGS		+= -std=c++98
 CFLAGS		+= -pedantic

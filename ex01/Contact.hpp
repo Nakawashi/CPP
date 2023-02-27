@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:01:00 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/26 18:51:30 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:37:44 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,3 @@ public:
 };
 
 #endif
-
-//set les informations recues cin
-//

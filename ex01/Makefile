@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/02/24 19:06:36 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/02/27 14:54:39 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,22 +21,22 @@ NONE		= \033[0m
 
 ## Compilation ##
 
-CC			= g++
+CXX			= g++
 rm			= rm -rf
-OBJS		= $(SRCS_FILES:.c=.o)
-CFLAGS		= -Wall -Wextra -Werror
-CFLAGS		+= -std=c++98
-CFLAGS		+= -pedantic
+OBJS		= $(SRCS_FILES:.cpp=.o)
+CXXFLAGS		= -Wall -Wextra -Werror
+CXXFLAGS		+= -std=c++98
+CXXFLAGS		+= -pedantic
 
 ifeq ($(DEBUG), 1)
-	CFLAGS += -fsanitize=address -g3
+	CXXFLAGS += -fsanitize=address -g3
 endif
 
 ## Files ##
 
-SRCS_FILES	=	Phonebook.cpp \
+SRCS_FILES	=	main.cpp \
+				Phonebook.cpp \
 				Contact.cpp \
-				main.cpp
 
 ## Compiled Files ##
 
@@ -47,11 +47,11 @@ NAME		= phonebook
 ## rules ##
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRCS_FILES)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(SRCS_FILES)
 	@printf "$(GREEN)$(NAME) compilation OK\n$(NONE)"
 
 $(OBJS): $(SRCS_FILES)
-	$(CC) $(CFLAGS) -c $(SRCS_FILES)
+	$(CXX) $(CXXFLAGS) -c $(SRCS_FILES)
 
 all: $(NAME)
 

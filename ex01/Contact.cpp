@@ -6,11 +6,12 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:18:39 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/27 17:28:06 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:32:26 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include <unistd.h>
 
 Contact::Contact(void) {
 	std::cout << "Contact Constructor called" << std::endl;
@@ -37,6 +38,7 @@ void	Contact::setContact(void)
 	{
 		std::cout << "Please enter contact : " << labels[i] << std::endl;
 		std::getline(std::cin, this->fieldsInput[i]);
+		// incrementer nb de contacts
 		while (this->fieldsInput[i].empty())
 		{
 			std::cout << "Hey! Please enter contact : " << labels[i] << std::endl;
@@ -48,6 +50,13 @@ void	Contact::setContact(void)
 
 void	Contact::showContact(int i) const
 {
+	write(1, "u\n", 2);
+	std::cout << this->fieldsInput[i] << std::endl;
+	if (this->fieldsInput->size())
+	{
+		write(1, "dans le test\n", 14);
+		return ;
+	}
 	std::cout << "Contact : " << i << std::endl;
 	std::cout << labels[i] << " : " << fieldsInput[i] << std::endl;
 

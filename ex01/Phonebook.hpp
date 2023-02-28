@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:51:24 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/27 17:53:26 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:31:56 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
 	~Phonebook(void);	// destructeur
 
 	Contact	contacts[MAX_CONTACTS];
+	void	displayPrompt(void) const;
 	void	addContact(void);
 	void	searchContact(int i) const;
 	void	showPhonebook(void) const;

@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:58:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/27 17:30:37 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:22:23 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,28 @@
 
 int	main(void)
 {
-	Phonebook	phonebook;
 	std::string	command;
+	Phonebook	phonebook;
+	char		contactIndexChar;
 	bool		ret = true;
-
 	do
 	{
-		std::cout << "-------------------------------------------------" << std::endl;
-		std::cout << "| Please enter one of these following command:	|" << std::endl;
-		std::cout << "|                                              	|" << std::endl;
-		std::cout << "| ADD		: Add a new contact		|" << std::endl;
-		std::cout << "| SEARCH	: Display and search a contact	|" << std::endl;
-		std::cout << "| EXIT		: Exit the programm		|" << std::endl;
-		std::cout << "-------------------------------------------------" << std::endl;
+		phonebook.displayPrompt();
 		std::getline(std::cin, command);
 		if (command == "ADD")
 			phonebook.addContact();
 		else if (command == "SEARCH")
 		{
-			for (int i = 0; i < MAX_CONTACTS; i++)
+			phonebook.showPhonebook();
+			std::cout << "Which contact would you display ? [1 - 10]" << std::endl;
+			std::cin >> contactIndexChar;
+			while ((int)contactIndexChar < 0 && (int)contactIndexChar > 10)
 			{
-				phonebook.contacts[i].showContact(i);
+				std::cout << "\033[0;31mUnknown index. Which contact would you display ? [1 - 10]\033[0m" << std::endl;
+				std::cin >> contactIndexChar;
 			}
-			std::cout << "vous avez choisi SEARCH" << std::endl;
+			phonebook.contacts->showContact((int)contactIndexChar);
+			printf("C'est bon!\n");
 		}
 		// 	displayPhonebook();
 			// afficher l'annuaire

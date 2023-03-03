@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
+#    By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/02/27 14:54:39 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/03/03 10:56:31 by nakawashi        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,13 @@ endif
 ## Files ##
 
 SRCS_FILES	=	main.cpp \
-				Phonebook.cpp \
-				Contact.cpp \
+				Zombie.cpp \
+				newZombie.cpp \
+				randomChump.cpp \
 
 ## Compiled Files ##
 
-NAME		= phonebook
+NAME		= zombie
 
 # ----------------------------------------------------------------------------#
 

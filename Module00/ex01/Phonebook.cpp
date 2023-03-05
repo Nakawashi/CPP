@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/05 20:47:56 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/05 21:15:07 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	Phonebook::addContact(void)
 	this->_index += 1;
 }
 
-void	Phonebook::searchContact(Phonebook phonebook) const
+void	Phonebook::searchContact(Phonebook phonebook)
 {
 	int			i = 0;
 	std::string	str = "";
@@ -61,7 +61,7 @@ void	Phonebook::searchContact(Phonebook phonebook) const
 	}
 	std::cout << "\nWhich contact would you like to display ? [0 - 7]" << std::endl;
 	std::getline(std::cin, str);
-	if (str.empty() || str)
+	if (str.empty())
 		std::cout << "Please "<< RED << "SEARCH" << NONE << " again" << std::endl;
 	else
 	{
@@ -83,7 +83,24 @@ void	Phonebook::searchContact(Phonebook phonebook) const
 
 }
 
-void	Phonebook::_displayPhonebook(Phonebook phonebook) const
+/*
+	if string has more than 10 chars : truncate it, returns 0 -> 9 char
+*/
+std::string	Phonebook::_truncate(std::string string)
+{
+	if (string.length() > 10)
+	{
+		return (string.substr(0, 9) + ".");
+	}
+	else
+	{
+		return (string);
+	}
+}
+
+
+// https://stackoverflow.com/questions/19580877/how-to-truncate-a-string-formating-c
+void	Phonebook::_displayPhonebook(Phonebook phonebook)
 {
 	std::cout << std::endl;
 
@@ -100,17 +117,13 @@ void	Phonebook::_displayPhonebook(Phonebook phonebook) const
 
 	for (int i = 0; i < this->_index ; i++)
 	{
-		std::cout << VIOLET << std::setfill(' ') << " | " << NONE;
+		// std::cout << VIOLET << std::setfill(' ') << " | " << NONE;
+		std::cout << VIOLET << " | " << NONE;
 		std::cout << std::setw(10) << i;
 		std::cout << VIOLET << " | " << NONE;
 		for (int j = 0; j < 3; j++)
 		{
-			if (phonebook.contacts[i].fieldsInput[j].size() >= 10)
-			{
-				
-			}
-			else
-				std::cout << std::setw(10) << phonebook.contacts[i].fieldsInput[j];
+			std::cout << std::setw(10) << _truncate(phonebook.contacts[i].fieldsInput[j]);
 			std::cout << VIOLET << " | " << NONE;
 		}
 		std::cout << std::endl;

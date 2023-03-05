@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:01:00 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/02/28 17:30:04 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:09:03 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define CONTACT_HPP
 
 #include <iostream>
+
+# define VIOLET			"\033[0;36m"
+# define RED			"\033[0;31m"
+# define GREEN			"\033[0;32m"
+# define NONE			"\033[0m"
 
 class Contact {
 

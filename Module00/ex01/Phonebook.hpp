@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:51:24 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/05 17:08:39 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:59:19 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iomanip> // std::setw()
 # include "Contact.hpp"
+
+# define MAX_CONTACTS	8
 
 class Phonebook {
 
@@ -30,7 +32,7 @@ public:
 
 private:
 	int		_index;
-	void	_displayPhonebook(void) const;
+	void	_displayPhonebook(Phonebook phonebook) const;
 
 };
 

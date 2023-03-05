@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/05 17:09:53 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:47:56 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 
 Phonebook::Phonebook(void) : _index(0)
 {
-	std::cout << "Phonebook Constructor called" << std::endl;
+	// std::cout << "Phonebook Constructor called" << std::endl;
 	return ;
 }
 
 Phonebook::~Phonebook(void)
 {
-	std::cout << "Phonebook Destructor called" << std::endl;
+	// std::cout << "Phonebook Destructor called" << std::endl;
 	return ;
 }
 
 void	Phonebook::displayPrompt(void) const
 {
+		std::cout << "\n";
 		std::cout << VIOLET <<" ------------------------------------------------\n";
 		std::cout << " | Please enter one of these following command:	|\n";
 		std::cout << " |                                              |\n";
 		std::cout << " | ADD		: Add a new contact		|\n";
 		std::cout << " | SEARCH	: Display and search a contact	|\n";
 		std::cout << " | EXIT		: Exit the programm		|\n";
-		std::cout << " ------------------------------------------------" << NONE << std::endl;
+		std::cout << " ------------------------------------------------\n" << NONE << std::endl;
 }
 
 /*
@@ -52,29 +53,28 @@ void	Phonebook::searchContact(Phonebook phonebook) const
 	int			i = 0;
 	std::string	str = "";
 
-	phonebook._displayPhonebook();
+	phonebook._displayPhonebook(phonebook);
 	if (phonebook.contacts[0].fieldsInput[0].empty())
 	{
-		std::cout << "Phonebook empty, please " << RED << "ADD" << NONE << " a first contact" << std::endl;
+		std::cout << "\nPhonebook empty, please " << RED << "ADD" << NONE << " a first contact" << std::endl;
 		return ;
 	}
-	i = 0;
-	std::cout << "Which contact would you like to display ? [0 - 7]" << std::endl;
+	std::cout << "\nWhich contact would you like to display ? [0 - 7]" << std::endl;
 	std::getline(std::cin, str);
-	if (str.empty())
+	if (str.empty() || str)
 		std::cout << "Please "<< RED << "SEARCH" << NONE << " again" << std::endl;
 	else
 	{
 		i = std::atoi(str.c_str()); // c_str() returns a pointer to the c-string representation of the string object's value.
-		while (i < 0 || i >= MAX_CONTACTS)
+		while (i < 0 || i >= phonebook._index)
 		{
 			std::cout << RED << "Invalid contact index : [0 - 7]" << NONE << std::endl;
 			std::getline(std::cin, str);
 			i = std::atoi(str.c_str());
 		}
-		phonebook.contacts[i].showContact(i);
+		if (phonebook.contacts[i].fieldsInput[0] != "")
+			phonebook.contacts[i].showContact(i);
 	}
-
 
 	// display contacts list 4 colonnes : index, first name, last name et nickname separes par un |
 	// texte alligné sur la droite.
@@ -83,18 +83,36 @@ void	Phonebook::searchContact(Phonebook phonebook) const
 
 }
 
-void	Phonebook::_displayPhonebook(void) const
+void	Phonebook::_displayPhonebook(Phonebook phonebook) const
 {
 	std::cout << std::endl;
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << std::setw(10) << Contact::labels[i] << " |";
-	}
+
+	std::cout << VIOLET << std::setfill(' ') << " | " << NONE;
+	std::cout << std::setw(10) << BOLDWHITE << "Index" << NONE;
+	std::cout << VIOLET << " | " << NONE;
+	std::cout << std::setw(10) << BOLDWHITE << "First Name" << NONE;
+	std::cout << VIOLET << " | " << NONE;
+	std::cout << std::setw(10) << BOLDWHITE << "Last Name" << NONE;
+	std::cout << VIOLET << " | " << NONE;
+	std::cout << std::setw(10) << BOLDWHITE << "Nickname" << NONE;
+	std::cout << VIOLET << " | " << NONE;
 	std::cout << std::endl;
 
-	// for (int i = 0; i < 5; i++)
-	// {
-	// 	std::cout << "| " << this->contacts[i].fieldsInput[i] << " ";
-	// }
+	for (int i = 0; i < this->_index ; i++)
+	{
+		std::cout << VIOLET << std::setfill(' ') << " | " << NONE;
+		std::cout << std::setw(10) << i;
+		std::cout << VIOLET << " | " << NONE;
+		for (int j = 0; j < 3; j++)
+		{
+			if (phonebook.contacts[i].fieldsInput[j].size() >= 10)
+			{
+				
+			}
+			else
+				std::cout << std::setw(10) << phonebook.contacts[i].fieldsInput[j];
+			std::cout << VIOLET << " | " << NONE;
+		}
+		std::cout << std::endl;
+	}
 }
-

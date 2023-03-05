@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:18:39 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/05 17:08:21 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:03:53 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ Contact::Contact(void)
 	fieldsInput[2] = "";
 	fieldsInput[3] = "";
 	fieldsInput[4] = "";
-	std::cout << "Contact Constructor called" << std::endl;
+	// std::cout << "Contact Constructor called" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Contact Destructor called" << std::endl;
+	// std::cout << "Contact Destructor called" << std::endl;
 	return ;
 }
 
@@ -55,7 +55,8 @@ void	Contact::setContact(void)
 
 void	Contact::showContact(int i) const
 {
-	std::cout << "Contact : " << i << std::endl;
+	std::cout << std::endl;
+	std::cout << "Contact No : " << i << std::endl;
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << labels[i] << " : " << fieldsInput[i] << std::endl;

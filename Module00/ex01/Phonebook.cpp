@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/06 15:36:22 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:22:02 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,17 @@ void	Phonebook::searchContact(Phonebook phonebook)
 		{
 			std::cout << RED << "Invalid contact index : [0 - 7], pick an other one :" << NONE << std::endl;
 			std::getline(std::cin, str);
-			i = std::atoi(str.c_str());
+			if (_strIsDigit(str) == 0)
+				i = std::atoi(str.c_str());
 		}
 		if (phonebook.contacts[i].fieldsInput[0] != "")
 			phonebook.contacts[i].showContact(i);
 	}
 }
 
+/*
+	if char is not a digit, returns -1
+*/
 int	Phonebook::_strIsDigit(std::string string)
 {
 	for (unsigned long i = 0; i < string.length(); i++)

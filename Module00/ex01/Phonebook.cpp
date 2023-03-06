@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/05 21:15:07 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:18:01 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	Phonebook::searchContact(Phonebook phonebook)
 	}
 	std::cout << "\nWhich contact would you like to display ? [0 - 7]" << std::endl;
 	std::getline(std::cin, str);
-	if (str.empty())
-		std::cout << "Please "<< RED << "SEARCH" << NONE << " again" << std::endl;
+	if (str.empty() || _strIsDigit(str) == -1)
+		std::cout << "\nPlease "<< RED << "SEARCH" << NONE << " again" << std::endl;
 	else
 	{
 		i = std::atoi(str.c_str()); // c_str() returns a pointer to the c-string representation of the string object's value.
@@ -75,12 +75,16 @@ void	Phonebook::searchContact(Phonebook phonebook)
 		if (phonebook.contacts[i].fieldsInput[0] != "")
 			phonebook.contacts[i].showContact(i);
 	}
+}
 
-	// display contacts list 4 colonnes : index, first name, last name et nickname separes par un |
-	// texte alligné sur la droite.
-	// chaque colonne : 10 char de long. Si depasse : tronquer et 10e char est un point.
-	// afficher un contact en particulier : gerer si entree non valide
-
+int	Phonebook::_strIsDigit(std::string string)
+{
+	for (unsigned long i = 0; i < string.length(); i++)
+	{
+		if (!isdigit(string[i]))
+			return (-1);
+	}
+	return (0);
 }
 
 /*
@@ -104,20 +108,19 @@ void	Phonebook::_displayPhonebook(Phonebook phonebook)
 {
 	std::cout << std::endl;
 
-	std::cout << VIOLET << std::setfill(' ') << " | " << NONE;
-	std::cout << std::setw(10) << BOLDWHITE << "Index" << NONE;
 	std::cout << VIOLET << " | " << NONE;
-	std::cout << std::setw(10) << BOLDWHITE << "First Name" << NONE;
+	std::cout << BOLDWHITE << std::setw(10) << "Index" << NONE;
 	std::cout << VIOLET << " | " << NONE;
-	std::cout << std::setw(10) << BOLDWHITE << "Last Name" << NONE;
+	std::cout << BOLDWHITE << std::setw(10) << "First Name" << NONE;
 	std::cout << VIOLET << " | " << NONE;
-	std::cout << std::setw(10) << BOLDWHITE << "Nickname" << NONE;
+	std::cout << BOLDWHITE << std::setw(10) << "Last Name" << NONE;
+	std::cout << VIOLET << " | " << NONE;
+	std::cout << BOLDWHITE << std::setw(10) << "Nickname" << NONE;
 	std::cout << VIOLET << " | " << NONE;
 	std::cout << std::endl;
 
 	for (int i = 0; i < this->_index ; i++)
 	{
-		// std::cout << VIOLET << std::setfill(' ') << " | " << NONE;
 		std::cout << VIOLET << " | " << NONE;
 		std::cout << std::setw(10) << i;
 		std::cout << VIOLET << " | " << NONE;

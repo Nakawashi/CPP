@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/06 15:18:01 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:36:22 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ void	Phonebook::searchContact(Phonebook phonebook)
 	std::cout << "\nWhich contact would you like to display ? [0 - 7]" << std::endl;
 	std::getline(std::cin, str);
 	if (str.empty() || _strIsDigit(str) == -1)
-		std::cout << "\nPlease "<< RED << "SEARCH" << NONE << " again" << std::endl;
+		std::cout << "\nPlease, "<< RED << "SEARCH" << NONE << " again" << std::endl;
 	else
 	{
 		i = std::atoi(str.c_str()); // c_str() returns a pointer to the c-string representation of the string object's value.
 		while (i < 0 || i >= phonebook._index)
 		{
-			std::cout << RED << "Invalid contact index : [0 - 7]" << NONE << std::endl;
+			std::cout << RED << "Invalid contact index : [0 - 7], pick an other one :" << NONE << std::endl;
 			std::getline(std::cin, str);
 			i = std::atoi(str.c_str());
 		}
@@ -106,6 +106,8 @@ std::string	Phonebook::_truncate(std::string string)
 // https://stackoverflow.com/questions/19580877/how-to-truncate-a-string-formating-c
 void	Phonebook::_displayPhonebook(Phonebook phonebook)
 {
+	int	i = 0;
+
 	std::cout << std::endl;
 
 	std::cout << VIOLET << " | " << NONE;
@@ -119,7 +121,8 @@ void	Phonebook::_displayPhonebook(Phonebook phonebook)
 	std::cout << VIOLET << " | " << NONE;
 	std::cout << std::endl;
 
-	for (int i = 0; i < this->_index ; i++)
+	// tant qu'on depasse pas 8 et qu'on a des infos
+	while (i < MAX_CONTACTS && !(phonebook.contacts[i].fieldsInput[0].empty()))
 	{
 		std::cout << VIOLET << " | " << NONE;
 		std::cout << std::setw(10) << i;
@@ -130,5 +133,6 @@ void	Phonebook::_displayPhonebook(Phonebook phonebook)
 			std::cout << VIOLET << " | " << NONE;
 		}
 		std::cout << std::endl;
+		++i;
 	}
 }

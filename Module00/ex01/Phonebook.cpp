@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/06 16:22:02 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/06 19:12:23 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	Phonebook::searchContact(Phonebook phonebook)
 	std::string	str = "";
 
 	phonebook._displayPhonebook(phonebook);
-	if (phonebook.contacts[0].fieldsInput[0].empty())
+	if (phonebook.contacts[0].getFieldInput(0) == "")
 	{
 		std::cout << "\nPhonebook empty, please " << RED << "ADD" << NONE << " a first contact" << std::endl;
 		return ;
@@ -73,7 +73,7 @@ void	Phonebook::searchContact(Phonebook phonebook)
 			if (_strIsDigit(str) == 0)
 				i = std::atoi(str.c_str());
 		}
-		if (phonebook.contacts[i].fieldsInput[0] != "")
+		if (phonebook.contacts[i].getFieldInput(0) != "")
 			phonebook.contacts[i].showContact(i);
 	}
 }
@@ -126,14 +126,14 @@ void	Phonebook::_displayPhonebook(Phonebook phonebook)
 	std::cout << std::endl;
 
 	// tant qu'on depasse pas 8 et qu'on a des infos
-	while (i < MAX_CONTACTS && !(phonebook.contacts[i].fieldsInput[0].empty()))
+	while (i < MAX_CONTACTS && !(phonebook.contacts[i].getFieldInput(0).empty()))
 	{
 		std::cout << VIOLET << " | " << NONE;
 		std::cout << std::setw(10) << i;
 		std::cout << VIOLET << " | " << NONE;
 		for (int j = 0; j < 3; j++)
 		{
-			std::cout << std::setw(10) << _truncate(phonebook.contacts[i].fieldsInput[j]);
+			std::cout << std::setw(10) << _truncate(phonebook.contacts[i].getFieldInput(j));
 			std::cout << VIOLET << " | " << NONE;
 		}
 		std::cout << std::endl;

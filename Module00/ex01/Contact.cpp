@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:18:39 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/05 20:03:53 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/06 19:05:43 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ std::string Contact::labels[5] = {
 	"Phone number",
 	"Darkest secret"
 };
+
+std::string	Contact::getFieldInput(int i)
+{
+	return this->fieldsInput[i];
+}
 
 // fill contact labels with what we get from std::cin
 void	Contact::setContact(void)

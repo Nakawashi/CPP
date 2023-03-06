@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:01:00 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/05 19:53:42 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/06 19:27:38 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@
 # define BOLDWHITE		"\033[1m\033[37m"
 # define NONE			"\033[0m"
 
-class Contact {
-
+class Contact
+{
 public:
 	Contact(void);
 	~Contact(void);
-	void	setContact();
-	void	showContact(int i) const;
+	void			setContact();
+	void			showContact(int i) const;
+	std::string		getFieldInput(int i);
 
+private:
 	std::string			fieldsInput[5];
 	static std::string	labels[5]; //sera instantié une seule fois pour tous les objets. Pas de sens d'init dans le constructeur, c'est contradictoire.
 };

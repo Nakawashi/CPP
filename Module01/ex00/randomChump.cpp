@@ -2,9 +2,8 @@
 
 /*
 	Creates a new Zombie
-	Gives a name
+	Name it
 	Make him introduce itself
-	Returns named and introduced new Zombie
 */
 void	randomChump(std::string name)
 {

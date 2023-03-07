@@ -2,8 +2,8 @@
 
 int	main(void)
 {
-	Zombie	stackZombie = Zombie("Paulo");
-	Zombie	*heapZombie = new Zombie("Bernardo");
+	Zombie	*heapZombie = newZombie("Bernardo");
+	randomChump("Roberto");
 
 	delete heapZombie;
 	return (0);

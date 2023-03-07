@@ -2,8 +2,8 @@
 
 /*
 	Creates a new Zombie
-	Gives a name
-	Returns named new Zombie
+	Name it
+	Returns a new named Zombie
 */
 Zombie	*newZombie(std::string name)
 {

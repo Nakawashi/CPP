@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+         #
+#    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/03/03 10:56:31 by nakawashi        ###   ########.fr        #
+#    Updated: 2023/03/07 10:24:50 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ NONE		= \033[0m
 ## Compilation ##
 
 CXX			= g++
-rm			= rm -rf
+RM			= rm -rf
 OBJS		= $(SRCS_FILES:.cpp=.o)
 CXXFLAGS		= -Wall -Wextra -Werror
 CXXFLAGS		+= -std=c++98
-CXXFLAGS		+= -pedantic
+CXXFLAGS		+= -pedantic # assure la portabilite et conformite des normes
 
 ifeq ($(DEBUG), 1)
 	CXXFLAGS += -fsanitize=address -g3
@@ -39,6 +39,10 @@ SRCS_FILES	=	main.cpp \
 				newZombie.cpp \
 				randomChump.cpp \
 
+## Directories ##
+
+DIR_OBJ		= obj
+
 ## Compiled Files ##
 
 NAME		= zombie
@@ -47,18 +51,27 @@ NAME		= zombie
 
 ## rules ##
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(SRCS_FILES)
+# specifie que les objets doivent etre pris dans le dossier DIR_OBJ
+$(NAME): $(DIR_OBJ) $(addprefix $(DIR_OBJ)/,$(OBJS))
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(addprefix $(DIR_OBJ)/,$(OBJS))
 	@printf "$(GREEN)$(NAME) compilation OK\n$(NONE)"
 
-$(OBJS): $(SRCS_FILES)
-	$(CXX) $(CXXFLAGS) -c $(SRCS_FILES)
+# cree le dossier s'il n'existe pas encore
+$(DIR_OBJ):
+	@mkdir -p $(DIR_OBJ)
+
+# defini comment generer les objets et les stocker dans le dossoer DIR_OBJ
+# $< : premiere dependance de la regle, donc le nom du fichier source .cpp
+# $@ : nom de la cible de la regle, ici le nom du fichier objet .o
+# -c : les fichiers objets ne sont lies qu'a leur source cpp. Permet de recompiler que les fichiers modifies, pas tout le projet.
+$(DIR_OBJ)/%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 clean:
-	@$(RM) $(OBJS)
-	@printf "$(GREEN) OBJS removed\n$(NONE)"
+	@$(RM) $(DIR_OBJ)
+	@printf "$(GREEN) $(DIR_OBJ) removed\n$(NONE)"
 
 fclean: clean
 	@$(RM) $(NAME)

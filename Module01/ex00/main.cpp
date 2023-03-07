@@ -6,8 +6,8 @@ int	main(void)
 
 	heapZombie =  newZombie("Bernardo");
 	heapZombie->announce();
-	delete heapZombie;
+	delete heapZombie; // Bernardo is destroyed
 
 	randomChump("Roberto");
-	return (0);
+	return (0); // Roberto is destroyed
 }

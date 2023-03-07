@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/03/07 11:43:56 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/03/07 13:38:32 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ NONE		= \033[0m
 CXX			= g++
 RM			= rm -rf
 OBJS		= $(SRCS_FILES:.cpp=.o)
-CXXFLAGS		= -Wall -Wextra -Werror
-CXXFLAGS		+= -std=c++98
-CXXFLAGS		+= -pedantic
+CXXFLAGS	= -Wall -Wextra -Werror
+CXXFLAGS	+= -std=c++98
+CXXFLAGS	+= -pedantic
 
 ifeq ($(DEBUG), 1)
 	CXXFLAGS += -fsanitize=address -g3

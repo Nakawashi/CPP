@@ -53,6 +53,7 @@ dkms.conf
 
 .vscode
 .DS_Store
+.out
 megaphone
 phonebook
 zombie

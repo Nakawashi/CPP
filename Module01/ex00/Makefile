@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/03/07 10:24:50 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/03/07 10:28:46 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ NAME		= zombie
 # specifie que les objets doivent etre pris dans le dossier DIR_OBJ
 $(NAME): $(DIR_OBJ) $(addprefix $(DIR_OBJ)/,$(OBJS))
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(addprefix $(DIR_OBJ)/,$(OBJS))
-	@printf "$(GREEN)$(NAME) compilation OK\n$(NONE)"
+	@printf "$(GREEN) $(NAME) compilation OK\n$(NONE)"
 
 # cree le dossier s'il n'existe pas encore
 $(DIR_OBJ):

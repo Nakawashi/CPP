@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/06 19:12:23 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:34:58 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,28 @@ void	Phonebook::searchContact(Phonebook phonebook)
 	int			i = 0;
 	std::string	str = "";
 
-	phonebook._displayPhonebook(phonebook);
-	if (phonebook.contacts[0].getFieldInput(0) == "")
+	phonebook._displayPhonebook();
+	if (this->contacts[0].getFieldInput(0) == "")
 	{
 		std::cout << "\nPhonebook empty, please " << RED << "ADD" << NONE << " a first contact" << std::endl;
 		return ;
 	}
 	std::cout << "\nWhich contact would you like to display ? [0 - 7]" << std::endl;
 	std::getline(std::cin, str);
-	if (str.empty() || _strIsDigit(str) == -1)
+	if (str.empty() || _strIsDigit(str) == -1 || str.length() > 1)
 		std::cout << "\nPlease, "<< RED << "SEARCH" << NONE << " again" << std::endl;
 	else
 	{
 		i = std::atoi(str.c_str()); // c_str() returns a pointer to the c-string representation of the string object's value.
-		while (i < 0 || i >= phonebook._index)
+		while (i < 0 || i >= this->_index)
 		{
 			std::cout << RED << "Invalid contact index : [0 - 7], pick an other one :" << NONE << std::endl;
 			std::getline(std::cin, str);
 			if (_strIsDigit(str) == 0)
 				i = std::atoi(str.c_str());
 		}
-		if (phonebook.contacts[i].getFieldInput(0) != "")
-			phonebook.contacts[i].showContact(i);
+		if (this->contacts[i].getFieldInput(0) != "")
+			this->contacts[i].showContact(i);
 	}
 }
 
@@ -108,7 +108,7 @@ std::string	Phonebook::_truncate(std::string string)
 
 
 // https://stackoverflow.com/questions/19580877/how-to-truncate-a-string-formating-c
-void	Phonebook::_displayPhonebook(Phonebook phonebook)
+void	Phonebook::_displayPhonebook(void)
 {
 	int	i = 0;
 
@@ -126,14 +126,14 @@ void	Phonebook::_displayPhonebook(Phonebook phonebook)
 	std::cout << std::endl;
 
 	// tant qu'on depasse pas 8 et qu'on a des infos
-	while (i < MAX_CONTACTS && !(phonebook.contacts[i].getFieldInput(0).empty()))
+	while (i < MAX_CONTACTS && !(this->contacts[i].getFieldInput(0).empty()))
 	{
 		std::cout << VIOLET << " | " << NONE;
 		std::cout << std::setw(10) << i;
 		std::cout << VIOLET << " | " << NONE;
 		for (int j = 0; j < 3; j++)
 		{
-			std::cout << std::setw(10) << _truncate(phonebook.contacts[i].getFieldInput(j));
+			std::cout << std::setw(10) << _truncate(this->contacts[i].getFieldInput(j));
 			std::cout << VIOLET << " | " << NONE;
 		}
 		std::cout << std::endl;

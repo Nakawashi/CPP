@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:51:24 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/06 19:27:48 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:31:57 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ private:
 	int			_index;
 
 	int			_strIsDigit(std::string string);
-	void		_displayPhonebook(Phonebook phonebook);
+	void		_displayPhonebook(void);
 	std::string	_truncate(std::string string);
 };
 

@@ -6,12 +6,11 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:18:39 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/06 19:05:43 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:29:36 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <unistd.h>
 
 Contact::Contact(void)
 {
@@ -24,11 +23,7 @@ Contact::Contact(void)
 	return ;
 }
 
-Contact::~Contact(void)
-{
-	// std::cout << "Contact Destructor called" << std::endl;
-	return ;
-}
+Contact::~Contact(void) {}
 
 std::string Contact::labels[5] = {
 	"First name",

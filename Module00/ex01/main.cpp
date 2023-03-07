@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:58:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/07 15:30:41 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:38:23 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 		if (command == "ADD")
 			phonebook.addContact();
 		else if (command == "SEARCH")
-			phonebook.searchContact(phonebook);
+			phonebook.searchContact();
 		else if (command == "EXIT" || command == "exit")
 			ret = false;
 	} while (ret);

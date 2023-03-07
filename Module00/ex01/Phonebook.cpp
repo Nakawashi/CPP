@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/07 15:36:20 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:38:38 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void	Phonebook::addContact(void)
 	this->_index += 1;
 }
 
-void	Phonebook::searchContact(Phonebook phonebook)
+void	Phonebook::searchContact(void)
 {
 	int			i = 0;
 	std::string	str = "";
 
-	phonebook._displayPhonebook();
+	this->_displayPhonebook();
 	if (this->contacts[0].getFieldInput(0) == "")
 	{
 		std::cout << "\nPhonebook empty, please " << RED << "ADD" << NONE << " a first contact" << std::endl;

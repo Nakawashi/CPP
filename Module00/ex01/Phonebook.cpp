@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/10 13:12:02 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:21:02 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	Phonebook::displayPrompt(void) const
 */
 void	Phonebook::addContact(void)
 {
-	// if (this->_index >= MAX_CONTACTS)
-	// 	this->_index = 0;
 	this->contacts[_index % MAX_CONTACTS].setContact();
 	this->_index += 1;
 }
@@ -68,7 +66,6 @@ void	Phonebook::searchContact(void)
 		i = std::atoi(str.c_str()); // c_str() returns a pointer to the c-string representation of the string object's value.
 		while (i < 0 || i >= this->_index || i >= MAX_CONTACTS)
 		{
-			std::cout << RED << "INDEX :" << this->_index << NONE << std::endl;
 			std::cout << RED << "Invalid contact index : [0 - 7], pick an other one :" << NONE << std::endl;
 			std::getline(std::cin, str);
 			if (str.length() == 1 && _strIsDigit(str) == 0)

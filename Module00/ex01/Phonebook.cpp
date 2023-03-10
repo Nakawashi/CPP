@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:42:35 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/07 15:38:38 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:12:02 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	Phonebook::displayPrompt(void) const
 */
 void	Phonebook::addContact(void)
 {
-	if (this->_index >= MAX_CONTACTS)
-		this->_index = 0;
-	this->contacts[_index].setContact();
+	// if (this->_index >= MAX_CONTACTS)
+	// 	this->_index = 0;
+	this->contacts[_index % MAX_CONTACTS].setContact();
 	this->_index += 1;
 }
 
@@ -61,16 +61,17 @@ void	Phonebook::searchContact(void)
 	}
 	std::cout << "\nWhich contact would you like to display ? [0 - 7]" << std::endl;
 	std::getline(std::cin, str);
-	if (str.empty() || _strIsDigit(str) == -1 || str.length() > 1)
+	if (str.empty() || _strIsDigit(str) == -1)
 		std::cout << "\nPlease, "<< RED << "SEARCH" << NONE << " again" << std::endl;
 	else
 	{
 		i = std::atoi(str.c_str()); // c_str() returns a pointer to the c-string representation of the string object's value.
-		while (i < 0 || i >= this->_index)
+		while (i < 0 || i >= this->_index || i >= MAX_CONTACTS)
 		{
+			std::cout << RED << "INDEX :" << this->_index << NONE << std::endl;
 			std::cout << RED << "Invalid contact index : [0 - 7], pick an other one :" << NONE << std::endl;
 			std::getline(std::cin, str);
-			if (_strIsDigit(str) == 0)
+			if (str.length() == 1 && _strIsDigit(str) == 0)
 				i = std::atoi(str.c_str());
 		}
 		if (this->contacts[i].getFieldInput(0) != "")
@@ -81,7 +82,7 @@ void	Phonebook::searchContact(void)
 /*
 	if char is not a digit, returns -1
 */
-int	Phonebook::_strIsDigit(std::string string)
+int	Phonebook::_strIsDigit(std::string string) const
 {
 	for (unsigned long i = 0; i < string.length(); i++)
 	{

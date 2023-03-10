@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:51:24 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/03/07 15:38:33 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:03:45 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 class Phonebook
 {
 public:
-	Phonebook(void);	// constructeur
-	~Phonebook(void);	// destructeur
+	Phonebook(void);
+	~Phonebook(void);
 
 	Contact		contacts[MAX_CONTACTS];
 	void		displayPrompt(void) const;
@@ -32,7 +32,7 @@ public:
 private:
 	int			_index;
 
-	int			_strIsDigit(std::string string);
+	int			_strIsDigit(std::string string) const;
 	void		_displayPhonebook(void);
 	std::string	_truncate(std::string string);
 };

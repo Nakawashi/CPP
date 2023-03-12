@@ -3,6 +3,9 @@
 
 # include "Weapon.hpp"
 
+/*
+	Human aura forcément une arme : reference sur une instance de Weapon
+*/
 class HumanA
 {
 public:
@@ -10,7 +13,7 @@ public:
 	HumanA(std::string name, Weapon& weapon); // la fonction prend maintenant une référence sur une instance de Weapon
 	~HumanA(void);
 
-	void		attack(void);
+	void		attack(void) const;
 
 private:
 	Weapon 		_weapon;

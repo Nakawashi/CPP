@@ -3,19 +3,23 @@
 
 # include "Weapon.hpp"
 
+/*
+	HumanB peut ne pas avoir d'arme : pointeur sur une instance de Weapon
+*/
 class HumanB
 {
 public:
 	HumanB(void);
-	HumanB(std::string name, Weapon weapon); // la fonction prend maintenant une référence sur une instance de Weapon
+	HumanB(std::string name);
+	HumanB(std::string name, Weapon *weapon);
 	~HumanB(void);
 
-	void	attack(void);
+	void		attack(void) const;
+	void		setWeapon(Weapon &weapon);
 
 private:
-	Weapon 		_weapon;
 	std::string	_name;
-
+	Weapon 		*_weapon;
 };
 
 #endif

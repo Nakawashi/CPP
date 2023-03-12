@@ -18,4 +18,4 @@ Pointeurs vs references
 
 Ex03
 ----
-const reference and pointer
+If something should always exist and never change, use a references. But if it should not always exist and can change, use a pointer.

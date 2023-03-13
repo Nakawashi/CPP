@@ -9,14 +9,13 @@
 class HumanA
 {
 public:
-	HumanA(void);
-	HumanA(std::string name, Weapon& weapon); // la fonction prend maintenant une référence sur une instance de Weapon
+	HumanA(std::string name, Weapon &weapon); // la fonction prend maintenant une référence sur une instance de Weapon
 	~HumanA(void);
 
-	void		attack(void) const;
+	void		attack(void);
 
 private:
-	Weapon 		_weapon;
+	Weapon 		*_weapon;
 	std::string	_name;
 
 };

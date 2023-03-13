@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/03/07 14:39:36 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/03/13 17:37:13 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ endif
 
 ## Files ##
 
-SRCS_FILES	=	main.cpp\
+SRCS_FILES	=	main.cpp \
 				HumanA.cpp \
 				HumanB.cpp \
 				Weapon.cpp \

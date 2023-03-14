@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/03/14 14:44:57 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/03/14 23:32:44 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,10 +63,12 @@ all: $(NAME)
 
 clean:
 	@$(RM) $(DIR_OBJ)
+	@$(RM) *.replace
 	@printf "$(GREEN) $(DIR_OBJ) removed\n$(NONE)"
 
 fclean: clean
 	@$(RM) $(NAME)
+	@$(RM) *.replace
 	@printf "$(GREEN) $(NAME) removed.\n$(NONE)"
 
 re: fclean all

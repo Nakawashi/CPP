@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 		// utiliser getline comme dans phonebook pour convertir le stream en string, vu qu'on peut pas revenir en arriere dans le stream, comme le read de GNL
 		while (std::getline(ifs, ifsToStr))
 			ofs << ft_find(ifsToStr, s1, s2) << std::endl;
-
 		ifs.close();
 		ofs.close();
 	}

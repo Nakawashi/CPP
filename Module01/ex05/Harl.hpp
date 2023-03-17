@@ -2,19 +2,31 @@
 # define HARL_HPP
 
 #include <iostream>
+#include "colors.hpp"
 
 class Harl
 {
-private:
-	void	_debug(void);
-	void	_info(void);
-	void	_warning(void);
-	void	_error(void);
 
 public:
+
 	Harl(void);
 	~Harl(void);
-	void	complain(std::string level);
+
+	void	complain(std::string level) const;
+
+private:
+
+	void	_debug(void) const;
+	void	_info(void) const;
+	void	_warning(void) const;
+	void	_error(void) const;
+
+	static std::string	_levels[4];
+
+	// douille de Jerome
+	typedef void (Harl::*ptr_funcs)(void) const;
+	ptr_funcs _funcs[4];
+
 };
 
 #endif

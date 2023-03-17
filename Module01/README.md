@@ -19,3 +19,17 @@ Pointeurs vs references
 Ex03
 ----
 If something should always exist and never change, use a references. But if it should not always exist and can change, use a pointer.
+
+Ex04
+----
+fstreams
+Read from a file
+Wrinte in a file
+
+Ex05
+----
+Usage of pointer to data member and member functions
+
+Ex06
+----
+SWITCH - CASE

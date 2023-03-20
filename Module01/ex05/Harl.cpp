@@ -2,10 +2,10 @@
 
 Harl::Harl()
 {
-		_funcs[0] = &Harl::_debug;
-		_funcs[1] = &Harl::_info;
-		_funcs[2] = &Harl::_warning;
-		_funcs[3] = &Harl::_error;
+	_funcs[0] = &Harl::_debug;
+	_funcs[1] = &Harl::_info;
+	_funcs[2] = &Harl::_warning;
+	_funcs[3] = &Harl::_error;
 }
 
 Harl::~Harl(void) {}
@@ -20,22 +20,22 @@ std::string Harl::_levels[4] =
 
 void	Harl::_debug(void) const
 {
-	std::cout << BOLDWHITE << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do !" << NONE << std::endl;
+	std::cout << BOLDWHITE << "[ DEBUG ]\nI love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do !" << NONE << std::endl;
 }
 
 void	Harl::_info(void) const
 {
-	std::cout << BLUE << "I cannot believe adding extra bacon costs more money. You didn\'t putenough bacon in my burger ! If you did, I wouldn\'t be asking for more !" << NONE << std::endl;
+	std::cout << BLUE << "[ INFO ]\nI cannot believe adding extra bacon costs more money. You didn\'t putenough bacon in my burger ! If you did, I wouldn\'t be asking for more !" << NONE << std::endl;
 }
 
 void	Harl::_warning(void) const
 {
-	std::cout << YELLOW << "I think I deserve to have some extra bacon for free. I\'ve been comingfor years whereas you started working here since last month." << NONE << std::endl;
+	std::cout << YELLOW << "[ WARNING ]\nI think I deserve to have some extra bacon for free. I\'ve been comingfor years whereas you started working here since last month." << NONE << std::endl;
 }
 
 void	Harl::_error(void) const
 {
-	std::cout << RED << "This is unacceptable ! I want to speak to the manager now." << NONE << std::endl;
+	std::cout << RED << "[ ERROR ]\nThis is unacceptable ! I want to speak to the manager now." << NONE << std::endl;
 }
 
 void	Harl::complain(std::string level) const

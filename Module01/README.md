@@ -1,11 +1,10 @@
 Objectifs
 =========
-Source : [qingqingqingli/CPP](https://github.com/qingqingqingli/CPP/tree/main/module01)
+Merci a cette personne d'avoir réalisé ce wiki incroyable : [Wiki de qingqingqingli](https://github.com/qingqingqingli/CPP/tree/main/module01)
 
 Ex00
 ----
 Déterminer dans quel cas il est plus judicieux d'allouer les zombies sur le tas et dans quel cas plutôt sur la pile.
-
 Les zombies doivent être détruits lorsque l'on n'en a plus besoin.
 
 Ex01
@@ -18,6 +17,7 @@ Pointeurs vs references
 
 Ex03
 ----
+Quand uiliser un pointeur, quand utiliser une reference.
 If something should always exist and never change, use a references. But if it should not always exist and can change, use a pointer.
 
 Ex04

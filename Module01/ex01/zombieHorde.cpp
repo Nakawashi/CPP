@@ -1,11 +1,11 @@
 #include "Zombie.hpp"
 
 /*
-	retounr un tableau de type Zombie qui auront le meme nom
+	return an array of zombies, all have the same name
 */
 Zombie	*zombieHorde(int N, std::string name)
 {
-	Zombie *zArray;
+	Zombie	*zArray;
 
 	zArray = new Zombie[N];
 	for (int i = 0; i < N; i++)

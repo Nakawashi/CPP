@@ -32,9 +32,11 @@ Pour definir un fixed point on a besoin :
 - position du point, en partant de la droite (si c'est 3, on sait qu'on a trois valeurs a droite du point).
 Notation : fixed(w, b) ou w est le nb de bits utilises (width of a number) et b est la position du binary point depuis le bit le moins significatif.
 Exemple rapide : fixed(8, 3)
----------------------------------
+
 | 0 | 0 | 0 | 1 | 0 | 1 | 1 | 0 |
----------------------------------
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+
+
 represente 00010.110
 = 1 * 2<sup>1</sup> + 1 * 2<sup>-1</sup> + 1 * <sup>-2</sup>
 = 2 + 0.5 + 0.25

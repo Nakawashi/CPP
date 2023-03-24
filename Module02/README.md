@@ -27,7 +27,9 @@ Les nombres a virgule fixe ne sont pas natifs au C++, c'est a nous de les ajoute
 Parfois on cherche la performance, pas la precision. L'arithmétique en virgule fixe est beaucoup plus rapide que l'arithmétique en virgule flottante.
 [Bonne doc](https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html)
 
-Besoin de deux infos pour un 
+Pour definir un fixed point on a besoin :
+*- largeur du nombre (combien de digits)
+*- position du point, en partant de la droite (si c'est 3, on sait qu'on a trois valeurs a droite du point).
 
 Ex01
 ----

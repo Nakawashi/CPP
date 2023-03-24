@@ -23,7 +23,7 @@ private:
 
 	static std::string	_levels[4];
 
-	// douille de Jerome
+	// douille de Jerome permettant d'init mon tableau de pointeur sur fonctions membres dans la classe
 	typedef void (Harl::*ptr_funcs)(void) const;
 	ptr_funcs _funcs[4];
 

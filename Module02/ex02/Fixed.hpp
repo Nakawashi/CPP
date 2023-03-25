@@ -17,8 +17,8 @@ public:
 	Fixed & operator=(Fixed const &rhs);
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
-	float	toFloat(void) const;
-	int		toInt(void) const;
+	float	toFloat(void) const;	// converti virgule fixe en virgule flottante
+	int		toInt(void) const;		// converti virgule fixe en nombre entier
 
 private:
 	int					_rawBits;			// stock la valeur du nombre en virgule fixe

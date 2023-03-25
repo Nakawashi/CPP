@@ -46,18 +46,16 @@ Question comme ca : comment differencier 10110 et 10.110 ?
 The disadvantage of fixed point number, is than of course the loss of range and precision when compare with floating point number representations. For example, in a fixed<8,1> representation, our fractional part is only precise to a quantum of 0.5. We cannot represent number like 0.75. We can represent 0.75 with fixed<8,2>, but then we loose range on the integer part.
 
 ### Nombres negatifs
-Complement a deux
-premier bit pour le signe
-x suivants pour l'exposant
-le reste pour la mantisse
+1. Complement a deux
+2. premier bit pour le signe
+3. x suivants pour l'exposant
+4. le reste pour la mantisse
 
 ## Ex00
 Mise en pratique de la forme canonique (de Coplien)
 
 ## Ex01
+Conversion de INT en float, fixed point en int...
 
 ## Ex02
-
-
-## Ex03
-
+Surcharge d'opérateurs

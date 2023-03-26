@@ -1,9 +1,9 @@
 #include "Fixed.hpp"
 
-
-// -------------------------- Constructors ------------------------//
-
 const int	Fixed::_fractional_bits = NB_FRACTIONAL_BITS;
+
+
+// ----- Constructors -----------------------------------------------//
 
 Fixed::Fixed() : _rawBits(0)
 {
@@ -13,7 +13,7 @@ Fixed::Fixed() : _rawBits(0)
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "copy constructor called" << std::endl;
-	*this = src;
+	this->_rawBits = src.getRawBits();
 }
 
 /*
@@ -44,7 +44,8 @@ Fixed::Fixed(const int value) : _rawBits(value << _fractional_bits)
 Fixed::Fixed(const float value)
 {
 	std::cout << "float to fixed constructor called" << std::endl;
-	this->_rawBits = roundf(value * (1 << _fractional_bits));
+	float	f = value * (1 << _fractional_bits);
+	this->_rawBits = roundf(f);
 }
 
 Fixed::~Fixed(void)
@@ -53,7 +54,7 @@ Fixed::~Fixed(void)
 }
 
 
-// ------------------------- usage methods ------------------------//
+// ----- Usage methods ----------------------------------------------//
 
 int		Fixed::getRawBits(void) const
 {
@@ -86,7 +87,7 @@ int		Fixed::toInt(void) const
 }
 
 
-// ------------------ Inner operator overload ---------------------//
+// ----- Inner operator overloading ---------------------------------//
 
 Fixed	&Fixed::operator=(const Fixed &rhs)
 {
@@ -95,6 +96,8 @@ Fixed	&Fixed::operator=(const Fixed &rhs)
 		this->_rawBits = rhs.getRawBits();
 	return *this;
 }
+
+// ----- Arithmetic -------------------------------------------------//
 
 Fixed	Fixed::operator+(Fixed const &rhs) const
 {
@@ -108,18 +111,119 @@ Fixed	Fixed::operator-(Fixed const &rhs) const
 
 Fixed	Fixed::operator*(Fixed const &rhs) const
 {
-	return Fixed(this->_rawBits * rhs.getRawBits());
+	int result;
+
+	result = ((this->_rawBits * rhs.getRawBits() >> this->_fractional_bits));
+	return Fixed(result);
+	//return Fixed(this->_rawBits * rhs.getRawBits());
 }
 
 Fixed	Fixed::operator/(Fixed const &rhs) const
 {
-	return Fixed(this->_rawBits / rhs.getRawBits());
+	int result;
+
+	result = ((this->_rawBits * (1 << this->_fractional_bits) / rhs.getRawBits()));
+	return Fixed(result);
+	//return Fixed(this->_rawBits / rhs.getRawBits());
 }
 
+// ----- Comparison -------------------------------------------------//
 
+bool	Fixed::operator>(const Fixed &rhs) const
+{
+	return (this->_rawBits > rhs.getRawBits());
+}
 
+bool	Fixed::operator<(const Fixed &rhs) const
+{
+	return (this->_rawBits < rhs.getRawBits());
+}
 
-// ------------------ Outer operator overload ---------------------//
+bool	Fixed::operator>=(const Fixed &rhs) const
+{
+	return (this->_rawBits >= rhs.getRawBits());
+}
+
+bool	Fixed::operator<=(const Fixed &rhs) const
+{
+	return (this->_rawBits <= rhs.getRawBits());
+}
+
+bool	Fixed::operator==(const Fixed &rhs) const
+{
+	return (this->_rawBits == rhs.getRawBits());
+}
+
+bool	Fixed::operator!=(const Fixed &rhs) const
+{
+	return (this->_rawBits != rhs.getRawBits());
+}
+
+// ----- Increment - Decrement --------------------------------------//
+// pre-increment
+Fixed&	Fixed::operator++()
+{
+	++(this->_rawBits);
+	return *this;
+}
+
+// post-increment
+Fixed	Fixed::operator++(int)
+{
+	Fixed	tmp;
+
+	tmp = *this;
+	++(this->_rawBits);
+	return tmp;
+}
+
+// pre-decrement
+Fixed& Fixed::operator--()
+{
+	--(this->_rawBits);
+	return *this;
+}
+
+// post-decrement
+Fixed	Fixed::operator--(int)
+{
+	Fixed	tmp;
+
+	tmp = *this;
+	--(this->_rawBits);
+	return tmp;
+}
+
+// ----- Min, Max ---------------------------------------------------//
+Fixed	Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+Fixed	Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+const Fixed	Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+const Fixed	Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+// ----- Outer operator overload ------------------------------------//
 
 // std::ostream & operator<<(std::ostream & o, const Fixed & rhs){
 // 	o << "The value of _fixedPointNb is : " << rhs.getRawBits();

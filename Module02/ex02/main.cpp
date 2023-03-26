@@ -12,7 +12,7 @@ int	main(void)
 	std::cout << "c " << c << std::endl;
 	std::cout << "b " << b << std::endl;
 	e = c + b;
-	std::cout << "e " << e << std::endl;
+	std::cout << "e " << e / 256 << std::endl; // pk il veut pas se diviser wsh
 	std::cout << "e " << e << std::endl;
 
 /* 	std::cout << "\na" << a << std::endl;

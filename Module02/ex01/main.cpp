@@ -12,6 +12,7 @@ int	main(void)
 	std::cout << "\na is " << a << "\n";
 	std::cout << "b is " << b << "\n";
 	std::cout << "c is " << c << "\n";
+	std::cout << "_rawBits is " << c.getRawBits() << "\n";
 	std::cout << "d is " << d << "\n\n";
 
 	std::cout << "a is " << a.toInt() << " as integer" << "\n";

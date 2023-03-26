@@ -15,9 +15,18 @@ Fixed::Fixed(const Fixed &src)
 
 /*
 	Conversion d'un entier vers un valeur en virgule fixe en multipliant
-	la valeur entiere par 2^8.
+	la valeur entiere par 2^8 (decaler 8 fois les bits vers la gauche)
+
+	_fractional_bits vaut 8. Ainsi, si vous donnez la valeur 42 au constructeur,
+	la valeur de _rawBits sera égale à 42 décalé de 8 bits vers la gauche,
+	c'est-à-dire 10752.
+	En d'autres termes, le constructeur prend la valeur entière en entrée,
+	la convertit en nombre à virgule fixe et stocke le résultat dans
+	l'attribut privé _rawBits de la classe Fixed.
+
+	Faire simplement la demo avec la calculatrice.
 */
-Fixed::Fixed(const int raw) : _rawBits(raw << _fractional_bits)
+Fixed::Fixed(const int value) : _rawBits(value << _fractional_bits)
 {
 	std::cout << "Int constructor called" << std::endl;
 }
@@ -27,10 +36,10 @@ Fixed::Fixed(const int raw) : _rawBits(raw << _fractional_bits)
 	de la partie fractionnaire) et arrondie a l'aide de la fonction roundf()
 	autorisée pour cet exercice.
 */
-Fixed::Fixed(const float raw)
+Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_rawBits = roundf(raw * (1 << _fractional_bits));
+	this->_rawBits = roundf(value * (1 << _fractional_bits));
 }
 
 Fixed::~Fixed(void)
@@ -82,6 +91,7 @@ int		Fixed::toInt(void) const
 // 	return o;
 // }
 
+// A savoir que cout est une instance de ostream
 std::ostream & operator<<(std::ostream &o, const Fixed &rhs)
 {
 	o << rhs.toFloat();

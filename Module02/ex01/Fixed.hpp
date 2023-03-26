@@ -10,8 +10,8 @@ class Fixed {
 public:
 	Fixed();
 	Fixed(Fixed const &src);
-	Fixed(const int raw);
-	Fixed(const float raw);
+	Fixed(const int value);
+	Fixed(const float value);
 	~Fixed(void);
 
 	Fixed & operator=(Fixed const &rhs);
@@ -20,9 +20,9 @@ public:
 	float	toFloat(void) const;
 	int		toInt(void) const;
 
-private:
+private: //fixed(32,8) 8 bits sont alloues pour les valeurs a droite de la virgule dans les 32 totaux
 	int					_rawBits;			// stock la valeur du nombre en virgule fixe
-	static const int	_fractional_bits;	// stock le nb de bits de la partie fractionnaire a 8
+	static const int	_fractional_bits;	// nb de bits qu'on veut allouer au point, puissance a laqelle on va decaler
 };
 
 // std::ostream & operator<<(std::ostream &o, const Fixed &rhs);

@@ -66,4 +66,6 @@ L'attribut _fractional_bits correspond au nombre de bits qu'on veut allouer pour
 
 
 ## Ex02
-Surcharge d'opérateurs
+Surcharge d'opérateurs : arithmetiques, de comparaison, de flux de sortie ainsi que deux fonctions statiques (non dependantes d'une instance) pour trouver la valeur min ou max entre deux Fixed.
+
+Si on peut ecrire juste une instance c'est grace a l'operateur <<.

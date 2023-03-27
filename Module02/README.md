@@ -41,8 +41,6 @@ represente 00010.110
 = 2 + 0.5 + 0.25
 = 2.75
 
-Question comme ca : comment differencier 10110 et 10.110 ?
-
 The disadvantage of fixed point number, is than of course the loss of range and precision when compare with floating point number representations. For example, in a fixed<8,1> representation, our fractional part is only precise to a quantum of 0.5. We cannot represent number like 0.75. We can represent 0.75 with fixed<8,2>, but then we loose range on the integer part.
 
 ### Nombres negatifs
@@ -55,7 +53,17 @@ The disadvantage of fixed point number, is than of course the loss of range and 
 Mise en pratique de la forme canonique (de Coplien)
 
 ## Ex01
-Conversion de INT en float, fixed point en int...
+Grace aux nombres a virgules fixes on peut convertir un int en nombre a virgule et retrouver le int initial sans perdre sa valeur.
+L'attribut _rawBits de ma classe Fixed va stocker les nombres a virgules fixes.
+L'attribut _fractional_bits correspond au nombre de bits qu'on veut allouer pour le point, c'est l'exposant des puissances de 2 permettant de decaler les bits.
+
+### Constructeurs
+- Constructeur par defaut : initialise _rawBits a 0 comme demandé
+- Constructeur de copie comme demandé pour le Coplien
+- Constructeur qui prend un entier en parametre pour le convertir en nombre a virgule fixe et le stocker dans _rawBits. Exemple : on donne '42' en parametre, on le converti en binaire, on ajoute 8 zeros a la droite. C'est ce que fait le bitshifting : ajouter 8 zeros a la suite, ou faire 42 * 2^8.
+- Constructeur qui prend un float en parametre pour le convertir en nombre a virgule fixe et le stocker dans _rawBits. Exemple : On donne 42.42 en parametre,
+
+
 
 ## Ex02
 Surcharge d'opérateurs

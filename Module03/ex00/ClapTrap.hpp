@@ -16,10 +16,10 @@ public:
 	//-Coplien//
 
 	//Getters//
-	std::string		getName(void);
-	unsigned int	getHP(void);
-	unsigned int	getEnergyPoints(void);
-	unsigned int	getAttackDmg(void);
+	std::string		getName(void) const;
+	unsigned int	getHP(void) const;
+	unsigned int	getEnergyPoints(void) const;
+	unsigned int	getAttackDmg(void) const;
 	//-Getters//
 
 	//Setters//

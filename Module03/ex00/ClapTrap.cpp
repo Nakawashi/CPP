@@ -1,8 +1,8 @@
 #include "ClapTrap.hpp"
+#include "colors.hpp"
 
 
 // ----- Constructors (canonical form) ---------------------------------------//
-
 ClapTrap::~ClapTrap(void)
 {
 	std::cout << "destructor called" << std::endl;
@@ -40,10 +40,9 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
 	}
 	return *this;
 }
-
 // ----- Constructors (canonical form) ---------------------------------------//
 
-// getters
+// ----- Getters -------------------------------------------------------------//
 std::string		ClapTrap::getName(void) const
 {
 	return this->_name;
@@ -63,4 +62,95 @@ unsigned int	ClapTrap::getAttackDmg(void) const
 {
 	return this->_attackDamages;
 }
+// ----- Getters -------------------------------------------------------------//
 
+// ----- Setters -------------------------------------------------------------//
+void	ClapTrap::setName(std::string name)
+{
+	this->_name = name;
+}
+
+void	ClapTrap::setHP(unsigned int hitPoints)
+{
+	this->_hitPoints = hitPoints;
+}
+
+void	ClapTrap::setEnergyPoints(unsigned int energyPoints)
+{
+	this->_energyPoints = energyPoints;
+}
+
+void	ClapTrap::setAttackDmg(unsigned int attackDamages)
+{
+	this->_attackDamages = attackDamages;
+}
+// ----- Setters -------------------------------------------------------------//
+
+void	ClapTrap::attack(const std::string &target)
+{
+	if (this->getHP() == 0)
+		std::cout << this->getName() << " is already dead" << std::endl;
+	else if (this->getEnergyPoints() == 0)
+		std::cout << this->getName() << " can't attack, energy too low" << std::endl;
+	else if ((this->getHP() > 0 && this->getHP() < 11)
+		&& (this->getEnergyPoints() > 0 && this->getEnergyPoints() < 11))
+		{
+			std::cout << std::endl;
+
+			std::cout << RED << this->getName() << " attacks " << target;
+			std::cout << ", causing " << this->getAttackDmg();
+			std::cout << " points of damage !" << NONE << std::endl;
+
+			this->setEnergyPoints(this->getEnergyPoints() - 1);
+			std::cout << this->getName() << ": new Energy Points amount : ";
+			std::cout <<  this->getEnergyPoints() << std::endl;
+
+			std::cout << std::endl;
+		}
+	else
+		std::cout << "Invalid HP or energy value" << std::endl;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	if (this->getHP() == 0)
+		std::cout << this->getName() << " is already dead" << std::endl;
+	else if (this->getEnergyPoints() == 0)
+		std::cout << this->getName() << " can't repair, energy too low" << std::endl;
+	else if ((this->getHP() > 0 && this->getHP() < 11)
+		&& (this->getEnergyPoints() > 0 && this->getEnergyPoints() < 11))
+		{
+			std::cout << std::endl;
+
+			std::cout << GREEN << this->getName();
+			std::cout << " repairs himself : + " << amount;
+			std::cout << " HP !\n" << NONE;
+
+			this->setHP(this->getHP() + amount);
+			std::cout << "New HP amount : " << this->getHP() << std::endl;
+
+			this->setEnergyPoints(this->getEnergyPoints() - 1);
+			std::cout << this->getName() << ": new Energy Points amount : ";
+			std::cout <<  this->getEnergyPoints() << std::endl;
+
+			std::cout << std::endl;
+		}
+	else
+		std::cout << "Invalid HP or energy value" << std::endl;
+}
+
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	if (this->getHP() == 0)
+		std::cout << this->getName() << " is already dead" << std::endl;
+
+	std::cout << std::endl;
+
+	std::cout << YELLOW << this->getName() << " took " ;
+	std::cout << amount << " damages.\n" << NONE;
+
+	this->setHP(this->getHP() - amount);
+	std::cout << "New HP amount : " << this->getHP() << std::endl;
+
+	std::cout << std::endl;
+}

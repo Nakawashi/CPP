@@ -1,8 +1,8 @@
 # Objectifs
 
-Merci a cette personne d'avoir réalisé ce wiki incroyable : [Wiki de qingqingqingli](https://github.com/qingqingqingli/CPP/tree/main/module02)
-
 *Polymorphisme ad-hoc, surcharge d’opérateurs et forme canonique*
+
+Merci a cette personne d'avoir réalisé ce wiki incroyable : [Wiki de qingqingqingli](https://github.com/qingqingqingli/CPP/tree/main/module02)
 
 ## Nouvelle consigne :
 
@@ -10,15 +10,14 @@ Les classes doivent être conformes à la forme canonique de Coplien.
 Donc doivent comporter les quatre fonctions suivantes :
 - Constructeur par défaut
 - Constructeur de recopie (fais une copie d'une instance deja cree)
-- Opérateur d'affectation (modifier l'instance courante avec +)
+- Opérateur d'affectation (modifier l'instance courante avec =)
 - Destructeur (virtual, pour quand je verrai cette notion)
 
 Je peux ajouter une fonction de redirection de flux vers la sortie std
+</br>
 Une fonction membre qui permet de serialiser notre classe vers une string
 
 [qingqingqingli sur les differents operateurs](https://github.com/qingqingqingli/CPP/wiki/Module02#operator-overload)
-
---
 
 ### Representation des nombres en virgule fixe.
 *Ces nombres sont largement utilisés dans l’imagerie numérique, le domaine du son ou la programmation scientifique, pour n’en citer que trois.*
@@ -26,9 +25,10 @@ Les nombres a virgule fixe ne sont pas natifs au C++, c'est a nous de les ajoute
 Parfois on cherche la performance, pas la precision. L'arithmétique en virgule fixe est beaucoup plus rapide que l'arithmétique en virgule flottante.
 [Article de Berkeley fournie dans le module](https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html)
 
-Pour definir un fixed point on a besoin :
-- largeur du nombre (combien de bits forment le nombre)
-- position du point, en partant de la droite (si c'est 3, on sait qu'on a trois valeurs a droite du point).
+Pour definir un fixed point on a besoin de:
+- La largeur du nombre (combien de bits forment le nombre)
+- La position du point, en partant de la droite (si c'est 3, on sait qu'on a trois valeurs a droite du point).
+</br>
 Notation : fixed(w, b) ou w est le nb de bits utilises (width of a number) et b est la position du binary point depuis le bit le moins significatif.
 Exemple rapide : fixed(8, 3)
 

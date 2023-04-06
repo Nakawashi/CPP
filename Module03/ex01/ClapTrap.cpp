@@ -5,32 +5,32 @@
 // ----- Constructors (canonical form) ---------------------------------------//
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(void)
 : _name("Tiny Tina"), _hitPoints(10), _energyPoints(10), _attackDamages(0)
 {
-	std::cout << "default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 : _hitPoints(10), _energyPoints(10), _attackDamages(0)
 {
 	this->_name = name;
-	std::cout << "<name> parameter constructor called" << std::endl;
+	std::cout << "ClapTrap <name> parameter constructor called" << std::endl;
 }
 
 // the new object is initiated from the copy of an other existing object
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = src;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
 {
-	std::cout << "copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap copy assignment operator called" << std::endl;
 	if (this != &rhs) // protection contre l'auto-assignement
 	{
 		this->_name = rhs.getName();

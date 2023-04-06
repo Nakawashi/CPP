@@ -21,6 +21,12 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << "ClapTrap <name> parameter constructor called" << std::endl;
 }
 
+ClapTrap::ClapTrap(std::string name, int hp, int energy, int atkdmg)
+{
+	std::cout << "ClapTrap all members init constructor called" << std::endl;
+}
+
+
 // the new object is initiated from the copy of an other existing object
 ClapTrap::ClapTrap(const ClapTrap &src)
 {

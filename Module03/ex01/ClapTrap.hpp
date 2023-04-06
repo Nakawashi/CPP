@@ -10,6 +10,7 @@ public:
 	//Coplien//
 	ClapTrap(void);									// default
 	ClapTrap(std::string name);
+	ClapTrap(std::string name, int hp, int energy, int atkdmg);
 	ClapTrap(const ClapTrap &src);					//constructeur par copie
 	~ClapTrap(void);								//destructeur (virtuel)
 	ClapTrap &	operator=(const ClapTrap &rhs);	//operateur assignation =

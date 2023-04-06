@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(const ClapTrap &src)
 	*this = src;
 }
 
-ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
+ClapTrap &	ClapTrap::operator=(const ClapTrap &rhs)
 {
 	std::cout << "copy assignment operator called" << std::endl;
 	if (this != &rhs) // protection contre l'auto-assignement

@@ -12,7 +12,7 @@ public:
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &src);					//constructeur par copie
 	~ClapTrap(void);								//destructeur (virtuel)
-	ClapTrap	&operator=(const ClapTrap &rhs);	//operateur assignation =
+	ClapTrap &	operator=(const ClapTrap &rhs);	//operateur assignation =
 	//-Coplien//
 
 	//Getters//

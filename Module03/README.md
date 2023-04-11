@@ -23,7 +23,7 @@ Virtual inheritance is a C++ technique that ensures only one copy of a base clas
 Instead, if classes B and C inherit virtually from class A, then objects of class D will contain only one set of the member variables from class A.
 
   A
- / \
+ / \\
 B   C
  \ /
   D

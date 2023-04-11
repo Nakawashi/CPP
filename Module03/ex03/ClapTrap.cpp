@@ -30,8 +30,6 @@ ClapTrap::ClapTrap(std::string name, int hp, int energy, int atkdmg)
 	std::cout << "ClapTrap all members init constructor called" << std::endl;
 }
 
-
-// the new object is initiated from the copy of an other existing object
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
@@ -41,7 +39,7 @@ ClapTrap::ClapTrap(const ClapTrap &src)
 ClapTrap &	ClapTrap::operator=(const ClapTrap &rhs)
 {
 	std::cout << "ClapTrap copy assignment operator called" << std::endl;
-	if (this != &rhs) // protection contre l'auto-assignement
+	if (this != &rhs)
 	{
 		this->_name = rhs.getName();
 		this->_hitPoints = rhs.getHP();

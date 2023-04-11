@@ -8,7 +8,7 @@ FragTrap::~FragTrap(void)
 }
 
 FragTrap::FragTrap(void)
-: ClapTrap("Zero", 100, 100, 30)
+: ClapTrap("Axton", 100, 100, 30)
 {
 	std::cout << "FragTrap default constructor called" << std::endl;
 }

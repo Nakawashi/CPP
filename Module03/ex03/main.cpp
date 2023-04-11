@@ -1,27 +1,16 @@
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap	master("Lucie");
-	ScavTrap	first;
-	FragTrap	test;
+	ScavTrap	scav;
+	FragTrap	frag;
+	DiamondTrap	monster;
 
-	std::cout << master << std::endl;
-	std::cout << first << std::endl;
-	std::cout << test << std::endl;
+	monster.attack("random");
 
-	master.attack("bernardo");
-
-	first.attack("random");
-
-	test.highFivesGuys();
-	test.attack("youyou");
-
-
-	std::cout << test << std::endl;
-	std::cout << first << std::endl;
-	std::cout << master << std::endl;
+	std::cout << scav << std::endl;
+	std::cout << frag << std::endl;
+	std::cout << monster << std::endl;
 
 	return 0;
 }

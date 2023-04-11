@@ -5,15 +5,14 @@
 
 class ClapTrap
 {
-
 public:
 	//Coplien//
-	ClapTrap(void);									// default
+	ClapTrap(void);
 	ClapTrap(std::string name);
 	ClapTrap(std::string name, int hp, int energy, int atkdmg);
-	ClapTrap(const ClapTrap &src);					//constructeur par copie
-	~ClapTrap(void);								//destructeur (virtuel)
-	ClapTrap &	operator=(const ClapTrap &rhs);	//operateur assignation =
+	ClapTrap(const ClapTrap &src);
+	~ClapTrap(void);
+	ClapTrap &	operator=(const ClapTrap &rhs);
 	//-Coplien//
 
 	//Getters//

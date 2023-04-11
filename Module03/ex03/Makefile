@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/04/11 14:22:38 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/04/11 16:45:13 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS_FILES	=	main.cpp \
 				ClapTrap.cpp \
 				ScavTrap.cpp \
 				FragTrap.cpp \
+				DiamondTrap.cpp \
 
 ## Directories ##
 
@@ -45,7 +46,7 @@ DIR_OBJ		=	obj
 
 ## Compiled Files ##
 
-NAME		=	linework
+NAME		=	diamond
 
 # ----------------------------------------------------------------------------#
 

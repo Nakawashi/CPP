@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+         #
+#    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/04/06 19:23:19 by nakawashi        ###   ########.fr        #
+#    Updated: 2023/04/11 14:10:47 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ DIR_OBJ		=	obj
 
 ## Compiled Files ##
 
-NAME		=	action
+NAME		=	serena
 
 # ----------------------------------------------------------------------------#
 

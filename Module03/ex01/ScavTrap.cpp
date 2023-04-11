@@ -1,4 +1,5 @@
 #include "ScavTrap.hpp"
+#include "colors.hpp"
 
 // ----- Constructors (canonical form) ---------------------------------------//
 ScavTrap::~ScavTrap(void)
@@ -39,30 +40,49 @@ ScavTrap &	ScavTrap::operator=(const ScavTrap &rhs)
 }
 // ----- Constructors (canonical form) ---------------------------------------//
 
-void	ScavTrap::guardGate(void)
-{
-	std::cout << "ScavTrap is entered in Gate Keeper mode" << std::endl;
-	this->_guardGateMode = true;
-}
-
-// std::string	ScavTrap::getGuardMode(void) const
-// {
-// 	std::string ret = "";
-// 	if (this->_guardGateMode)
-// 		ret = "true";
-// 	else
-// 		ret = "false";
-// 	return ret;
-// }
-
+// ----- Getters -------------------------------------------------------------//
 bool	ScavTrap::getGuardMode(void) const
 {
 	return this->_guardGateMode;
 }
+// ----- Getters -------------------------------------------------------------//
 
+// ----- Setters -------------------------------------------------------------//
 void	ScavTrap::setGuardMode(bool value)
 {
 	this->_guardGateMode = value;
+}
+// ----- Setters -------------------------------------------------------------//
+
+void	ScavTrap::attack(const std::string &target)
+{
+	if (this->getHP() == 0)
+		std::cout << this->getName() << " died already" << std::endl;
+	else if (this->getEnergyPoints() == 0)
+		std::cout << this->getName() << " no energy, no attacks" << std::endl;
+	else if ((this->getHP() > 0 && this->getHP() <= 100)
+		&& (this->getEnergyPoints() > 0 && this->getEnergyPoints() <= 50))
+		{
+			std::cout << std::endl;
+
+			std::cout << BLUE << this->getName() << " attacks " << target;
+			std::cout << ", causing " << this->getAttackDmg();
+			std::cout << " points of damage !" << NONE << std::endl;
+
+			this->setEnergyPoints(this->getEnergyPoints() - 1);
+			std::cout << this->getName() << ": Energy Points amount : ";
+			std::cout <<  this->getEnergyPoints() << std::endl;
+
+			std::cout << std::endl;
+		}
+	else
+		std::cout << "[ScavTrap Warning] Invalid HP or energy value" << std::endl;
+}
+
+void	ScavTrap::guardGate(void)
+{
+	std::cout << YELLOW << "[ScavTrap] " << this->getName() << " is entered in Gate Keeper mode" << std::endl;
+	this->_guardGateMode = true;
 }
 
 std::ostream & operator<<(std::ostream &stream, const ScavTrap &rhs)

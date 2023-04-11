@@ -31,10 +31,11 @@ ScavTrap &	ScavTrap::operator=(const ScavTrap &rhs)
 	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		this->_name = rhs.getName();
-		this->_hitPoints = rhs.getHP();
-		this->_energyPoints = rhs.getEnergyPoints();
-		this->_attackDamages = rhs.getAttackDmg();
+		this->ClapTrap::operator=(rhs);
+		// this->_name = rhs.getName();
+		// this->_hitPoints = rhs.getHP();
+		// this->_energyPoints = rhs.getEnergyPoints();
+		// this->_attackDamages = rhs.getAttackDmg();
 	}
 	return *this;
 }

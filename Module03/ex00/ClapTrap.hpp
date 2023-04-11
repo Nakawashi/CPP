@@ -40,6 +40,6 @@ private:
 	unsigned int	_attackDamages;
 };
 
-std::ostream & operator<<(std::ostream &stream, const ClapTrap &rhs);
+std::ostream &	operator<<(std::ostream &stream, const ClapTrap &rhs);
 
 #endif

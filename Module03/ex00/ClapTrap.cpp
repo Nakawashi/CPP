@@ -154,3 +154,13 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 	std::cout << std::endl;
 }
+
+std::ostream &	operator<<(std::ostream &stream, const ClapTrap &rhs)
+{
+	stream << "ClapTrap " << rhs.getName() << " Infos :\n";
+	stream << "HP : " << rhs.getHP() << "\n";
+	stream << "Energy points : " << rhs.getEnergyPoints() << "\n";
+	stream << "Attack damage : " << rhs.getAttackDmg() << "\n" << std::flush;
+
+	return stream;
+}

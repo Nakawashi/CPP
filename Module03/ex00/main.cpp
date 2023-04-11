@@ -9,5 +9,7 @@ int	main(void)
 	nouveau.attack(test.getName());
 	nouveau.beRepaired(2);
 	nouveau.takeDamage(10);
+
+	std::cout << nouveau << std::endl;
 	return 0;
 }

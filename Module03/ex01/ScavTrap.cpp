@@ -8,7 +8,7 @@ ScavTrap::~ScavTrap(void)
 }
 
 ScavTrap::ScavTrap(void)
-: ClapTrap("Zero", 100, 50, 20), _guardGateMode(false)
+: ClapTrap("Krieg the Psycho", 100, 50, 20), _guardGateMode(false)
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }

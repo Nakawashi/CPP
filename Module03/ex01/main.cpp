@@ -1,13 +1,14 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap nouveau;
-	ClapTrap test("Maya");
+	ScavTrap	test;
 
-	nouveau.setAttackDmg(9);
-	nouveau.attack(test.getName());
-	nouveau.beRepaired(2);
-	nouveau.takeDamage(10);
+	std::cout << test << std::endl;
+
+	test.guardGate();
+
+	std::cout << test << std::endl;
+
 	return 0;
 }

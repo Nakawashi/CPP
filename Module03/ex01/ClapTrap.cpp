@@ -23,6 +23,10 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(std::string name, int hp, int energy, int atkdmg)
 {
+	this->_name = name;
+	this->_hitPoints = hp;
+	this->_energyPoints = energy;
+	this->_attackDamages = atkdmg;
 	std::cout << "ClapTrap all members init constructor called" << std::endl;
 }
 
@@ -159,4 +163,14 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "New HP amount : " << this->getHP() << std::endl;
 
 	std::cout << std::endl;
+}
+
+std::ostream &	operator<<(std::ostream &stream, const ClapTrap &rhs)
+{
+	stream << "ClapTrap " << rhs.getName() << " Infos :\n";
+	stream << "HP : " << rhs.getHP() << "\n";
+	stream << "Energy points : " << rhs.getEnergyPoints() << "\n";
+	stream << "Attack damage : " << rhs.getAttackDmg() << "\n" << std::flush;
+
+	return stream;
 }

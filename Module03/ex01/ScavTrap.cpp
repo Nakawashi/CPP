@@ -17,10 +17,61 @@ ScavTrap::ScavTrap(std::string name)
 {
 	std::cout << "ScavTrap name constructor called" << std::endl;
 }
+
+ScavTrap::ScavTrap(const ScavTrap &src)
+{
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+	*this = src;
+}
+
+// question : on ne pourrait pas override celle de la super-classe?
+ScavTrap &	ScavTrap::operator=(const ScavTrap &rhs)
+{
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
+	if (this != &rhs)
+	{
+		this->_name = rhs.getName();
+		this->_hitPoints = rhs.getHP();
+		this->_energyPoints = rhs.getEnergyPoints();
+		this->_attackDamages = rhs.getAttackDmg();
+	}
+	return *this;
+}
 // ----- Constructors (canonical form) ---------------------------------------//
 
 void	ScavTrap::guardGate(void)
 {
 	std::cout << "ScavTrap is entered in Gate Keeper mode" << std::endl;
 	this->_guardGateMode = true;
+}
+
+// std::string	ScavTrap::getGuardMode(void) const
+// {
+// 	std::string ret = "";
+// 	if (this->_guardGateMode)
+// 		ret = "true";
+// 	else
+// 		ret = "false";
+// 	return ret;
+// }
+
+bool	ScavTrap::getGuardMode(void) const
+{
+	return this->_guardGateMode;
+}
+
+void	ScavTrap::setGuardMode(bool value)
+{
+	this->_guardGateMode = value;
+}
+
+std::ostream & operator<<(std::ostream &stream, const ScavTrap &rhs)
+{
+	stream << "\nScavTrap " << rhs.getName() << " Infos :\n";
+	stream << "HP : " << rhs.getHP() << "\n";
+	stream << "Energy points : " << rhs.getEnergyPoints() << "\n";
+	stream << "Attack damage : " << rhs.getAttackDmg() << "\n";
+	stream << "Gate keeper mode : " << rhs.getGuardMode() << "\n" << std::flush;
+
+	return stream;
 }

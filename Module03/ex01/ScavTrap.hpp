@@ -17,8 +17,15 @@ public:
 	void	attack(const std::string &target); //masquage//
 	void	guardGate(void);
 
+	//Getters, setters//
+	bool	getGuardMode(void) const;
+	void	setGuardMode(bool value);
+	//Getters, setters//
+
 private:
 	bool	_guardGateMode;
 };
+
+std::ostream & operator<<(std::ostream &stream, const ScavTrap &rhs);
 
 #endif

@@ -99,15 +99,15 @@ void	ClapTrap::setAttackDmg(unsigned int attackDamages)
 void	ClapTrap::attack(const std::string &target)
 {
 	if (this->getHP() == 0)
-		std::cout << this->getName() << " is already dead" << std::endl;
+		std::cout << this->getName() << " [ClapTrap] is already dead" << std::endl;
 	else if (this->getEnergyPoints() == 0)
-		std::cout << this->getName() << " can't attack, energy too low" << std::endl;
+		std::cout << this->getName() << " [ClapTrap] can't attack, energy too low" << std::endl;
 	else if ((this->getHP() > 0 && this->getHP() < 11)
 		&& (this->getEnergyPoints() > 0 && this->getEnergyPoints() < 11))
 		{
 			std::cout << std::endl;
 
-			std::cout << RED << this->getName() << " attacks " << target;
+			std::cout << RED << "[ClapTrap] "  << this->getName() << " attacks " << target;
 			std::cout << ", causing " << this->getAttackDmg();
 			std::cout << " points of damage !" << NONE << std::endl;
 

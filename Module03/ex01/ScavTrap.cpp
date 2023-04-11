@@ -57,15 +57,15 @@ void	ScavTrap::setGuardMode(bool value)
 void	ScavTrap::attack(const std::string &target)
 {
 	if (this->getHP() == 0)
-		std::cout << this->getName() << " died already" << std::endl;
+		std::cout << this->getName() << " [ScavTrap] died already" << std::endl;
 	else if (this->getEnergyPoints() == 0)
-		std::cout << this->getName() << " no energy, no attacks" << std::endl;
+		std::cout << this->getName() << " [ScavTrap] no energy, no attacks" << std::endl;
 	else if ((this->getHP() > 0 && this->getHP() <= 100)
 		&& (this->getEnergyPoints() > 0 && this->getEnergyPoints() <= 50))
 		{
 			std::cout << std::endl;
 
-			std::cout << BLUE << this->getName() << " attacks " << target;
+			std::cout << BLUE << "[ScavTrap] " << this->getName() << " attacks " << target;
 			std::cout << ", causing " << this->getAttackDmg();
 			std::cout << " points of damage !" << NONE << std::endl;
 

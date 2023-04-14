@@ -4,7 +4,7 @@
 // ----- Constructors (canonical form) ---------------------------------------//
 FragTrap::~FragTrap(void)
 {
-	std::cout << "FragTrap destructor called. Only ClapTrap is left" << std::endl;
+	std::cout << "FragTrap destructor called." << std::endl;
 }
 
 FragTrap::FragTrap(void)
@@ -65,7 +65,7 @@ void	FragTrap::attack(const std::string &target)
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << this->getName() << " si asking for high five hoping someone is listening" << std::endl;
+	std::cout << this->getName() << " si asking for high five hoping someone sees him" << std::endl;
 }
 
 std::ostream & operator<<(std::ostream &stream, const FragTrap &rhs)

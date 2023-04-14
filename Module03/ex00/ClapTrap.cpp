@@ -5,33 +5,42 @@
 // ----- Constructors (canonical form) ---------------------------------------//
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(void)
 : _name("Tiny Tina"), _hitPoints(10), _energyPoints(10), _attackDamages(0)
 {
-	std::cout << "default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 : _hitPoints(10), _energyPoints(10), _attackDamages(0)
 {
 	this->_name = name;
-	std::cout << "<name> parameter constructor called" << std::endl;
+	std::cout << "ClapTrap <name> parameter constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name, int hp, int energy, int atkdmg)
+{
+	this->_name = name;
+	this->_hitPoints = hp;
+	this->_energyPoints = energy;
+	this->_attackDamages = atkdmg;
+	std::cout << "ClapTrap all members init constructor called" << std::endl;
 }
 
 // the new object is initiated from the copy of an other existing object
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = src;
 }
 
 ClapTrap &	ClapTrap::operator=(const ClapTrap &rhs)
 {
-	std::cout << "copy assignment operator called" << std::endl;
-	if (this != &rhs) // protection contre l'auto-assignement
+	std::cout << "ClapTrap copy assignment operator called" << std::endl;
+	if (this != &rhs)
 	{
 		this->_name = rhs.getName();
 		this->_hitPoints = rhs.getHP();
@@ -72,12 +81,18 @@ void	ClapTrap::setName(std::string name)
 
 void	ClapTrap::setHP(unsigned int hitPoints)
 {
-	this->_hitPoints = hitPoints;
+	if (this->_hitPoints > 10)
+		this->_hitPoints = 0;
+	else
+		this->_hitPoints = hitPoints;
 }
 
 void	ClapTrap::setEnergyPoints(unsigned int energyPoints)
 {
-	this->_energyPoints = energyPoints;
+	if (this->_energyPoints > 10)
+		this->_energyPoints = 0;
+	else
+		this->_energyPoints = energyPoints;
 }
 
 void	ClapTrap::setAttackDmg(unsigned int attackDamages)
@@ -89,17 +104,16 @@ void	ClapTrap::setAttackDmg(unsigned int attackDamages)
 void	ClapTrap::attack(const std::string &target)
 {
 	if (this->getHP() == 0)
-		std::cout << this->getName() << " is already dead" << std::endl;
+		std::cout << this->getName() << " [ClapTrap] is already dead" << std::endl;
 	else if (this->getEnergyPoints() == 0)
-		std::cout << this->getName() << " can't attack, energy too low" << std::endl;
+		std::cout << this->getName() << " [ClapTrap] can't attack, energy too low" << std::endl;
 	else if ((this->getHP() > 0 && this->getHP() < 11)
 		&& (this->getEnergyPoints() > 0 && this->getEnergyPoints() < 11))
 		{
 			std::cout << std::endl;
 
-			std::cout << RED << this->getName() << " attacks " << target;
-			std::cout << ", causing " << this->getAttackDmg();
-			std::cout << " points of damage !" << NONE << std::endl;
+			std::cout << RED << "[ClapTrap] "  << this->getName() << " attacks " << target;
+			std::cout << ", causing " << this->getAttackDmg() << " points of damage !" << NONE << std::endl;
 
 			this->setEnergyPoints(this->getEnergyPoints() - 1);
 			std::cout << this->getName() << ": new Energy Points amount : ";

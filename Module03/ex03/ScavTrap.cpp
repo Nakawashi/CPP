@@ -4,7 +4,7 @@
 // ----- Constructors (canonical form) ---------------------------------------//
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "ScavTrap destructor called. Only ClapTrap is left" << std::endl;
+	std::cout << "ScavTrap destructor called." << std::endl;
 }
 
 ScavTrap::ScavTrap(void)
@@ -78,7 +78,7 @@ void	ScavTrap::attack(const std::string &target)
 
 void	ScavTrap::guardGate(void)
 {
-	std::cout << YELLOW << "[ScavTrap] " << this->getName() << " is entered in Gate Keeper mode" << std::endl;
+	std::cout << YELLOW << "[ScavTrap] " << this->getName() << " is entered in Gate Keeper mode" << NONE << std::endl;
 	this->_guardGateMode = true;
 }
 

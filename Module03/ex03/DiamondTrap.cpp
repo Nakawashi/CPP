@@ -6,7 +6,7 @@
 // ----- Constructors (canonical form) ---------------------------------------//
 DiamondTrap::~DiamondTrap(void)
 {
-	std::cout << "DiamondTrap destructor called. Only ClapTrap is left" << std::endl;
+	std::cout << "DiamondTrap destructor called." << std::endl;
 }
 
 /*
@@ -54,9 +54,13 @@ DiamondTrap::DiamondTrap(void)
 }
 
 DiamondTrap::DiamondTrap(std::string name)
-: ClapTrap(, 100, 50, 20)
+: ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
 {
-	std::cout << "DiamondTrap name constructor called" << std::endl;
+	std::cout << "DiamondTrap <name> constructor called" << std::endl;
+	this->_name = name;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamages = 30;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &src)
@@ -83,6 +87,12 @@ DiamondTrap &	DiamondTrap::operator=(const DiamondTrap &rhs)
 void	DiamondTrap::attack(const std::string &target)
 {
 	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::whoAmI(void)
+{
+	std::cout << YELLOW << "DiamondTrap'name : " << this->_name << "\n";
+	std::cout << "ClapTrap'name : " << ClapTrap::_name << NONE << std::endl;
 }
 
 std::ostream & operator<<(std::ostream &stream, const DiamondTrap &rhs)

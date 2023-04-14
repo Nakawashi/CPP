@@ -5,7 +5,6 @@
 
 class ClapTrap
 {
-
 public:
 	//Coplien//
 	ClapTrap(void);									// default

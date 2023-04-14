@@ -81,7 +81,9 @@ void	ClapTrap::setName(std::string name)
 
 void	ClapTrap::setHP(unsigned int hitPoints)
 {
-	if (this->_hitPoints > 10)
+	if (this->_hitPoints > 1000000)
+		this->_hitPoints = 0;
+	else if (this->_hitPoints > 10)
 		this->_hitPoints = 0;
 	else
 		this->_hitPoints = hitPoints;
@@ -89,7 +91,7 @@ void	ClapTrap::setHP(unsigned int hitPoints)
 
 void	ClapTrap::setEnergyPoints(unsigned int energyPoints)
 {
-	if (this->_energyPoints > 10)
+	if (this->_energyPoints > 1000000)
 		this->_energyPoints = 0;
 	else
 		this->_energyPoints = energyPoints;

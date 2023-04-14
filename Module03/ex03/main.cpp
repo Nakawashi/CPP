@@ -5,17 +5,18 @@ int	main(void)
 	ScavTrap	scav;
 	FragTrap	frag;
 	DiamondTrap	monster;
-	DiamondTrap	test1("test");
+	DiamondTrap	diamond("diamond");
 
-	monster.attack("random");
+	diamond.attack("random");
+	diamond.highFivesGuys();
 
 	std::cout << scav << std::endl;
 	std::cout << frag << std::endl;
 	std::cout << monster << std::endl;
-	std::cout << test1 << std::endl;
+	std::cout << diamond << std::endl;
 
 	monster.whoAmI();
-	test1.whoAmI();
+	diamond.whoAmI();
 
 	return 0;
 }

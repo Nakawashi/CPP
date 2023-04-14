@@ -2,18 +2,19 @@
 
 int	main(void)
 {
-	ClapTrap	master("Lucie");
-	ScavTrap	test;
+	ClapTrap	master;
+	ScavTrap	scav;
 
 	std::cout << master << std::endl;
-	std::cout << test << std::endl;
+	std::cout << scav << std::endl;
 
-	test.guardGate();
-	test.attack("youyou");
+	scav.guardGate();
+	scav.attack("youyou");
+	scav.takeDamage(5);
 
 	master.attack("bernardo");
 
-	std::cout << test << std::endl;
+	std::cout << scav << std::endl;
 	std::cout << master << std::endl;
 	return 0;
 }

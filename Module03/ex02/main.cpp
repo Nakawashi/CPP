@@ -3,24 +3,24 @@
 
 int	main(void)
 {
-	ClapTrap	master("Lucie");
-	ScavTrap	first;
-	FragTrap	test;
+	ClapTrap	master;
+	ScavTrap	scav("Bernardina");
+	FragTrap	frag;
 
 	std::cout << master << std::endl;
-	std::cout << first << std::endl;
-	std::cout << test << std::endl;
+	std::cout << scav << std::endl;
+	std::cout << frag << std::endl;
 
 	master.attack("bernardo");
 
-	first.attack("random");
+	scav.attack("random");
 
-	test.highFivesGuys();
-	test.attack("youyou");
+	frag.highFivesGuys();
+	frag.attack("youyou");
 
 
-	std::cout << test << std::endl;
-	std::cout << first << std::endl;
+	std::cout << frag << std::endl;
+	std::cout << scav << std::endl;
 	std::cout << master << std::endl;
 
 	return 0;

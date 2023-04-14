@@ -45,9 +45,10 @@ ClapTrap destructor called
 // }
 
 DiamondTrap::DiamondTrap(void)
-: ClapTrap(), ScavTrap(), FragTrap(), _name("default_clap_name")
+: ClapTrap(), ScavTrap(), FragTrap(), _name("default")
 {
 	std::cout << "DiamondTrap default constructor called" << std::endl;
+	ClapTrap::_name = this->_name + "_clap_name";
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamages = 30;

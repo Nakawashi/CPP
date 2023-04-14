@@ -83,8 +83,6 @@ void	ClapTrap::setHP(unsigned int hitPoints)
 {
 	if (this->_hitPoints > 1000000)
 		this->_hitPoints = 0;
-	else if (this->_hitPoints > 10)
-		this->_hitPoints = 0;
 	else
 		this->_hitPoints = hitPoints;
 }

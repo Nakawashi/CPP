@@ -2,15 +2,15 @@
 
 int	main(void)
 {
-	ClapTrap nouveau;
+	ClapTrap clap;
 	ClapTrap test("Maya");
 
-	nouveau.setAttackDmg(5);
-	nouveau.attack(test.getName());
-	nouveau.beRepaired(5);
-	nouveau.takeDamage(20);
+	clap.setAttackDmg(5);
+	clap.attack(test.getName());
+	clap.beRepaired(5);
+	clap.takeDamage(3);
 
-	std::cout << nouveau << std::endl;
+	std::cout << clap << std::endl;
 	std::cout << test << std::endl;
 	return 0;
 }

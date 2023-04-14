@@ -101,6 +101,9 @@ void	ClapTrap::setAttackDmg(unsigned int attackDamages)
 }
 // ----- Setters -------------------------------------------------------------//
 
+/*
+	je peux verifier les degats valent plus ou egal aux HP pour savoir si j'ai plus de vie
+*/
 void	ClapTrap::attack(const std::string &target)
 {
 	if (this->getHP() == 0)

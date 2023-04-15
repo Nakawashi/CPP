@@ -8,6 +8,7 @@ class Animal
 public:
 	//Coplien//
 	Animal(void);
+	Animal(std::string type);
 	Animal(const Animal &src);
 	~Animal(void);
 	Animal&	operator=(const Animal& rhs);

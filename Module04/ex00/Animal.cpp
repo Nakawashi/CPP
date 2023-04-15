@@ -8,6 +8,12 @@ Animal::Animal(void)
 	std::cout << BLUE << "[Animal] default constructor called" << NONE << std::endl;
 }
 
+Animal::Animal(std::string type)
+: _type(type)
+{
+	std::cout << BLUE << "[Animal] <type> constructor called" << NONE << std::endl;
+}
+
 Animal::Animal(const Animal& src)
 {
 	std::cout << BLUE << "[Animal] copy constructor called" << NONE << std::endl;
@@ -43,6 +49,6 @@ void	Animal::set_type(std::string type)
 
 std::ostream&	operator<<(std::ostream& stream, const Animal &rhs)
 {
-	stream << BLUE << "[Animal] type : " << rhs.get_type() << NONE << std::endl;
+	stream << BLUE << "\n[Animal] type : " << rhs.get_type() << NONE << std::endl;
 	return stream;
 }

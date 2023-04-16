@@ -3,52 +3,58 @@
 
 // ----- Constructors (canonical form) ---------------------------------------//
 Cat::Cat(void)
-: Animal()
+: Animal(), _type("Cat")
 {
-	std::cout << BLUE << "[Cat] default constructor called" << NONE << std::endl;
+	std::cout << VIOLET << "[Cat] default constructor called" << NONE << std::endl;
 }
 
 Cat::Cat(std::string type)
-: Animal(type)
+: Animal(), _type(type)
 {
-	std::cout << BLUE << "[Cat] <type> constructor called" << NONE << std::endl;
+	std::cout << VIOLET << "[Cat] <type> constructor called" << NONE << std::endl;
 }
 
 Cat::Cat(const Cat& src)
 {
-	std::cout << BLUE << "[Cat] copy constructor called" << NONE << std::endl;
+	std::cout << VIOLET << "[Cat] copy constructor called" << NONE << std::endl;
 	*this = src;
 }
 
 Cat::~Cat(void)
 {
-	std::cout << BLUE << "[Cat] default destructor called" << NONE << std::endl;
+	std::cout << VIOLET << "[Cat] default destructor called" << NONE << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat& rhs)
 {
-	std::cout << BLUE << "[Cat] copy assignement operator called" << NONE << std::endl;
+	std::cout << VIOLET << "[Cat] assignement operator called" << NONE << std::endl;
 	if (this != &rhs)
-		this->_type = rhs.get_type();
+		this->_type = rhs.getType();
 	return *this;
 }
 // ----- Constructors (canonical form) ---------------------------------------//
 
 // ----- Getters - Setters----------------------------------------------------//
 
-std::string	Cat::get_type(void) const
+std::string	Cat::getType(void) const
 {
 	return this->_type;
 }
 
-void	Cat::set_type(std::string type)
+void	Cat::setType(std::string type)
 {
 	this->_type = type;
 }
 // ----- Getters - Setters----------------------------------------------------//
 
+// On aurait pu prendre en parametre une ref sur Animal ou un pointeur sur Animal pour creer une resolution dynamique des liens avec une fonction tierce
+void	Cat::makeSound(void) const
+{
+	std::cout << VIOLET << "\n[Cat] meows\n" << NONE << std::endl;
+}
+
 std::ostream&	operator<<(std::ostream& stream, const Cat &rhs)
 {
-	stream << BLUE << "\n[Cat] type : " << rhs.get_type() << NONE << std::endl;
+	stream << VIOLET << "\n[Cat] type : " << rhs.getType() << NONE << std::endl;
 	return stream;
 }

@@ -1,13 +1,17 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
+#include "Dog.hpp"
 
-int	main(void)
+int main()
 {
-	Animal	animal;
-	Cat		cat("chat");
-
-	std::cout << animal << std::endl;
-	std::cout << cat << std::endl;
-
+	const Animal* meta = new Animal();
+	const Animal* dog = new Dog();
+	const Animal* cat = new Cat();
+	std::cout << dog->getType() << " " << std::endl;
+	std::cout << cat->getType() << " " << std::endl;
+	cat->makeSound(); //will output the cat sound!
+	dog->makeSound();
+	meta->makeSound();
+	//...
 	return 0;
 }

@@ -1,17 +1,23 @@
- #include "Animal.hpp"
- #include "Colors.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/16 14:09:19 by lgenevey          #+#    #+#             */
+/*   Updated: 2023/04/16 14:21:41 by lgenevey         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
+#include "Colors.hpp"
 
 // ----- Constructors (canonical form) ---------------------------------------//
 Animal::Animal(void)
 : _type("animal")
 {
 	std::cout << BLUE << "[Animal] default constructor called" << NONE << std::endl;
-}
-
-Animal::Animal(std::string type)
-: _type(type)
-{
-	std::cout << BLUE << "[Animal] <type> constructor called" << NONE << std::endl;
 }
 
 Animal::Animal(const Animal& src)
@@ -27,28 +33,33 @@ Animal::~Animal(void)
 
 Animal&	Animal::operator=(const Animal& rhs)
 {
-	std::cout << BLUE << "[Animal] copy assignement operator called" << NONE << std::endl;
+	std::cout << BLUE << "[Animal] assignement operator called" << NONE << std::endl;
 	if (this != &rhs)
-		this->_type = rhs.get_type();
+		this->_type = rhs.getType();
 	return *this;
 }
 // ----- Constructors (canonical form) ---------------------------------------//
 
 // ----- Getters - Setters----------------------------------------------------//
 
-std::string	Animal::get_type(void) const
+std::string	Animal::getType(void) const
 {
 	return this->_type;
 }
 
-void	Animal::set_type(std::string type)
+void	Animal::setType(std::string type)
 {
 	this->_type = type;
 }
 // ----- Getters - Setters----------------------------------------------------//
 
+void	Animal::makeSound(void) const
+{
+	std::cout << BLUE << "\n[Animal] make an undefined sound\n" << NONE << std::endl;
+}
+
 std::ostream&	operator<<(std::ostream& stream, const Animal &rhs)
 {
-	stream << BLUE << "\n[Animal] type : " << rhs.get_type() << NONE << std::endl;
+	stream << BLUE << "\n[Animal] type : " << rhs.getType() << NONE << std::endl;
 	return stream;
 }

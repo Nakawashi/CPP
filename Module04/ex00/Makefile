@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/04/15 21:33:50 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/04/16 14:12:18 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ endif
 SRCS_FILES	=	main.cpp \
 				Animal.cpp \
 				Cat.cpp \
+				Dog.cpp \
 
 ## Directories ##
 

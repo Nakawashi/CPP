@@ -6,22 +6,15 @@
 class Animal
 {
 public:
-	//Coplien//
 	Animal(void);
-	Animal(std::string type);
 	Animal(const Animal &src);
-	~Animal(void);
-	Animal&	operator=(const Animal& rhs);
-	//Coplien//
+	virtual ~Animal(void);
 
-	//Getters//
-	std::string	get_type(void) const;
-	//Getters//
+	Animal&			operator=(const Animal& rhs);
 
-	//Setters//
-	void	set_type(std::string type);
-	//Setters//
-
+	std::string		getType(void) const;
+	void			setType(std::string type);
+	virtual void	makeSound(void) const;
 
 protected:
 	std::string	_type;

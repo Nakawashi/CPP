@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:41:07 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 18:35:25 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/16 20:56:25 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Dog::Dog(std::string type)
 }
 
 Dog::Dog(const Dog& src)
+: Animal(src)
 {
 	std::cout << GREEN << "[Dog] copy constructor called" << NONE << std::endl;
 	*this = src;

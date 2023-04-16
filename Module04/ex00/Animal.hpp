@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:41:18 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 16:41:48 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/16 20:43:20 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	Animal&		operator=(const Animal& rhs);
 
 	virtual std::string	getType(void) const;
-	void				setType(std::string type);
+	virtual void		setType(std::string type);
 	virtual void		makeSound(void) const;
 	virtual Animal*		clone(void) const;
 

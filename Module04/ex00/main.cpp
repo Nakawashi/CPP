@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:40:56 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 16:46:11 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:21:00 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main()
 	dog->makeSound();
 	meta->makeSound();
 
+	delete cat;
 	cat2 = cat->clone();
 	std::cout << "\n" << cat2->getType() << "\n" << std::endl;
 

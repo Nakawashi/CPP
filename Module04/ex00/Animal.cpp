@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:09:19 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 16:42:54 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:35:15 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Animal::Animal(const Animal& src)
 
 Animal::~Animal(void)
 {
-	std::cout << BLUE << "[Animal] default destructor called" << NONE << std::endl;
+	std::cout << BLUE << "[Animal] destructor called" << NONE << std::endl;
 }
 
 Animal&	Animal::operator=(const Animal& rhs)

@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:40:52 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 16:45:13 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:35:20 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Cat::Cat(const Cat& src)
 
 Cat::~Cat(void)
 {
-	std::cout << VIOLET << "[Cat] default destructor called" << NONE << std::endl;
+	std::cout << VIOLET << "[Cat] destructor called" << NONE << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat& rhs)

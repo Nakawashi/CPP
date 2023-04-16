@@ -34,7 +34,7 @@ WrongCat::WrongCat(const WrongCat& src)
 
 WrongCat::~WrongCat(void)
 {
-	std::cout << VIOLET << "[WrongCat] default destructor called" << NONE << std::endl;
+	std::cout << VIOLET << "[WrongCat] destructor called" << NONE << std::endl;
 }
 
 WrongCat&	WrongCat::operator=(const WrongCat& rhs)

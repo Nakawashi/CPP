@@ -16,7 +16,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal& src)
 
 WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << BLUE << "[WrongAnimal] default destructor called" << NONE << std::endl;
+	std::cout << BLUE << "[WrongAnimal] destructor called" << NONE << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& rhs)

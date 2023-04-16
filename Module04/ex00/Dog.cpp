@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:41:07 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 14:41:07 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:35:25 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Dog::Dog(const Dog& src)
 
 Dog::~Dog(void)
 {
-	std::cout << GREEN << "[Dog] default destructor called" << NONE << std::endl;
+	std::cout << GREEN << "[Dog] destructor called" << NONE << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog& rhs)

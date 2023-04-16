@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/04/16 14:12:18 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/04/16 14:47:19 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ SRCS_FILES	=	main.cpp \
 				Animal.cpp \
 				Cat.cpp \
 				Dog.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp \
 
 ## Directories ##
 

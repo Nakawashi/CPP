@@ -1,5 +1,17 @@
- #include "Cat.hpp"
- #include "Colors.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/16 14:40:52 by lgenevey          #+#    #+#             */
+/*   Updated: 2023/04/16 16:45:13 by lgenevey         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Cat.hpp"
+#include "Colors.hpp"
 
 // ----- Constructors (canonical form) ---------------------------------------//
 Cat::Cat(void)
@@ -52,6 +64,13 @@ void	Cat::makeSound(void) const
 {
 	std::cout << VIOLET << "\n[Cat] meows\n" << NONE << std::endl;
 }
+
+// copie profonde : copier la valeur de la variable dans un nouvel emplacement memoire
+Cat*	Cat::clone(void) const
+{
+	return new Cat(*this);
+}
+
 
 std::ostream&	operator<<(std::ostream& stream, const Cat &rhs)
 {

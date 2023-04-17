@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 18:30:29 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 21:10:12 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:16:38 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ Brain&	Brain::operator=(const Brain& rhs)
 	return *this;
 }
 // ----- Constructors (canonical form) ---------------------------------------//
-
-Brain*	Brain::clone(void) const
-{
-	return new Brain(*this);
-}
 
 const std::string*	Brain::getIdeasArray(void) const
 {

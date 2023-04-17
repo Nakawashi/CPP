@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:40:52 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 21:18:05 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:30:57 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,40 @@
 
 // ----- Constructors (canonical form) ---------------------------------------//
 Cat::Cat(void)
-: Animal(), _type("Cat"), _brain(new Brain)
+: Animal(), _type("Cat"), _brain(new Brain())
 {
 	std::cout << VIOLET << "[Cat] default constructor called" << NONE << std::endl;
 }
 
 Cat::Cat(std::string type)
-: Animal(), _type(type), _brain(new Brain)
+: Animal(), _type(type), _brain(new Brain())
 {
-	std::cout << VIOLET << "[Cat] <type> <brain> constructor called" << NONE << std::endl;
+	std::cout << VIOLET << "[Cat] <type> constructor called" << NONE << std::endl;
 }
 
 Cat::Cat(const Cat& src)
-: Animal(src) // copie les membres de base
+: Animal(src), _brain(new Brain(*src.getBrain())) // copie profonde
 {
 	std::cout << VIOLET << "[Cat] copy constructor called" << NONE << std::endl;
-	this->_brain = new Brain(*src._brain);
+	*this = src;
 }
 
 Cat::~Cat(void)
 {
 	std::cout << VIOLET << "[Cat] destructor called" << NONE << std::endl;
-	delete this->_brain;
+	if (this->_brain)
+		delete this->_brain;
 }
 
 Cat&	Cat::operator=(const Cat& rhs)
 {
 	std::cout << VIOLET << "[Cat] assignement operator called" << NONE << std::endl;
-	if (this != &rhs)
-	{
-		this->_type = rhs.getType();
-		*(this->_brain) = *(rhs.getBrain());
-	}
+	if (this == &rhs)
+		return *this;
+	this->_type = rhs.getType();
+	if (this->_brain)
+		delete this->_brain;
+	this->_brain = new Brain(*rhs.getBrain());
 	return *this;
 }
 // ----- Constructors (canonical form) ---------------------------------------//
@@ -68,12 +70,6 @@ void	Cat::setType(std::string type)
 void	Cat::makeSound(void) const
 {
 	std::cout << VIOLET << "\n[Cat] meows\n" << NONE << std::endl;
-}
-
-// copie profonde : copier la valeur de la variable dans un nouvel emplacement memoire
-Cat*	Cat::clone(void) const
-{
-	return new Cat(*this);
 }
 
 Brain*	Cat::getBrain(void) const

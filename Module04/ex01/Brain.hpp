@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 18:30:27 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 19:57:08 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:16:34 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ public:
 	~Brain(void);
 
 	Brain&				operator=(const Brain& rhs);
-	Brain*				clone(void) const;
+
 	const std::string*	getIdeasArray(void) const;
 	const std::string	getIdea(size_t i) const;
 	void				setIdea(size_t i, std::string idea);
 
 protected:
-	std::string	_ideas[A_SIZE];
+	std::string			_ideas[A_SIZE];
 };
 
 #endif

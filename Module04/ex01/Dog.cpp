@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:41:07 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 20:55:05 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:13:15 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,29 @@
 
 // ----- Constructors (canonical form) ---------------------------------------//
 Dog::Dog(void)
-: Animal(), _type("Dog"), _brain(new Brain)
+: Animal(), _type("Dog"), _brain(new Brain())
 {
 	std::cout << GREEN << "[Dog] default constructor called" << NONE << std::endl;
 }
 
 Dog::Dog(std::string type)
-: Animal(), _type(type), _brain(new Brain)
+: Animal(), _type(type), _brain(new Brain())
 {
 	std::cout << GREEN << "[Dog] <type> constructor called" << NONE << std::endl;
 }
 
 Dog::Dog(const Dog& src)
-: Animal(src) // copie les membres de base
+: Animal(src), _brain(new Brain(*src.getBrain()))
 {
 	std::cout << VIOLET << "[Dog] copy constructor called" << NONE << std::endl;
-	this->_brain = new Brain(*src._brain);
+	*this = src;
 }
 
 Dog::~Dog(void)
 {
 	std::cout << GREEN << "[Dog] destructor called" << NONE << std::endl;
-	delete this->_brain;
+	if (this->_brain)
+		delete this->_brain;
 }
 
 Dog&	Dog::operator=(const Dog& rhs)
@@ -45,7 +46,9 @@ Dog&	Dog::operator=(const Dog& rhs)
 	if (this != &rhs)
 	{
 		this->_type = rhs.getType();
-		*(this->_brain) = *(rhs.getBrain());
+		if (this->_brain)
+			delete this->_brain;
+		this->_brain = new Brain(*rhs.getBrain());
 	}
 	return *this;
 }
@@ -64,19 +67,15 @@ void	Dog::setType(std::string type)
 }
 // ----- Getters - Setters----------------------------------------------------//
 
-// On aurait pu prendre en parametre une ref sur Animal ou un pointeur sur Animal pour creer une resolution dynamique des liens avec une fonction tierce
 void	Dog::makeSound(void) const
 {
 	std::cout << GREEN << "\n[Dog] barks\n" << NONE << std::endl;
 }
 
-Dog*	Dog::clone(void) const
-{
-	return new Dog(*this);
-}
-
 Brain*	Dog::getBrain(void) const
 {
+
+	std::cout << this->_brain->getIdeasArray() << std::endl;
 	return this->_brain;
 }
 

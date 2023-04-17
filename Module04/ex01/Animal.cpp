@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:09:19 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 18:34:47 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:23:56 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Animal::Animal(void)
 }
 
 Animal::Animal(const Animal& src)
+: _type(src.getType())
 {
 	std::cout << BLUE << "[Animal] copy constructor called" << NONE << std::endl;
 	*this = src;
@@ -57,12 +58,6 @@ void	Animal::makeSound(void) const
 {
 	std::cout << BLUE << "\n[Animal] make an undefined sound\n" << NONE << std::endl;
 }
-
-Animal*	Animal::clone(void) const
-{
-	return new Animal(*this);
-}
-
 
 std::ostream&	operator<<(std::ostream& stream, const Animal &rhs)
 {

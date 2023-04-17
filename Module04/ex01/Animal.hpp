@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:41:18 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 20:43:00 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:36:53 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ class Animal
 public:
 	Animal(void);
 	Animal(const Animal &src);
-	virtual ~Animal(void);
+	virtual ~Animal(void); // avoid leaks
 
-	Animal&		operator=(const Animal& rhs);
+	Animal&				operator=(const Animal& rhs);
 
-	virtual std::string	getType(void) const;
+	virtual std::string	getType(void) const;		// virtual allow sub-classes to override those methods
 	virtual void		setType(std::string type);
 	virtual void		makeSound(void) const;
-	virtual Animal*		clone(void) const;
 
 protected:
 	std::string	_type;

@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:40:52 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 18:35:20 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:55:04 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,6 @@ void	Cat::makeSound(void) const
 {
 	std::cout << VIOLET << "\n[Cat] meows\n" << NONE << std::endl;
 }
-
-// copie profonde : copier la valeur de la variable dans un nouvel emplacement memoire
-Cat*	Cat::clone(void) const
-{
-	return new Cat(*this);
-}
-
 
 std::ostream&	operator<<(std::ostream& stream, const Cat &rhs)
 {

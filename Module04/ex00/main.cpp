@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:40:56 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 21:21:00 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:54:23 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main()
 	const Animal* cat = new Cat();
 	const Animal* cat2 = new Cat("chaton");
 
+	std::cout << "\n" << meta->getType() << std::endl;
 	std::cout << "\n" << dog->getType() << std::endl;
 	std::cout << "\n" << cat->getType() << std::endl;
 	std::cout << "\n" << cat2->getType() << std::endl;
@@ -29,11 +30,6 @@ int main()
 	cat2->makeSound();
 	dog->makeSound();
 	meta->makeSound();
-
-	delete cat;
-	cat2 = cat->clone();
-	std::cout << "\n" << cat2->getType() << "\n" << std::endl;
-
 
 	delete meta;
 	delete dog;

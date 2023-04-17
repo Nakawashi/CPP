@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:09:38 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/16 16:43:26 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:54:48 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 	std::string	getType(void) const;
 	void		setType(std::string type);
 	void		makeSound(void) const;
-	Cat*		clone(void) const;
 
 protected:
 	std::string	_type;

@@ -10,10 +10,9 @@ Utilisation du mot-clé **virtual** sur certaines fonctions.
 Déclaration de nouvelles instances en utilisant le type de la classe mère au lieu de la classe réelle et comprendre ce que cela implique avec le polymorphisme.
 
 ## Ex01
-Copie profonde d'une instance.
-
+Copie profonde sur la surcharge de l'opérateur `=`
 
 ## Ex02
-
+Classe abstraite
 
 ## Ex03

@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/04/18 14:39:33 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/04/18 15:51:53 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS		= $(SRCS_FILES:.cpp=.o)
 CXXFLAGS	= -Wall -Wextra -Werror
 CXXFLAGS	+= -std=c++98
 CXXFLAGS	+= -pedantic			# avertissements supplémentaires pour la conformité aux normes, code portable
-CXXFLAGS	+= -Wshadow				# avertis si une variable du meme nom a ete definis dans une portee superieure
+#CXXFLAGS	+= -Wshadow				# avertis si une variable du meme nom a ete definis dans une portee superieure
 #CXXFLAGS	+= -Wno-shadow			# desactive les avertissements ci-dessus. Le mettre si on est sur de son code.
 
 ifeq ($(DEBUG), 1)

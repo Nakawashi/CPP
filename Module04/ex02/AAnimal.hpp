@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:41:18 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/17 18:11:48 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:10:05 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class AAnimal
 {
 public:
 	AAnimal(void);
+	AAnimal(std::string type);
 	AAnimal(const AAnimal &src);
 	virtual ~AAnimal(void); // avoid leaks
 

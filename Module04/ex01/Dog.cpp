@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:41:07 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/17 17:13:15 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/18 12:38:20 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 // ----- Constructors (canonical form) ---------------------------------------//
 Dog::Dog(void)
-: Animal(), _type("Dog"), _brain(new Brain())
+: Animal("Dog"), _brain(new Brain())
 {
 	std::cout << GREEN << "[Dog] default constructor called" << NONE << std::endl;
 }
 
 Dog::Dog(std::string type)
-: Animal(), _type(type), _brain(new Brain())
+: Animal(type), _brain(new Brain())
 {
 	std::cout << GREEN << "[Dog] <type> constructor called" << NONE << std::endl;
 }
@@ -75,12 +75,12 @@ void	Dog::makeSound(void) const
 Brain*	Dog::getBrain(void) const
 {
 
-	std::cout << this->_brain->getIdeasArray() << std::endl;
+	// std::cout << this->_brain->getIdeasArray() << std::endl;
 	return this->_brain;
 }
 
-std::ostream&	operator<<(std::ostream& stream, const Dog &rhs)
-{
-	stream << GREEN << "\n[Dog] type : " << rhs.getType() << NONE << std::endl;
-	return stream;
-}
+// std::ostream&	operator<<(std::ostream& stream, const Dog &rhs)
+// {
+// 	stream << GREEN << "\n[Dog] type : " << rhs.getType() << NONE << std::endl;
+// 	return stream;
+// }

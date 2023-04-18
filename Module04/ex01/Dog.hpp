@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:09:43 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/17 16:20:55 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/18 12:37:53 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,10 @@ public:
 	void		setType(std::string type);
 	void		makeSound(void) const;
 
-protected:
-	std::string	_type;
-
 private:
 	Brain*		_brain;
 };
 
-std::ostream&	operator<<(std::ostream& stream, const Dog &rhs);
+// std::ostream&	operator<<(std::ostream& stream, const Dog &rhs);
 
 #endif

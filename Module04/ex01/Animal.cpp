@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:09:19 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/17 16:23:56 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/18 12:00:41 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ Animal::Animal(void)
 : _type("animal")
 {
 	std::cout << BLUE << "[Animal] default constructor called" << NONE << std::endl;
+}
+
+Animal::Animal(std::string type)
+: _type(type)
+{
+	std::cout << BLUE << "[Animal] <type> constructor called" << NONE << std::endl;
 }
 
 Animal::Animal(const Animal& src)

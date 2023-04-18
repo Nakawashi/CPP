@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 18:30:29 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/17 16:16:38 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/18 12:27:52 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,12 @@ void	Brain::setIdea(size_t i, std::string idea)
 		std::cout << "Error accessing the idea's index" << std::endl;
 	else
 		this->_ideas[i] = idea;
+}
+
+void	Brain::printIdeas() const
+{
+	for (size_t i = 0; i < 10; i++) // A_SIZE relou
+	{
+		std::cout << "[" << i << "] " << this->getIdea(i) << std::endl;
+	}
 }

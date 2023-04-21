@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 19:55:37 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/21 20:03:01 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 21:29:44 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	Character &operator=(Character const &rhs);
 
 	const std::string&	getName(void) const;
-	void				setName(const std::string);
+	void				setName(const std::string newName);
 
 	void				equip(AMateria *m);
 	void				unequip(int idx);

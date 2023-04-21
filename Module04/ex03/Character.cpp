@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 19:57:09 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/21 20:16:48 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 22:26:30 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Character::Character(void)
 }
 
 Character::Character(const std::string& name)
+: _name(name), _inventory()
 {
 	std::cout << "[Character] constructor called" << std::endl;
 }
@@ -71,5 +72,53 @@ Character&	Character::operator=(const Character& rhs)
 	return *this;
 }
 
-//getName, setName
-// equip, unequip, use
+/*
+	Getters, Setters
+*/
+const std::string&	Character::getName(void) const
+{
+	return this->_name;
+}
+
+void	Character::setName(const std::string newName)
+{
+	this->_name = newName;
+}
+
+void	Character::equip(AMateria *m)
+{
+	for (size_t i = 0; i < A_SIZE; i++)
+	{
+		if (this->_inventory[i] == NULL)
+		{
+			this->_inventory[i] = m;
+			std::cout << m << " added" << std::endl;
+		}
+		std::cout << "Inventory full" << std::endl;
+	}
+}
+
+void	Character::unequip(int idx)
+{
+	if (idx < 0 || idx > A_SIZE)
+	{
+		std::cout << "Error: incorrect idx" << std::endl;
+		return ;
+	}
+	if (this->_inventory[idx] != NULL)
+	{
+		std::cout << this->_inventory[idx] << " deleted" << std::endl;
+		delete this->_inventory[idx];
+		this->_inventory[idx] = NULL;
+	}
+}
+
+void	Character::use(int idx, ICharacter& target)
+{
+	if (idx < 0 || idx > A_SIZE)
+	{
+		std::cout << "Error: incorrect idx" << std::endl;
+		return ;
+	}
+	this->_inventory[idx]->use(target);
+}

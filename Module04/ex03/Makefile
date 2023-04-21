@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/04/21 15:25:14 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/04/21 22:25:43 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,10 @@ endif
 
 SRCS_FILES	=	main.cpp \
 				AMateria.cpp \
+				Character.cpp \
 				Cure.cpp \
 				Ice.cpp \
+				MateriaSource.cpp
 
 ## Directories ##
 

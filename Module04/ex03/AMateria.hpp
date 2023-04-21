@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:23:24 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/21 19:36:07 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 22:31:06 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+
+// inform the compiler that AMateria exists and is going to be instancied later. AMateria and ICharacter are inter-dependant. It resolves circular dependencies.
+class ICharacter;
 
 class AMateria
 {

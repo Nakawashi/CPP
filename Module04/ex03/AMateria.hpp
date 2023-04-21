@@ -6,20 +6,20 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:23:24 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/18 16:34:15 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:44:24 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-# include <string>
+# include <iostream>
 // # include "ICharacter.hpp"
 
 class AMateria
 {
 public:
-	AMateria(void); // dont want the user to use it, and no need to define it in .cpp
+	AMateria(void);
 	AMateria(const std::string& type);
 	AMateria(const AMateria &src);
 	virtual ~AMateria(void);
@@ -34,6 +34,5 @@ public:
 protected:
 	std::string			_type;
 };
-
 
 #endif

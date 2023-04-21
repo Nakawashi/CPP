@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:54:22 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/18 20:57:28 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:03:55 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ public:
 
 	Cure*	clone(void) const;
 };
-
 
 #endif

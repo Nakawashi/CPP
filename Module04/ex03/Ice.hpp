@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:54:47 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/18 20:54:48 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:51:22 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string>
 # include "AMateria.hpp"
 
-class Ice
+class Ice : public AMateria
 {
 public:
 	Ice(void);

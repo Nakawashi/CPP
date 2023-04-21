@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:27:49 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/18 15:51:31 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:56:02 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ AMateria::~AMateria(void) // avoid link pb if not defined in sub-classes
 	std::cout << "[AMateria] destructor called" << std::endl;
 }
 
-AMateria	AMateria::operator=(const AMateria& rhs)
+AMateria&	AMateria::operator=(const AMateria& rhs)
 {
 	if (this == &rhs)
 		return *this;
+
 	this->_type = rhs.getType();
 	return *this;
 }

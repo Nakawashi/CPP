@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 21:34:32 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/21 22:26:54 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 22:57:29 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 MateriaSource::MateriaSource(void)
 {
-	std::cout << "[MateriaSource] default constructor called" << std::endl;
+	// std::cout << "[MateriaSource] default constructor called" << std::endl;
 	for (size_t i = 0; i < MateriaSource::_nbMaterials; i++)
 	{
 		this->_materias[i] = NULL;
@@ -23,6 +23,7 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::MateriaSource(const MateriaSource& src)
 {
+	// std::cout << "[MateriaSource] copy constructor called" << std::endl;
 	for (size_t i = 0; i < MateriaSource::_nbMaterials; i++)
 	{
 		if (src._materias[i])
@@ -34,6 +35,7 @@ MateriaSource::MateriaSource(const MateriaSource& src)
 
 MateriaSource::~MateriaSource(void)
 {
+	// std::cout << "[MateriaSource] destructor called" << std::endl;
 	for (size_t i = 0; i < MateriaSource::_nbMaterials; i++)
 	{
 		if (this->_materias[i])
@@ -72,6 +74,10 @@ void	MateriaSource::learnMateria(AMateria* materia)
 		this->_materias[i] = materia;
 }
 
+/*
+	returns a new materia. If unknown, returns NULL bc it's a pointer
+	if the type is already known, make a copy of it
+*/
 AMateria*	MateriaSource::createMateria(std::string const& type)
 {
 	for (size_t i = 0; i < MateriaSource::_nbMaterials; i++)

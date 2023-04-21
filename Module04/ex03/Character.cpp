@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 19:57:09 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/21 22:26:30 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 23:04:54 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 Character::Character(void)
 : _name(), _inventory()
 {
-	std::cout << "[Character] default constructor called" << std::endl;
+	// std::cout << "[Character] default constructor called" << std::endl;
 }
 
 Character::Character(const std::string& name)
 : _name(name), _inventory()
 {
-	std::cout << "[Character] constructor called" << std::endl;
+	// std::cout << "[Character] constructor called" << std::endl;
 }
 
 Character::Character(const Character& src)
 {
-	std::cout << "[Character] copy constructor called" << std::endl;
+	// std::cout << "[Character] copy constructor called" << std::endl;
 	this->_name = src.getName();
 	for (size_t i = 0; i < A_SIZE; i++)
 	{
@@ -42,7 +42,7 @@ Character::Character(const Character& src)
 
 Character::~Character(void) // avoid link pb if not defined in sub-classes
 {
-	std::cout << "[Character] destructor called" << std::endl;
+	// std::cout << "[Character] destructor called" << std::endl;
 	for (size_t i = 0; i < A_SIZE; ++i)
 	{
 		if (this->_inventory[i] != NULL)
@@ -92,9 +92,9 @@ void	Character::equip(AMateria *m)
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;
-			std::cout << m << " added" << std::endl;
+			std::cout << m->getType() << " added" << std::endl;
+			break ;
 		}
-		std::cout << "Inventory full" << std::endl;
 	}
 }
 
@@ -115,7 +115,7 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx > A_SIZE)
+	if (idx < 0 || idx >= A_SIZE)
 	{
 		std::cout << "Error: incorrect idx" << std::endl;
 		return ;

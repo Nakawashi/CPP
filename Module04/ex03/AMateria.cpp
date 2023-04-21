@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:27:49 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/21 19:51:28 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/21 22:52:32 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@
 AMateria::AMateria(void)
 : _type("aamateria")
 {
-	std::cout << "[AMateria] default constructor called" << std::endl;
+	// std::cout << "[AMateria] default constructor called" << std::endl;
 }
 
 AMateria::AMateria(const std::string& type)
 : _type(type)
 {
-	std::cout << "[AMateria] constructor called" << std::endl;
+	// std::cout << "[AMateria] constructor called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria& src)
 : _type(src.getType())
 {
-	std::cout << "[AMateria] copy constructor called" << std::endl;
+	// std::cout << "[AMateria] copy constructor called" << std::endl;
 	*this = src;
 }
 
 AMateria::~AMateria(void) // avoid link pb if not defined in sub-classes
 {
-	std::cout << "[AMateria] destructor called" << std::endl;
+	// std::cout << "[AMateria] destructor called" << std::endl;
 }
 
 AMateria&	AMateria::operator=(const AMateria& rhs)

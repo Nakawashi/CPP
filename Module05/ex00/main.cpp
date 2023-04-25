@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:23:31 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/25 16:09:01 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:36:41 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ int	main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 	return 0;
 }

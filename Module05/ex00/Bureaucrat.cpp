@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:22:51 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/25 12:06:29 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/25 16:00:50 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ unsigned int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::setGrade(unsigned int newGrade)
 {
-		// an other default constructor
 	if (newGrade < 1)
 	{
 		throw Bureaucrat::GradeTooHighException();
@@ -80,18 +79,27 @@ void	Bureaucrat::setGrade(unsigned int newGrade)
 }
 
 // increment means giving lower Grade
-void	incrementGrade()
+void	Bureaucrat::incrementGrade()
 {
+	unsigned int	grade;
 
+	grade = getGrade();
+	setGrade(--grade);
 }
 
 // decrement means giving higher Grade
-void	decrementde()
+void	Bureaucrat::decrementGrade()
 {
+	unsigned int	grade;
 
+	grade = getGrade();
+	setGrade(++grade);
 }
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat &rhs)
 {
+	stream << "\nBureaucrat's name : " << rhs.getName() << "\n";
+	stream << "Grade : " << rhs.getGrade() << std::endl;
 
+	return stream;
 }

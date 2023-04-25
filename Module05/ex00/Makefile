@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/04/24 16:50:40 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/04/25 14:01:13 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ endif
 ## Files ##
 
 SRCS_FILES	=	main.cpp \
-				bureaucrat.cpp \
+				Bureaucrat.cpp \
 
 ## Directories ##
 

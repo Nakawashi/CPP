@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:41:25 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/25 17:43:22 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/04/30 21:27:56 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,46 @@
 # include <iostream>
 # include <exception>
 
+# include "Bureaucrat.hpp"
+
+class Bureaucrat;
+
 class Form
 {
+public:
+	Form(void);
+	Form(const std::string name, unsigned int gradeSign, unsigned int gradeExec);
+	Form(const Form& src);
+	~Form(void);
+
+	Form&	operator=(const Form& rhs);
+
+	const std::string&	getName(void) const;
+	bool				getSigned(void) const;
+	const unsigned int	getGradeSign(void) const;
+	const unsigned int	getGradeExec(void) const;
+
+	void				beSigned(const Bureaucrat& Bureaucrat);
+
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
+
 private:
 	const std::string	_name;
 	bool				_signed;
-	const unsigned int	_grade;
-
+	const unsigned int	_gradeSign;
+	const unsigned int	_gradeExec;
 };
+
+std::ostream& operator<<(std::ostream stream, const Form& rhs);
 
 #endif

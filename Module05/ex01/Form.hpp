@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:41:25 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/30 21:27:56 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/01 19:48:35 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ public:
 
 	const std::string&	getName(void) const;
 	bool				getSigned(void) const;
-	const unsigned int	getGradeSign(void) const;
-	const unsigned int	getGradeExec(void) const;
+	unsigned int		getGradeSign(void) const;
+	unsigned int		getGradeExec(void) const;
 
 	void				beSigned(const Bureaucrat& Bureaucrat);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:24:49 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/25 15:51:42 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/01 19:51:19 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <exception>
+
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -32,6 +36,7 @@ public:
 
 	void				incrementGrade();
 	void				decrementGrade();
+	void				signForm(Form& form);
 
 	class GradeTooHighException : public std::exception
 	{

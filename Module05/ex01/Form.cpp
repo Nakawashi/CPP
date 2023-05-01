@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:26:35 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/04/30 22:57:25 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/01 19:49:57 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,25 @@ Form&	Form::operator=(const Form& rhs)
 	return (*this);
 }
 
+const std::string&	Form::getName(void) const
+{
+	return this->_name;
+}
+
+bool	Form::getSigned(void) const
+{
+	return this->_signed;
+}
+
+unsigned int	Form::getGradeSign(void) const
+{
+	return this->_gradeSign;
+}
+
+unsigned int	Form::getGradeExec(void) const
+{
+	return this->_gradeExec;
+}
 
 void	Form::beSigned(const Bureaucrat& Bureaucrat)
 {
@@ -57,4 +76,24 @@ void	Form::beSigned(const Bureaucrat& Bureaucrat)
 		throw Form::GradeTooLowException();
 	else
 		this->_signed = true;
+}
+
+const char*	Form::GradeTooHighException::what() const throw()
+{
+	return "[form] grade too high";
+}
+
+const char*	Form::GradeTooLowException::what() const throw()
+{
+	return "[form] grade too low";
+}
+
+std::ostream& operator<<(std::ostream& stream, const Form& rhs)
+{
+	stream << "[form's name] : " << rhs.getName() << "\n";
+	stream << "is signed : " << rhs.getSigned() << "\n";
+	stream << "grade required to sign : " << rhs.getGradeSign() << "\n";
+	stream << "grade required to execute : " << rhs.getGradeExec() << std::endl;
+
+	return stream;
 }

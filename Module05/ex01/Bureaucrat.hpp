@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:24:49 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/01 19:51:19 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/02 01:11:36 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ public:
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("Grade is too high");
+				return ("[bureaucrat] grade is too high");
 			}
 	};
 
@@ -52,7 +52,7 @@ public:
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("Grade is too low");
+				return ("[bureaucrat] grade is too low");
 			}
 	};
 

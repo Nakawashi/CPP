@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:26:35 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/01 19:49:57 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/02 01:14:45 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ unsigned int	Form::getGradeExec(void) const
 
 void	Form::beSigned(const Bureaucrat& Bureaucrat)
 {
-	if (Bureaucrat.getGrade() > this->_gradeExec)
+	if (Bureaucrat.getGrade() > this->_gradeSign)
 		throw Form::GradeTooLowException();
 	else
 		this->_signed = true;
@@ -90,10 +90,10 @@ const char*	Form::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& stream, const Form& rhs)
 {
-	stream << "[form's name] : " << rhs.getName() << "\n";
-	stream << "is signed : " << rhs.getSigned() << "\n";
-	stream << "grade required to sign : " << rhs.getGradeSign() << "\n";
-	stream << "grade required to execute : " << rhs.getGradeExec() << std::endl;
+	stream << "[form's name] : " << rhs.getName() << "\n"
+		<< "is signed : " << rhs.getSigned() << "\n"
+		<< "grade required to sign : " << rhs.getGradeSign() << "\n"
+		<< "grade required to execute : " << rhs.getGradeExec() << std::endl;
 
 	return stream;
 }

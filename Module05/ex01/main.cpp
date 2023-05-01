@@ -3,43 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:23:31 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/25 17:36:41 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:15:38 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
-	try
 	{
-		// Bureaucrat a("tropHaut", 0); // uncomment to test throw at initialisation
-		// Bureaucrat b("tropBas", 151);
-		Bureaucrat c("Bernarda", 1);
-		Bureaucrat d("Bernardo", 150);
+		Bureaucrat	b1("Michael Scott", 21);
 
-		std::cout << "------------ start display ------------" << std::endl;
-		std::cout << c << std::endl;
-		std::cout << d << std::endl;
-		std::cout << "------------ end display ------------" << std::endl;
+		std::cout << b1 << std::endl;
 
-		std::cout << std::endl;
-
-		std::cout << "------------ start display ------------" << std::endl;
-		std::cout << "Augmentation du niveau de grade de " << c.getName() << std::endl;
-		c.incrementGrade();
-		std::cout << c.getGrade() << std::endl;
-		// std::cout << "Baisse du niveau de grade de " << d.getName() << std::endl;
-		// d.decrementGrade();
-		std::cout << "------------ end display ------------" << std::endl;
-
+		try
+		{
+			Form	f1("f1", 20, 35);
+			std::cout << b1 << std::endl;
+			b1.signForm(f1);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
-	catch(const std::exception& e)
+
 	{
-		std::cerr << e.what() << '\n';
+		Bureaucrat	b2("Margaret Tatcher", 150);
+
+		std::cout << b2 << std::endl;
+		try
+		{
+			Form	f2("f2", 1, 250);
+			std::cout << f2 << std::endl;
+			b2.signForm(f2);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+
 	}
 	return 0;
 }

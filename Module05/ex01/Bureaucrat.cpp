@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:22:51 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/25 16:00:50 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:12:27 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,24 @@ void	Bureaucrat::decrementGrade()
 
 	grade = getGrade();
 	setGrade(++grade);
+}
+
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name
+				<< " couldn't sign "
+				<< form.getName()
+				<< " because : "
+				<< e.what() << '\n'
+				<< std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat &rhs)

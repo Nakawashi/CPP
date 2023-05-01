@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:41:25 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/01 19:48:35 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/02 01:25:35 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ private:
 	const unsigned int	_gradeExec;
 };
 
-std::ostream& operator<<(std::ostream stream, const Form& rhs);
+std::ostream& operator<<(std::ostream& stream, const Form& rhs);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:22:51 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/02 01:12:27 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/02 01:23:53 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,10 @@ void	Bureaucrat::signForm(Form& form)
 	}
 }
 
-std::ostream& operator<<(std::ostream& stream, const Bureaucrat &rhs)
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat& rhs)
 {
-	stream << "\nBureaucrat's name : " << rhs.getName() << "\n";
-	stream << "Grade : " << rhs.getGrade() << std::endl;
+	stream << "\nBureaucrat's name : " << rhs.getName() << "\n"
+		<< "Grade : " << rhs.getGrade() << std::endl;
 
 	return stream;
 }

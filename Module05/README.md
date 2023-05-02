@@ -8,9 +8,11 @@ Merci a cette personne d'avoir réalisé ce wiki incroyable : [Wiki de qingqingq
 Premiere prise en main des try catch et imbrication de classes (heritage de std::exception)
 
 ## Ex01
-
+Création des formulaires. Attention aux circular dependencies.
 
 ## Ex02
-
+Form devient une classe virtuelle. Création de trois types de forms qui héritent de AForm du coup.
+Chaque bureaucrat doit d'abord avoir signé le formulaire avant de pouvoir l'exécuter.
+Chaque type d'erreur possible est try catch.
 
 ## Ex03

@@ -6,12 +6,12 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:23:31 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/02 14:00:08 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/02 17:47:38 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main(void)
 {
@@ -21,8 +21,10 @@ int	main(void)
 		std::cout << b1 << std::endl;
 		try
 		{
-			//std::cout << f1 << std::endl;
-			//b1.signForm(f1);
+			ShrubberyCreationForm shrubby;
+			std::cout << shrubby << std::endl;
+			b1.signForm(shrubby);
+			shrubby.execute(b1);
 		}
 		catch(const std::exception& e)
 		{
@@ -31,13 +33,14 @@ int	main(void)
 	}
 
 	{
-		Bureaucrat	b2("Margaret Tatcher", 150);
+		Bureaucrat	b1("Michael Scott", 150);
 
-		std::cout << b2 << std::endl;
+		std::cout << b1 << std::endl;
 		try
 		{
-			//std::cout << f2 << std::endl;
-			//b2.signForm(f2);
+			ShrubberyCreationForm shrubby;
+			b1.signForm(shrubby);
+			shrubby.execute(b1);
 		}
 		catch(const std::exception& e)
 		{

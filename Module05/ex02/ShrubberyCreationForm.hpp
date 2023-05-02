@@ -6,13 +6,14 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:26:12 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 16:28:47 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/02 17:23:30 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
+# include <fstream>
 # include "AForm.hpp"
 // create shrubbery form
 
@@ -30,8 +31,14 @@ public:
 
 	void					execute(const Bureaucrat& executor) const;
 
+	class OpenFilestreamException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+
 private:
-	std::string	_target;
+	std::string					_target;
+	static const std::string	_fileInput;
 };
 
 #endif

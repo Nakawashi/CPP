@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:26:35 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 16:18:36 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/02 23:03:28 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ void	AForm::beSigned(const Bureaucrat& bureaucrat)
 
 const char*	AForm::GradeTooHighException::what() const throw()
 {
-	return "[AForm] grade too high";
+	return "[AForm] not allowed to sign : grade too high";
 }
 
 const char*	AForm::GradeTooLowException::what() const throw()
 {
-	return "[AForm] grade too low";
+	return "[AForm] not allowed to sign : grade too low";
 }
 
 std::ostream& operator<<(std::ostream& stream, const AForm& rhs)

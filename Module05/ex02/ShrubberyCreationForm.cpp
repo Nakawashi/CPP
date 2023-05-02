@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:06:38 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 17:46:47 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/02 23:28:05 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,3 @@ const char* ShrubberyCreationForm::OpenFilestreamException::what() const throw()
 {
 	return "ShrubberyCreationForm : file could not open";
 }
-

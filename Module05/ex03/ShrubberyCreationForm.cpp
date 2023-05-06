@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:06:38 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 23:28:05 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 16:31:21 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,13 @@ const std::string	ShrubberyCreationForm::_fileInput =
 "            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%*\n";
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
-: AForm("ShrubberyForm", 145, 137), _target("jardin")
+: AForm("ShrubberyCreationForm", 145, 137), _target("jardin")
+{
+	// default constructor, every shrubbery must have those values at initialisation
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+: AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
 	// default constructor, every shrubbery must have those values at initialisation
 }

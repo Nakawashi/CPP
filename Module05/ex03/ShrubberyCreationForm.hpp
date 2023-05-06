@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:26:12 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 17:23:30 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 16:30:56 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class ShrubberyCreationForm : public AForm
 {
 public:
 	ShrubberyCreationForm(void);
+	ShrubberyCreationForm(std::string target);
 	ShrubberyCreationForm(const ShrubberyCreationForm& src);
 	~ShrubberyCreationForm(void);
 

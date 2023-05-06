@@ -6,14 +6,14 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:26:35 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 23:03:28 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 16:15:30 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm(void)
-: _name("Default AForm Name"), _signed(false), _gradeSign(150), _gradeExec(150)
+: _name("AForm"), _signed(false), _gradeSign(150), _gradeExec(150)
 {
 	// default constructor
 }

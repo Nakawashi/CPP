@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:45:40 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 23:47:36 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 16:32:41 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class PresidentialPardonForm : public AForm
 {
 public:
 	PresidentialPardonForm(void);
+	PresidentialPardonForm(std::string target);
 	PresidentialPardonForm(const PresidentialPardonForm& src);
 	~PresidentialPardonForm(void);
 

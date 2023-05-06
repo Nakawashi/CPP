@@ -2,7 +2,7 @@
 
 *Répétitions et exceptions, version 9*
 
-Merci a cette personne d'avoir réalisé ce wiki incroyable : [Wiki de qingqingqingli](https://github.com/qingqingqingli/CPP/tree/main/module04)
+Merci a cette personne d'avoir réalisé ce wiki incroyable : [Wiki de qingqingqingli](https://github.com/qingqingqingli/CPP/tree/main/module05)
 
 ## Ex00
 Premiere prise en main des try catch et imbrication de classes (heritage de std::exception)
@@ -16,3 +16,4 @@ Chaque bureaucrat doit d'abord avoir signé le formulaire avant de pouvoir l'ex�
 Chaque type d'erreur possible est try catch.
 
 ## Ex03
+Nouvelle classe Intern, indépendante. Fonction membre qui va créer un pointeur sur un formulaire si tout se déroule bien. A un tableau de formulaire pour vérifier les conditions de création de ceux-ci.

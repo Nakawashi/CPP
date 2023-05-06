@@ -11,7 +11,7 @@ Premiere prise en main des try catch et imbrication de classes (heritage de std:
 Création des formulaires. Attention aux circular dependencies.
 
 ## Ex02
-Form devient une classe virtuelle. Création de trois types de forms qui héritent de AForm du coup.
+Form devient une classe virtuelle, une méthode pure qui sera définie dans les différentes classes dérivées. Création de trois types de forms qui héritent de AForm.
 Chaque bureaucrat doit d'abord avoir signé le formulaire avant de pouvoir l'exécuter.
 Chaque type d'erreur possible est try catch.
 

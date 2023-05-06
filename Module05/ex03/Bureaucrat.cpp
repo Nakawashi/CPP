@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:22:51 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/06 17:32:09 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 18:09:23 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ void	Bureaucrat::executeForm(const AForm& form)
 		<< e.what() << '\n'
 		<< std::endl;
 	}
-
 }
 
 

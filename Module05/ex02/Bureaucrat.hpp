@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:24:49 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/02 13:38:11 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 18:09:03 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ public:
 	void				incrementGrade();
 	void				decrementGrade();
 	void				signForm(AForm& form);
+	void				executeForm(const AForm& form);
+
 
 	class GradeTooHighException : public std::exception
 	{

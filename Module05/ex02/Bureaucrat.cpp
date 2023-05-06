@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:22:51 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/02 13:51:58 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 18:09:37 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,28 @@ void	Bureaucrat::signForm(AForm& form)
 				<< " because : "
 				<< e.what() << '\n'
 				<< std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const AForm& form)
+{
+	try
+	{
+		form.execute(*this);
+
+		std::cout << this->_name
+		<< " executed "
+		<< form.getName()
+		<< std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name
+		<< " couldn't execute the form "
+		<< form.getName()
+		<< " because : "
+		<< e.what() << '\n'
+		<< std::endl;
 	}
 }
 

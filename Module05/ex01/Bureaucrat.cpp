@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:22:51 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/02 01:23:53 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 20:23:44 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,16 @@ void	Bureaucrat::signForm(Form& form)
 				<< e.what() << '\n'
 				<< std::endl;
 	}
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade is too high";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade is too low";
 }
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& rhs)

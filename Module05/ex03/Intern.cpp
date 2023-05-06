@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:02:40 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/06 17:37:30 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 20:30:00 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,9 @@ AForm*	Intern::makeForm(const std::string formName, const std::string target)
 	}
 	throw Intern::FormDoesntExists();
 	return NULL;
+}
+
+const char* Intern::FormDoesntExists::what() const throw()
+{
+	return "[Form] does not exists";
 }

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:27:38 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/06 16:32:21 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 20:31:13 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,9 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
 		else
 			std::cout << this->_target << " is robotomised with success" << std::endl;
 	}
+}
+
+const char* RobotomyRequestForm::RobotomisationFailedException::what() const throw()
+{
+	return "Robotomisation failed";
 }

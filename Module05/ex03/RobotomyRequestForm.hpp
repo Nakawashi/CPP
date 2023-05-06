@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:24:40 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/06 16:32:00 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 20:31:17 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ public:
 
 	class RobotomisationFailedException : public std::exception
 	{
-		virtual const char* what() const throw()
-		{
-			return "Robotomisation failed";
-		}
+		virtual const char* what() const throw();
 	};
 
 private:

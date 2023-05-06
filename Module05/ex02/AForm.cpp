@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:26:35 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 23:03:28 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 20:28:30 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,11 @@ const char*	AForm::GradeTooHighException::what() const throw()
 const char*	AForm::GradeTooLowException::what() const throw()
 {
 	return "[AForm] not allowed to sign : grade too low";
+}
+
+const char* AForm::FormNotSignedException::what() const throw()
+{
+	return "[AForm] : not signed yet. Has to be signed if you want to execute it.";
 }
 
 std::ostream& operator<<(std::ostream& stream, const AForm& rhs)

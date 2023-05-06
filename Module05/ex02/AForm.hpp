@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:41:25 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/02 17:45:02 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 20:28:44 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,10 @@ public:
 			virtual const char* what() const throw();
 	};
 
-	class FormSignedAlreadyException : public std::exception
-	{
-		public:
-			virtual const char* what() const throw()
-			{
-				return "Form : already signed";
-			}
-	};
-
 	class FormNotSignedException : public std::exception
 	{
 		public:
-			virtual const char* what() const throw()
-			{
-				return "Form : not signed yet. Has to be signed if you want to execute it.";
-			}
+			virtual const char* what() const throw();
 	};
 
 private:

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:24:40 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 23:32:56 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 16:32:00 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class RobotomyRequestForm : public AForm
 {
 public:
 	RobotomyRequestForm(void);
+	RobotomyRequestForm(std::string target);
 	RobotomyRequestForm(const RobotomyRequestForm& src);
 	~RobotomyRequestForm(void);
 

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:47:51 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 23:51:07 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 16:33:02 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 PresidentialPardonForm::PresidentialPardonForm(void)
 : AForm("PresidentialPardonForm", 25, 5), _target("Arthur Dent")
+{
+	// default constructor, every form must have those values at initialisation
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
+: AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
 	// default constructor, every form must have those values at initialisation
 }

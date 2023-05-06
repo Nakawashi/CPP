@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 23:27:38 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/02 23:49:28 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/06 16:32:21 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 RobotomyRequestForm::RobotomyRequestForm(void)
 : AForm("RobotomyRequestForm", 72, 45), _target("R2D2")
+{
+	// default constructor, every form must have those values at initialisation
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+: AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
 	// default constructor, every form must have those values at initialisation
 }

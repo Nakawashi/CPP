@@ -9,9 +9,10 @@ Consigne supplémentaire : Pour chaque exercice, la convertion de type devra êt
 ## Ex00
 Conversion scalaire.
 Type scalaire = type de base : char, int, float, double.
-Conversion utilisée : static_cast.
+Conversion utilisée : `static_cast`.
 
 ## Ex01
+Conversion utilisée : `dynamic_cast`.
 
 ## Ex02
-
+Conversion utilisée : `reinterpret_cast`.

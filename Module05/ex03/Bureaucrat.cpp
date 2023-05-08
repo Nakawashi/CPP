@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:22:51 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/06 20:25:44 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/08 12:54:03 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src)
 Bureaucrat::~Bureaucrat(void)
 {
 	// destructor
+
 }
 
 
@@ -106,11 +107,11 @@ void	Bureaucrat::signForm(AForm& form)
 	catch(const std::exception& e)
 	{
 		std::cerr << this->_name
-				<< " couldn't sign "
-				<< form.getName()
-				<< " because : "
-				<< e.what() << '\n'
-				<< std::endl;
+		<< " couldn't sign "
+		<< form.getName()
+		<< " because : "
+		<< e.what() << '\n'
+		<< std::endl;
 	}
 }
 
@@ -146,10 +147,11 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return "[bureaucrat] Grade is too low";
 }
 
-
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& rhs)
 {
-	stream << "\nBureaucrat's name : " << rhs.getName() << "\n"
+	stream << "\nBureaucrat's name : "
+		<< rhs.getName()
+		<< "\n"
 		<< "Grade : " << rhs.getGrade() << std::endl;
 
 	return stream;

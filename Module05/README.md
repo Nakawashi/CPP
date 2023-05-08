@@ -15,5 +15,9 @@ Form devient une classe virtuelle, une méthode pure qui sera définie dans les 
 Chaque bureaucrat doit d'abord avoir signé le formulaire avant de pouvoir l'exécuter.
 Chaque type d'erreur possible est try catch.
 
+Shrubbery cree un fichier avec un arbuste dedans
+Robotomy utilise l'aleatoire
+Presidential ecrit dans la sortie std que Zaphod a pardonné
+
 ## Ex03
 Nouvelle classe Intern, indépendante. Fonction membre qui va créer un pointeur sur un formulaire si tout se déroule bien. A un tableau de formulaire pour vérifier les conditions de création de ceux-ci.

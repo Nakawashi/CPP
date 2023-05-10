@@ -3,34 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConversion.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:23:11 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/08 20:11:25 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/11 00:49:36 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConversion.hpp"
 
-const std::string	ScalarConversion::_types[4] =
-{
-	"char",
-	"int",
-	"float",
-	"double"
-};
+ScalarConversion::ScalarConversion(void) : _input(0) { }
 
-ScalarConversion::ScalarConversion(void)
-: _user_input(0)
-{
-	return ;
-}
-
-ScalarConversion::ScalarConversion(std::string& user_input)
-: _user_input(user_input)
-{
-	return ;
-}
+ScalarConversion::ScalarConversion(std::string& user_input) : _input(user_input) { }
 
 ScalarConversion::ScalarConversion(const ScalarConversion& src)
 {
@@ -39,17 +23,50 @@ ScalarConversion::ScalarConversion(const ScalarConversion& src)
 
 ScalarConversion::~ScalarConversion(void)
 {
-
+	return ;
 }
 
 ScalarConversion&	ScalarConversion::operator=(const ScalarConversion& rhs)
 {
-	//if (this != &rhs)
-		/**/
+	if (this != &rhs)
+		this->_input = rhs.getInput();
+	return *this;
 
 }
 
 std::string	ScalarConversion::getInput(void) const
 {
-	return this->_user_input;
+	return this->_input;
+}
+
+/*
+	clear() : clean reset errors indicators but do not delete the content
+
+	Creation of a stringstream object based from user input
+	Try ton convert it into int, float and double.
+	If success, display the type.
+*/
+void	ScalarConversion::do_conversion(void)
+{
+	std::stringstream	ss(this->_input);
+	int					input_int;
+	float				input_float;
+	double				input_double;
+
+	if (ss >> input_int && !(this->_input.find(".") != std::string::npos))
+		std::cout << "integer" << std::endl;
+	else
+	{
+		ss.clear();
+		ss.str(this->_input);
+		if (ss >> input_float)
+			std::cout << "float" << std::endl;
+		else
+		{
+			ss.clear();
+			ss.str(this->_input);
+			if (ss >> input_double)
+				std::cout << "double" << std::endl;
+		}
+	}
 }

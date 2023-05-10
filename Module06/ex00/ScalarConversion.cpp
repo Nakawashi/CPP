@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:23:11 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/11 00:49:36 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/11 01:15:31 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ std::string	ScalarConversion::getInput(void) const
 	return this->_input;
 }
 
+std::string	ScalarConversion::getType(void) const
+{
+	return this->_type;
+}
+
 /*
 	clear() : clean reset errors indicators but do not delete the content
 
@@ -46,7 +51,7 @@ std::string	ScalarConversion::getInput(void) const
 	Try ton convert it into int, float and double.
 	If success, display the type.
 */
-void	ScalarConversion::do_conversion(void)
+void	ScalarConversion::storeInputType(void)
 {
 	std::stringstream	ss(this->_input);
 	int					input_int;

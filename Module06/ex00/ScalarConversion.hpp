@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:50:34 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/11 00:17:28 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/11 01:15:26 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ public:
 	ScalarConversion&	operator=(const ScalarConversion& rhs);
 
 	std::string	getInput(void) const;
+	std::string	getType(void) const;
 
-	void		do_conversion(void);
+	void		storeInputType(void);
+	void		doConversion(void);
 
 private:
 	std::string	_input;
-	//static const std::string	_types[4];
+	std::string	_type;
 
-	//std::string	_detect_type(std::string input); // return the real type of the input
 	void		_charConversion(std::string input);
 	void		_intConversion(std::string input);
 	void		_floatConversion(std::string input);

@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:23:11 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 18:51:01 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:15:16 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,11 +231,11 @@ void	ScalarConversion::_charConversion(void)
 	float	f = static_cast<float>(c);
 	double	d = static_cast<double>(c);
 
-	std::cout << "char\t: " << c << "\n"
-	<< "int\t: " << n << "\n"
-	<< "float\t: " << f << ".0f\n"
-	<< "double\t: " << d << ".0\n"
-	<< std::endl;
+	std::cout	<< "char\t: " << c << "\n"
+				<< "int\t: " << n << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< std::endl;
 }
 
 void	ScalarConversion::_intConversion(void)
@@ -247,16 +247,15 @@ void	ScalarConversion::_intConversion(void)
 
 	if (isprint(c) == 0)
 	{
-		c = ' ';
 		std::cout << "char\t: " << "impossible" << "\n";
 	}
 	else
 		std::cout << "char\t: " << c << "\n";
 
-	std::cout << "int\t: " << n << "\n"
-	<< "float\t: " << f << ".0f\n"
-	<< "double\t: " << d << ".0\n"
-	<< std::endl;
+	std::cout	<< "int\t: " << n << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< std::endl;
 }
 
 void	ScalarConversion::_floatConversion(void)
@@ -268,18 +267,20 @@ void	ScalarConversion::_floatConversion(void)
 
 	if (isprint(c) == 0)
 	{
-		c = ' ';
 		std::cout << "char\t: " << "impossible" << "\n";
 	}
 	else
 		std::cout << "char\t: " << c << "\n";
 
-	std::cout << "int\t: " << n << "\n"
-	<< "float\t: " << f << "\n"
-	<< "double\t: " << d << "\n"
-	<< std::endl;
+	std::cout	<< "int\t: " << n << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< std::endl;
 }
 
+/*
+	23.99995 pour differencier
+*/
 void	ScalarConversion::_doubleConversion(void)
 {
 	double	d = stod(getInput());
@@ -289,24 +290,13 @@ void	ScalarConversion::_doubleConversion(void)
 
 	if (isprint(c) == 0)
 	{
-		c = ' ';
 		std::cout << "char\t: " << "impossible" << "\n";
 	}
 	else
 		std::cout << "char\t: " << c << "\n";
 
-	std::cout << "int\t: " << n << "\n"
-	<< "float\t: " << f << "\n"
-	<< "double\t: " << d << "\n"
-	<< std::endl;
+	std::cout	<< "int\t: " << n << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< std::endl;
 }
-
-
-/*
-	converti en tous les types demandés
-
-	Si on a un int
-		convertir string en int
-		puis tenter une conversion vers les trois autres types
-
-*/

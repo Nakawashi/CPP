@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:50:34 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 17:48:38 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:08:36 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include <sstream>
 #include <limits>
 #include <exception>

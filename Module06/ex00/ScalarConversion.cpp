@@ -6,12 +6,13 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:23:11 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 15:33:47 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:44:37 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConversion.hpp"
 
+// CANONICAL
 ScalarConversion::ScalarConversion(void) : _input(0) { }
 
 ScalarConversion::ScalarConversion(std::string& user_input) : _input(user_input), _ss(user_input) { }
@@ -34,6 +35,7 @@ ScalarConversion&	ScalarConversion::operator=(const ScalarConversion& rhs)
 
 }
 
+// GET, SET
 std::string	ScalarConversion::getInput(void) const
 {
 	return this->_input;
@@ -54,18 +56,18 @@ void	ScalarConversion::setType(std::string newType)
 	this->_type = newType;
 }
 
-
+// EXCEPTIONS
 const char* ScalarConversion::UnrecognizedTypeException::what() const throw()
 {
 	return "User input error : type unrecognized";
 }
 
-
+// GET TYPE
 bool	ScalarConversion::_isChar(void)
 {
 	if (getInput().length() == 1 && isalpha(getInput()[0]))
 	{
-		std::cout << "char" << std::endl;
+		// std::cout << "char" << std::endl;
 		return true;
 	}
 	return false;
@@ -87,7 +89,7 @@ bool	ScalarConversion::_isInteger(void)
 	if (getStringStream() >> input_int
 		&& getInput().find(".") == std::string::npos)
 	{
-		std::cout << "integer" << std::endl;
+		// std::cout << "integer" << std::endl;
 		return true;
 	}
 	return false;
@@ -110,7 +112,7 @@ bool	ScalarConversion::_isFloat(void)
 			getStringStream().str(sub_input);
 			if (getStringStream() >> input_float)
 			{
-				std::cout << "float" << std::endl;
+				// std::cout << "float" << std::endl;
 				return true;
 			}
 		}
@@ -129,13 +131,13 @@ bool	ScalarConversion::_isDouble(void)
 	if (getStringStream() >> input_double
 		&& getInput().find(".") != std::string::npos)
 	{
-		std::cout << "double" << std::endl;
+		// std::cout << "double" << std::endl;
 		return true;
 	}
 	return false;
 }
 
-
+// SET AND STORE USER INPUT TYPE
 void	ScalarConversion::storeInputType(void)
 {
 	if (this->_isChar())
@@ -147,5 +149,5 @@ void	ScalarConversion::storeInputType(void)
 	else if (this->_isDouble())
 		setType("double");
 	else
-		std::cout << "Error : " << std::endl;
+		throw ScalarConversion::UnrecognizedTypeException();
 }

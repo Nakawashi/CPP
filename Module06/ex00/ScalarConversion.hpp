@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:50:34 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 16:48:55 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:48:38 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,17 @@ private:
 	std::string			_type;
 	bool				_signed;
 
+	static std::string	_science[6];
+
 	bool	_isChar(void);
 	bool	_isInteger(void);
 	bool	_isFloat(void);
 	bool	_isDouble(void);
-	void	_charConversion(std::string input);
-	void	_intConversion(std::string input);
-	void	_floatConversion(std::string input);
-	void	_doubleConversion(std::string input);
+	bool	_forScience(void);
+	void	_charConversion(void);
+	void	_intConversion(void);
+	void	_floatConversion(void);
+	void	_doubleConversion(void);
 };
 
 // #endif

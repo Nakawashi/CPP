@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:43:25 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 16:31:27 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:09:08 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	main(int argc, char **argv)
 		try
 		{
 			sc.storeInputType();
-			std::cout << "type : " << sc.getType() << std::endl;
+			std::cout << "\033[0;33mtype\t: " << sc.getType() << "\033[0m" << std::endl;
+			sc.doConversion();
 		}
 		catch(const std::exception& e)
 		{

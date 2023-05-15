@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:23:11 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 15:44:37 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:53:56 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 // CANONICAL
 ScalarConversion::ScalarConversion(void) : _input(0) { }
 
-ScalarConversion::ScalarConversion(std::string& user_input) : _input(user_input), _ss(user_input) { }
+ScalarConversion::ScalarConversion(std::string& user_input)
+: _input(user_input), _ss(user_input), _type(""), _signed(false) { }
 
 ScalarConversion::ScalarConversion(const ScalarConversion& src)
 {
@@ -51,10 +52,16 @@ std::string	ScalarConversion::getType(void) const
 	return this->_type;
 }
 
+void	ScalarConversion::setInput(std::string newInput)
+{
+	this->_input = newInput;
+}
+
 void	ScalarConversion::setType(std::string newType)
 {
 	this->_type = newType;
 }
+
 
 // EXCEPTIONS
 const char* ScalarConversion::UnrecognizedTypeException::what() const throw()
@@ -62,14 +69,17 @@ const char* ScalarConversion::UnrecognizedTypeException::what() const throw()
 	return "User input error : type unrecognized";
 }
 
+
 // GET TYPE
 bool	ScalarConversion::_isChar(void)
 {
-	if (getInput().length() == 1 && isalpha(getInput()[0]))
+	if (getInput().length() == 1
+		&& isalpha(getInput()[0]))
 	{
-		// std::cout << "char" << std::endl;
 		return true;
 	}
+	if (isprint(getInput()[0] == 0))
+		std::cerr << "Non printable caracter" << std::endl;
 	return false;
 }
 
@@ -87,9 +97,9 @@ bool	ScalarConversion::_isInteger(void)
 	getStringStream().str(getInput());
 
 	if (getStringStream() >> input_int
-		&& getInput().find(".") == std::string::npos)
+		&& getInput().find(".") == std::string::npos
+		&& std::regex_match(getInput(), std::regex("\\d+")))
 	{
-		// std::cout << "integer" << std::endl;
 		return true;
 	}
 	return false;
@@ -140,6 +150,13 @@ bool	ScalarConversion::_isDouble(void)
 // SET AND STORE USER INPUT TYPE
 void	ScalarConversion::storeInputType(void)
 {
+	size_t input_len = getInput().length();
+
+	if (this->_input[0] == '-' && input_len > 1)
+	{
+		setInput(getInput().substr(1, input_len));
+		this->_signed = true;
+	}
 	if (this->_isChar())
 		setType("char");
 	else if (this->_isInteger())

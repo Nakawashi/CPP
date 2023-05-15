@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:50:34 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 15:35:06 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:48:55 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <sstream>
 #include <limits>
 #include <exception>
+#include <regex>
 
 class ScalarConversion
 {
@@ -33,6 +34,7 @@ public:
 	std::string				getInput(void) const;
 	std::stringstream&		getStringStream(void);
 	std::string				getType(void) const;
+	void					setInput(std::string newInput);
 	void					setType(std::string newType);
 
 	void					storeInputType(void);
@@ -48,6 +50,7 @@ private:
 	std::string			_input;
 	std::stringstream	_ss;
 	std::string			_type;
+	bool				_signed;
 
 	bool	_isChar(void);
 	bool	_isInteger(void);

@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:23:11 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 19:15:16 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:31:48 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,88 @@ bool	ScalarConversion::_isDouble(void)
 	return false;
 }
 
+void	ScalarConversion::_charConversion(void)
+{
+	char	c = getInput().front();
+	int		n = static_cast<int>(c);
+	float	f = static_cast<float>(c);
+	double	d = static_cast<double>(c);
+
+	std::cout	<< "char\t: " << c << "\n"
+				<< "int\t: " << n << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< std::endl;
+}
+
+void	ScalarConversion::_intConversion(void)
+{
+	int		n = stoi(getInput());
+	if (this->_signed)
+		n *= -1;
+	char	c = static_cast<char>(n);
+	float	f = static_cast<float>(n);
+	double	d = static_cast<double>(n);
+
+	if (isprint(c) == 0)
+	{
+		std::cout << "char\t: " << "impossible" << "\n";
+	}
+	else
+		std::cout << "char\t: " << c << "\n";
+
+	std::cout	<< "int\t: " << n << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< std::endl;
+}
+
+void	ScalarConversion::_floatConversion(void)
+{
+	float	f = stof(getInput());
+	if (this->_signed)
+		f *= -1;
+	char	c = static_cast<char>(f);
+	int		n = static_cast<int>(f);
+	double	d = static_cast<double>(f);
+
+	if (isprint(c) == 0)
+	{
+		std::cout << "char\t: " << "impossible" << "\n";
+	}
+	else
+		std::cout << "char\t: " << c << "\n";
+
+	std::cout	<< "int\t: " << n << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< std::endl;
+}
+
+/*
+	23.99995 pour differencier
+*/
+void	ScalarConversion::_doubleConversion(void)
+{
+	double	d = stod(getInput());
+	if (this->_signed)
+		d *= -1;
+	char	c = static_cast<char>(d);
+	int		n = static_cast<int>(d);
+	float	f = static_cast<float>(d);
+
+	if (isprint(c) == 0)
+	{
+		std::cout << "char\t: " << "impossible" << "\n";
+	}
+	else
+		std::cout << "char\t: " << c << "\n";
+
+	std::cout	<< "int\t: " << n << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< std::endl;
+}
 
 
 // SET AND STORE USER INPUT TYPE
@@ -222,81 +304,4 @@ void	ScalarConversion::doConversion(void)
 		<< "double\t: nan"
 		<< std::endl;
 	}
-}
-
-void	ScalarConversion::_charConversion(void)
-{
-	char	c = getInput().front();
-	int		n = static_cast<int>(c);
-	float	f = static_cast<float>(c);
-	double	d = static_cast<double>(c);
-
-	std::cout	<< "char\t: " << c << "\n"
-				<< "int\t: " << n << "\n"
-				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
-				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
-				<< std::endl;
-}
-
-void	ScalarConversion::_intConversion(void)
-{
-	int		n = stoi(getInput());
-	char	c = static_cast<char>(n);
-	float	f = static_cast<float>(n);
-	double	d = static_cast<double>(n);
-
-	if (isprint(c) == 0)
-	{
-		std::cout << "char\t: " << "impossible" << "\n";
-	}
-	else
-		std::cout << "char\t: " << c << "\n";
-
-	std::cout	<< "int\t: " << n << "\n"
-				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
-				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
-				<< std::endl;
-}
-
-void	ScalarConversion::_floatConversion(void)
-{
-	float	f = stof(getInput());
-	char	c = static_cast<char>(f);
-	int		n = static_cast<int>(f);
-	double	d = static_cast<double>(f);
-
-	if (isprint(c) == 0)
-	{
-		std::cout << "char\t: " << "impossible" << "\n";
-	}
-	else
-		std::cout << "char\t: " << c << "\n";
-
-	std::cout	<< "int\t: " << n << "\n"
-				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
-				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
-				<< std::endl;
-}
-
-/*
-	23.99995 pour differencier
-*/
-void	ScalarConversion::_doubleConversion(void)
-{
-	double	d = stod(getInput());
-	char	c = static_cast<char>(d);
-	int		n = static_cast<int>(d);
-	float	f = static_cast<float>(d);
-
-	if (isprint(c) == 0)
-	{
-		std::cout << "char\t: " << "impossible" << "\n";
-	}
-	else
-		std::cout << "char\t: " << c << "\n";
-
-	std::cout	<< "int\t: " << n << "\n"
-				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
-				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
-				<< std::endl;
 }

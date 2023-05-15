@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConversion.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 19:23:11 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 19:31:48 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/15 21:46:09 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ ScalarConversion&	ScalarConversion::operator=(const ScalarConversion& rhs)
 	if (this != &rhs)
 		this->_input = rhs.getInput();
 	return *this;
-
 }
 
 // GET, SET
@@ -116,7 +115,8 @@ bool	ScalarConversion::_isInteger(void)
 }
 
 /*
-	careful : 5.0f can't be converted using stringstream because of the f char
+	careful : 5.0f can't be converted using stringstream because of the f char.
+	had to remove it with substr().
 */
 bool	ScalarConversion::_isFloat(void)
 {
@@ -164,14 +164,14 @@ void	ScalarConversion::_charConversion(void)
 
 	std::cout	<< "char\t: " << c << "\n"
 				<< "int\t: " << n << "\n"
-				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
-				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(10) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(10) << d << "\n"
 				<< std::endl;
 }
 
 void	ScalarConversion::_intConversion(void)
 {
-	int		n = stoi(getInput());
+	int	n = stoi(getInput());
 	if (this->_signed)
 		n *= -1;
 	char	c = static_cast<char>(n);
@@ -186,8 +186,8 @@ void	ScalarConversion::_intConversion(void)
 		std::cout << "char\t: " << c << "\n";
 
 	std::cout	<< "int\t: " << n << "\n"
-				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
-				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(10) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(10) << d << "\n"
 				<< std::endl;
 }
 
@@ -208,13 +208,13 @@ void	ScalarConversion::_floatConversion(void)
 		std::cout << "char\t: " << c << "\n";
 
 	std::cout	<< "int\t: " << n << "\n"
-				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
-				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(10) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(10) << d << "\n"
 				<< std::endl;
 }
 
 /*
-	23.99995 pour differencier
+	23.99995 pour differencier float de double
 */
 void	ScalarConversion::_doubleConversion(void)
 {
@@ -233,8 +233,8 @@ void	ScalarConversion::_doubleConversion(void)
 		std::cout << "char\t: " << c << "\n";
 
 	std::cout	<< "int\t: " << n << "\n"
-				<< "float\t: " << std::fixed << std::setprecision(1) << f << "f\n"
-				<< "double\t: " << std::fixed << std::setprecision(1) << d << "\n"
+				<< "float\t: " << std::fixed << std::setprecision(10) << f << "f\n"
+				<< "double\t: " << std::fixed << std::setprecision(10) << d << "\n"
 				<< std::endl;
 }
 
@@ -302,6 +302,22 @@ void	ScalarConversion::doConversion(void)
 		<< "int\t: impossible\n"
 		<< "float\t: nanf\n"
 		<< "double\t: nan"
+		<< std::endl;
+	}
+	else if (getType() == "+inf" || getType() == "+inff")
+	{
+		std::cout << "char\t: impossible\n"
+		<< "int\t: impossible\n"
+		<< "float\t: +inff\n"
+		<< "double\t: +inf"
+		<< std::endl;
+	}
+	else if (getType() == "-inf" || getType() == "-inff")
+	{
+		std::cout << "char\t: impossible\n"
+		<< "int\t: impossible\n"
+		<< "float\t: -inff\n"
+		<< "double\t: -inf"
 		<< std::endl;
 	}
 }

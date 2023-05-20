@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:34:12 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/20 21:24:17 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/20 21:42:41 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <exception>
-# include "Array.tpp"
 
 template<typename T = int> // what the array contains could be anything
 class Array
@@ -38,7 +37,7 @@ public:
 	};
 
 private:
-	T*				_element;
+	T*				_array;
 	unsigned int	_array_size;
 };
 

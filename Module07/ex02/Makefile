@@ -6,7 +6,7 @@
 #    By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/05/19 20:32:55 by nakawashi        ###   ########.fr        #
+#    Updated: 2023/05/20 21:46:09 by nakawashi        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ endif
 ## Files ##
 
 SRCS_FILES	=	main.cpp \
+				Array.tpp
 
 ## Directories ##
 

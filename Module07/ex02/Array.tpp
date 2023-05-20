@@ -60,7 +60,7 @@ Array<T>::Array&	operator=(const Array& rhs)
 }
 
 template<typename T>
-unsigned int	size(void)
+unsigned int	Array<T>::size(void)
 {
 	return this->_array_size;
 }

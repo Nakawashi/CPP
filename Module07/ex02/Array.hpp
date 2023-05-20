@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:34:12 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/20 21:42:41 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/20 22:08:05 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,7 @@ private:
 
 template<typename T>
 std::ostream&		operator<<(std::ostream& stream, const Array<T>& rhs);
+
+//# include "Array.tpp"
 
 #endif

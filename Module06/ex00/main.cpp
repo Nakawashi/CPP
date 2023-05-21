@@ -6,9 +6,13 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:43:25 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/15 18:09:08 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:16:45 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// #define YELLOW( w ) << "\033[0;33m" << w << "\033[0m"
+#define YELLOW	"\033[0;33m"
+#define NONE	"\033[0m"
 
 #include "ScalarConversion.hpp"
 
@@ -24,7 +28,7 @@ int	main(int argc, char **argv)
 		try
 		{
 			sc.storeInputType();
-			std::cout << "\033[0;33mtype\t: " << sc.getType() << "\033[0m" << std::endl;
+			std::cout << YELLOW << "type\t: " << sc.getType() << NONE << std::endl;
 			sc.doConversion();
 		}
 		catch(const std::exception& e)

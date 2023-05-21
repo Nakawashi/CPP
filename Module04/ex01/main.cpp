@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:40:56 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/04/18 12:47:24 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:19:32 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ int	main(void)
 	std::cout << "parent : " << std::endl;
 	parent.getBrain()->printIdeas();
 	{
-
 		Dog tmp;
 		tmp.getBrain()->setIdea(0, "I am a dog too");
 		tmp.getBrain()->setIdea(1, "wouuuf");

@@ -24,3 +24,5 @@ Conversion utilisée : `reinterpret_cast`.
 
 ## Ex02
 Conversion utilisée : `dynamic_cast`.
+
+Utilisation du try / catch pour les references comme celles-ci ne peuvent etre vides, on ne peut pas comparer avec nullptr

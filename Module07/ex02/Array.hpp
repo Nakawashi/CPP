@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:34:12 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/20 22:08:05 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/21 17:41:01 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ public:
 
 private:
 	T*				_array;
-	unsigned int	_array_size;
+	unsigned int	_size;
 };
 
 template<typename T>
 std::ostream&		operator<<(std::ostream& stream, const Array<T>& rhs);
 
-//# include "Array.tpp"
+# include "Array.tpp"
 
 #endif

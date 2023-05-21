@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+         #
+#    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/05/20 22:24:00 by nakawashi        ###   ########.fr        #
+#    Updated: 2023/05/21 18:16:48 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS		= $(SRCS_FILES:.cpp=.o)
 CXXFLAGS	= -Wall -Wextra -Werror
 CXXFLAGS	+= -std=c++98
 CXXFLAGS	+= -pedantic
-CXXFLAGS	+= -Werror-conversion # don't allow demotion conversion. force explicit cast.
+#CXXFLAGS	+= -Werror-conversion # don't allow demotion conversion. force explicit cast.
 #CXXFLAGS	+= -Wshadow
 #CXXFLAGS	+= -Wno-shadow
 
@@ -38,7 +38,6 @@ endif
 ## Files ##
 
 SRCS_FILES	=	main.cpp \
-				Array.tpp
 
 ## Directories ##
 

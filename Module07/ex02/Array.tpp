@@ -3,33 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 20:18:08 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/20 22:23:38 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/21 18:19:44 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
-
 template<typename T>
 Array<T>::Array(void)
-: _array_size(0), _array(nullptr) { }
+: _size(0), _array(nullptr) { }
 
 // _array(new T[n]) : alloue dynamiquement un tableau de type T de taille n
 template<typename T>
 Array<T>::Array(unsigned int n)
-: _array_size(n), _array(new T[n])
+: _array(new T[n]), _size(n)
 {
-	if
-	// constructor that creates an array of n elements of type T
+	if (this->_size < 1)
+		throw InvalidIndexException();
 }
 
 template<typename T>
 Array<T>::Array(const Array& src)
-: _array_size(src._array_size), _array(new T[src._array_size])
+: _array(new T[src._size]), _size(src._size)
 {
-	for (size_t i = 0; i < src._array_size; ++i)
+	for (size_t i = 0; i < src._size; ++i)
 	{
 		this->_array[i] = src._array[i];
 	}
@@ -38,31 +36,40 @@ Array<T>::Array(const Array& src)
 template<typename T>
 Array<T>::~Array(void)
 {
-	if (this->_array_size)
+	if (this->_size)
 		delete[] this->_array;
 }
 
 template<typename T>
-Array<T>::Array&	operator=(const Array& rhs)
+Array<T>	&Array<T>::operator=(const Array& rhs)
 {
 	if (this == &rhs)
 		return *this;
-	if (this->_array_size > 0)
+	if (this->_size > 0)
 		delete[] this->_array;
 
-	this->_array_size = rhs.size();
-	this->_array = new T[this->_array_size];
-	for (size_t i = 0; i < this->_array_size; ++i)
-	{
+	this->_size = rhs.size();
+	this->_array = new T[this->_size];
+
+	for (size_t i = 0; i < this->_size; ++i)
 		this->_array[i] = rhs._array[i];
-	}
+
 	return *this;
 }
 
 template<typename T>
-unsigned int	Array<T>::size(void)
+T	&Array<T>::operator[](unsigned int index)
 {
-	return this->_array_size;
+	if (index >= this->_size)
+		throw Array<T>::InvalidIndexException();
+
+	return this->_array[index];
+}
+
+template<typename T>
+unsigned int	Array<T>::size(void) const
+{
+	return this->_size;
 }
 
 template<typename T>
@@ -70,14 +77,13 @@ std::ostream&	operator<<(std::ostream& stream, const Array<T>& rhs)
 {
 	for (size_t i = 0; i < rhs.size(); ++i)
 	{
-		stream << rhs[i] << "\n"
+		stream << rhs[i] << "\n";
 	}
 	return stream;
 }
 
-
-
-
-
-
-#endif
+template<typename T>
+const char* Array<T>::InvalidIndexException::what() const throw()
+{
+	return "Invalid array's index";
+}

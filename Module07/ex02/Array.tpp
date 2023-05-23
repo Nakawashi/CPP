@@ -6,13 +6,13 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 20:18:08 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/21 18:19:44 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:41:36 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template<typename T>
 Array<T>::Array(void)
-: _size(0), _array(nullptr) { }
+: _array(nullptr), _size(0) { }
 
 // _array(new T[n]) : alloue dynamiquement un tableau de type T de taille n
 template<typename T>
@@ -58,7 +58,7 @@ Array<T>	&Array<T>::operator=(const Array& rhs)
 }
 
 template<typename T>
-T	&Array<T>::operator[](unsigned int index)
+T&	Array<T>::operator[](unsigned int index)
 {
 	if (index >= this->_size)
 		throw Array<T>::InvalidIndexException();
@@ -73,11 +73,11 @@ unsigned int	Array<T>::size(void) const
 }
 
 template<typename T>
-std::ostream&	operator<<(std::ostream& stream, const Array<T>& rhs)
+std::ostream&	operator<<(std::ostream& stream, Array<T> &rhs)
 {
 	for (size_t i = 0; i < rhs.size(); ++i)
 	{
-		stream << rhs[i] << "\n";
+		stream << i << " - " << rhs[i] << "\n";
 	}
 	return stream;
 }

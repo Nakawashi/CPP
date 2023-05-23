@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:34:12 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/21 17:41:01 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:35:15 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <exception>
 
-template<typename T = int> // what the array contains could be anything
+template<typename T = int>
 class Array
 {
 public:

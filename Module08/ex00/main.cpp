@@ -6,12 +6,12 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:04:01 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/29 23:43:18 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/29 23:46:17 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <algorithm>
-#include <vector>
+#include <iostream>			// std::cout
+#include <vector>			// std::vector
 #include "easyfind.hpp"
 
 int	main(void)

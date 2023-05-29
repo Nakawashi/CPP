@@ -6,15 +6,12 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:04:07 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/05/29 23:42:28 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/29 23:45:19 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
-
-# include <iostream>
-# include <exception>
 
 /*
 	typename : informs the compilator that T::iterator is a type

@@ -6,7 +6,7 @@
 #    By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/05/29 21:48:58 by nakawashi        ###   ########.fr        #
+#    Updated: 2023/05/30 13:07:41 by nakawashi        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS		= $(SRCS_FILES:.cpp=.o)
 CXXFLAGS	= -Wall -Wextra -Werror
 CXXFLAGS	+= -std=c++98
 CXXFLAGS	+= -pedantic
-CXXFLAGS	+= -Werror-conversion # don't allow demotion conversion. force explicit cast.
+#CXXFLAGS	+= -Werror-conversion # don't allow demotion conversion. force explicit cast.
 #CXXFLAGS	+= -Wshadow
 #CXXFLAGS	+= -Wno-shadow
 
@@ -38,6 +38,7 @@ endif
 ## Files ##
 
 SRCS_FILES	=	main.cpp \
+				Span.cpp \
 
 ## Directories ##
 

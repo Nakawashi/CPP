@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:46 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 17:22:45 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/30 17:58:58 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	void			printVector(void) const;
 	void			addNumber(void);
 	unsigned int	shortestSpan(void) const;
-	int				longestSpan(void) const;
+	unsigned int	longestSpan(void) const;
 
 	class SpanFullException : public std::exception
 	{

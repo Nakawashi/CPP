@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:48 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 17:13:44 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/30 17:58:14 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(void)
 	//v.addNumber(); // uncomment to catch the exception
 	v.printVector();
 
-	std::cout << "min diff : " << std::endl;
+	std::cout << "min diff : " << v.shortestSpan() << std::endl;
 	std::cout << "max diff : " << v.longestSpan() << std::endl;
 
 	return 0;

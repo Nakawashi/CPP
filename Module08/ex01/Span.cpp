@@ -6,13 +6,14 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 17:25:55 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/30 18:00:03 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <random>
 #include <algorithm>
+#include <numeric>
 
 //------
 
@@ -62,40 +63,44 @@ void	Span::addNumber(void)
 	this->_stockage.push_back(randomNumber);
 }
 
-/* unsigned int	Span::shortestSpan(void) const
+/*
+	accumulate : additionne tous les éléments du vecteur
+*/
+unsigned int	Span::shortestSpan(void) const
 {
 	if (this->_stockage.size() == 0)
 		throw Span::SpanEmptyException();
 	if (this->_stockage.size() == 1)
 		throw Span::SpanDistanceException();
 
-	unsigned int	shortest;
-	unsigned int	span;
+	unsigned int	sum = accumulate(this->_stockage.begin(), this->_stockage.end(), 0);
+	unsigned int	diff = sum - 2 * this->_stockage[0];
+	unsigned int	mindiff = my_abs(diff);
 
-	std::sort(this->_stockage.begin(), this->_stockage.end());
-	shortest = my_abs(this->_stockage[0] - this->_stockage[1]);
-
-	for (size_t i = 1; this->_stockage.size() - 1; ++i)
+	for (size_t i = 1; i < this->_stockage.size(); ++i)
 	{
-		span = my_abs(this->_stockage[i] - this->_stockage[i + 1]);
-		shortest = std::min(shortest, span);
+		diff -= 2 * this->_stockage[i];
+		if (diff == 0)
+			return 0;
+		mindiff = fmin(mindiff, my_abs(diff));
 	}
-	return shortest;
-} */
+	return mindiff;
+}
 
-int	Span::longestSpan(void) const
+unsigned int	Span::longestSpan(void) const
 {
 	if (this->_stockage.empty())
 		throw Span::SpanEmptyException();
 	if (this->_stockage.size() == 1)
 		throw Span::SpanDistanceException();
 
-	//int	diff;
+	std::vector<unsigned int> sorted = this->_stockage;
+	std::sort(sorted.begin(), sorted.end());
+	unsigned int diff = sorted.back() - sorted.front();
 
-	//std::sort(this->_stockage.begin(), this->_stockage.begin() + this->_stockage.size());
-	std::sort(this->_stockage.begin(), this->_stockage.begin() + 4);
-	//diff = (this->_stockage.end() - 1) - this->_stockage.begin();
-	return 0;
+	std::cout << sorted.back() << " - " << sorted.front() << " = ";
+
+	return diff;
 }
 
 const char*	Span::SpanFullException::what() const throw()

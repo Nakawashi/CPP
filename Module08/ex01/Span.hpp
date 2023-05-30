@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:46 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 12:56:01 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/30 17:22:45 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ public:
 
 	Span&			operator=(const Span& rhs);
 	unsigned int	getMaxN(void) const;
+	void			printVector(void) const;
 	void			addNumber(void);
 	unsigned int	shortestSpan(void) const;
-	void			longestSpan(void) const;
+	int				longestSpan(void) const;
 
 	class SpanFullException : public std::exception
 	{
@@ -53,7 +54,5 @@ private:
 	unsigned int				_max_n;
 	std::vector<unsigned int>	_stockage;
 };
-
-std::ostream& operator<<(std::ostream& stream, const Span &rhs);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 14:38:42 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/30 17:25:55 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ unsigned int	my_abs(int a)
 //-------
 
 Span::Span(unsigned int max_n)
-: _max_n(max_n), _stockage(max_n) { }
+: _max_n(max_n), _stockage(0) { }
 
 Span::Span(const Span& src)
 : _max_n(src.getMaxN()), _stockage(src._stockage)
@@ -52,7 +52,7 @@ Span::~Span(void) { }
 */
 void	Span::addNumber(void)
 {
-	if (this->_stockage.size() > this->getMaxN())
+	if (this->_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
 
 	std::random_device random;
@@ -83,14 +83,20 @@ void	Span::addNumber(void)
 	return shortest;
 } */
 
-/* void	Span::longestSpan(void) const
+int	Span::longestSpan(void) const
 {
-	if (this->_stockage.size() == 0)
+	if (this->_stockage.empty())
 		throw Span::SpanEmptyException();
 	if (this->_stockage.size() == 1)
 		throw Span::SpanDistanceException();
 
-} */
+	//int	diff;
+
+	//std::sort(this->_stockage.begin(), this->_stockage.begin() + this->_stockage.size());
+	std::sort(this->_stockage.begin(), this->_stockage.begin() + 4);
+	//diff = (this->_stockage.end() - 1) - this->_stockage.begin();
+	return 0;
+}
 
 const char*	Span::SpanFullException::what() const throw()
 {
@@ -112,4 +118,13 @@ unsigned int	Span::getMaxN(void) const
 	return this->_max_n;
 }
 
+void	Span::printVector(void) const
+{
+	if (this->_stockage.empty())
+		return ;
 
+	for (size_t i = 0; i < this->getMaxN(); ++i)
+	{
+		std::cout << i << " : " << this->_stockage[i] << std::endl;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 23:47:07 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/31 00:04:29 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,17 @@ void	Span::addNumber(int n)
 	if (this->_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
 	this->_stockage.push_back(n);
+}
+
+void	Span::betterAddNumber(int* begin, int* end)
+{
+	if (this->_stockage.size() >= this->getMaxN())
+		throw Span::SpanFullException();
+	//size_t	leftToFill = this->getMaxN() - this->_stockage.size();
+
+	while (begin != end)
+		this->addNumber(*begin);
+		++begin;
 }
 
 /*

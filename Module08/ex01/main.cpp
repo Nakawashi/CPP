@@ -6,11 +6,12 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:48 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 23:46:46 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/31 00:03:51 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <vector>
 
 int	main(void)
 {
@@ -35,7 +36,7 @@ int	main(void)
 		std::cout << "max diff : " << v.longestSpan() << std::endl; */
 	}
 
-	{
+/* 	{
 		Span v(10);
 		try
 		{
@@ -43,8 +44,20 @@ int	main(void)
 			v.addNumber(666);
 			v.addNumber(666);
 			v.addNumber(666);
-			v.addNumber(666);
 			v.addRandomNumbers();
+			v.printVector();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << "Error : " << e.what() << '\n';
+		}
+	} */
+
+	{
+		Span v(5);
+		try
+		{
+			v.betterAddNumber(numbers.begin(), numbers.end());
 			v.printVector();
 		}
 		catch(const std::exception& e)

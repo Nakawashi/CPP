@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:46 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 23:41:18 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/30 23:52:34 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
 	void			printVector(void) const;
 	void			addRandomNumbers(void);
 	void			addNumber(int n);
+	void			betterAddNumber(int* begin, int* end);
 	unsigned int	shortestSpan(void) const;
 	unsigned int	longestSpan(void) const;
 

@@ -6,14 +6,13 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 18:00:03 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/30 23:27:22 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <random>
-#include <algorithm>
-#include <numeric>
+#include <algorithm>	// sort(), min()
 
 //------
 
@@ -51,7 +50,7 @@ Span::~Span(void) { }
 	std::uniform_int_distribution<std::mt19937::result_type> dist6(-50, 50); -- warning signed numbers
 		créé une distribution uniforme d'entiers dans la plage donnée.
 */
-void	Span::addNumber(void)
+void	Span::addRandomNumber(void)
 {
 	if (this->_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
@@ -61,6 +60,13 @@ void	Span::addNumber(void)
 	std::uniform_int_distribution<std::mt19937::result_type> dist6(0, 100);
 	unsigned int randomNumber = dist6(rng);
 	this->_stockage.push_back(randomNumber);
+}
+
+void	Span::addNumber(int n)
+{
+	if (this->_stockage.size() >= this->getMaxN())
+		throw Span::SpanFullException();
+	this->_stockage.push_back(n);
 }
 
 /*
@@ -73,18 +79,19 @@ unsigned int	Span::shortestSpan(void) const
 	if (this->_stockage.size() == 1)
 		throw Span::SpanDistanceException();
 
-	unsigned int	sum = accumulate(this->_stockage.begin(), this->_stockage.end(), 0);
-	unsigned int	diff = sum - 2 * this->_stockage[0];
-	unsigned int	mindiff = my_abs(diff);
+	int	min = INT_MAX;
+	int	tmp;
 
-	for (size_t i = 1; i < this->_stockage.size(); ++i)
+	for (size_t i = 0; i < this->_stockage.size() - 1; ++i)
 	{
-		diff -= 2 * this->_stockage[i];
-		if (diff == 0)
+		tmp = my_abs(this->_stockage[i] - this->_stockage[i + 1]);
+		if (tmp == 0)
 			return 0;
-		mindiff = fmin(mindiff, my_abs(diff));
+		if (tmp < min)
+			min = tmp;
 	}
-	return mindiff;
+	
+	return min;
 }
 
 unsigned int	Span::longestSpan(void) const

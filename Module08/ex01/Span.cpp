@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 23:27:22 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/05/30 23:47:07 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Span::~Span(void) { }
 	std::uniform_int_distribution<std::mt19937::result_type> dist6(-50, 50); -- warning signed numbers
 		créé une distribution uniforme d'entiers dans la plage donnée.
 */
-void	Span::addRandomNumber(void)
+void	Span::addRandomNumbers(void)
 {
 	if (this->_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
@@ -58,8 +58,14 @@ void	Span::addRandomNumber(void)
 	std::random_device random;
 	std::mt19937 rng(random());
 	std::uniform_int_distribution<std::mt19937::result_type> dist6(0, 100);
-	unsigned int randomNumber = dist6(rng);
-	this->_stockage.push_back(randomNumber);
+	size_t	leftToFill = this->getMaxN() - this->_stockage.size();
+	//std::cout << "leftToFill : " << leftToFill << std::endl;
+
+	for (size_t i = 0; i < leftToFill; ++i)
+	{
+		unsigned int randomNumber = dist6(rng);
+		this->_stockage.push_back(randomNumber);
+	}
 }
 
 void	Span::addNumber(int n)
@@ -90,7 +96,7 @@ unsigned int	Span::shortestSpan(void) const
 		if (tmp < min)
 			min = tmp;
 	}
-	
+
 	return min;
 }
 

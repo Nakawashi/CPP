@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/03 18:07:15 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 18:24:34 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,11 @@ void	Span::addNumber(int n)
 	this->_stockage.push_back(n);
 }
 
-void	Span::addNumberIter(std::vector<int>::iterator first, std::vector<int>::iterator last)
+void	Span::addNumberIter(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-	std::cout << "coucou iiiiiii" << std::endl;
-	for (std::vector<int>::iterator i = first; i != last; ++i)
-	{
-		std::cout << "coucou laaa" << std::endl;
-		this->addNumber(*i);
-	}
+	if (this->_stockage.size() + std::distance(start, end) > this->_max_n)
+		throw Span::SpanFullException();
+	this->_stockage.insert(_stockage.end(), start, end);
 }
 
 int	Span::shortestSpan(void) const

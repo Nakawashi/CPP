@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:46 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/03 18:03:54 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 18:24:39 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	void				printVector(void) const;
 	void				addRandomNumbers(void);
 	void				addNumber(int n);
-	void				addNumberIter(std::vector<int>::iterator first, std::vector<int>::iterator last);
+	void				addNumberIter(std::vector<int>::iterator start, std::vector<int>::iterator end);
 	int					shortestSpan(void) const;
 	int					longestSpan(void) const;
 

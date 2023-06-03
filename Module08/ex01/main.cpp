@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:48 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/03 18:49:37 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 19:09:09 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(void)
 	{
 		try
 		{
-			Span v(10);
+			Span v(3);
 
 			v.addNumberIter(v.getStockage().begin(), v.getStockage().begin() + 2);
 			//v.addNumber(100);

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:46 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/30 23:52:34 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 17:41:08 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ public:
 	Span(const Span& src);
 	~Span(void);
 
-	Span&			operator=(const Span& rhs);
-	unsigned int	getMaxN(void) const;
-	void			printVector(void) const;
-	void			addRandomNumbers(void);
-	void			addNumber(int n);
-	void			betterAddNumber(int* begin, int* end);
-	unsigned int	shortestSpan(void) const;
-	unsigned int	longestSpan(void) const;
+	Span&				operator=(const Span& rhs);
+	unsigned int		getMaxN(void) const;
+	std::vector<int>&	getStockage(void) const;
+	void				printVector(void) const;
+	void				addRandomNumbers(void);
+	void				addNumber(int n);
+	void				addNumberIter(std::vector<int>::iterator first, std::vector<int>::iterator last);
+	int					shortestSpan(void) const;
+	int					longestSpan(void) const;
 
 	class SpanFullException : public std::exception
 	{
@@ -51,10 +52,16 @@ public:
 			virtual const char* what() const throw();
 	};
 
+	class NegativeParamException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
+
 private:
 	Span(void); // impossible to create a new object without given parameter
-	unsigned int				_max_n;
-	std::vector<unsigned int>	_stockage;
+	unsigned int		_max_n;
+	std::vector<int>	_stockage;
 };
 
 #endif

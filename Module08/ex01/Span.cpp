@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/31 00:04:29 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 17:42:58 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ unsigned int	my_abs(int a)
 //-------
 
 Span::Span(unsigned int max_n)
-: _max_n(max_n), _stockage(0) { }
+: _max_n(max_n), _stockage(0)
+{
+	if (max_n <= 0)
+		throw Span::NegativeParamException(); // test : useless if max_n is unsigned int
+}
 
 Span::Span(const Span& src)
 : _max_n(src.getMaxN()), _stockage(src._stockage)
@@ -63,7 +67,7 @@ void	Span::addRandomNumbers(void)
 
 	for (size_t i = 0; i < leftToFill; ++i)
 	{
-		unsigned int randomNumber = dist6(rng);
+		int randomNumber = dist6(rng);
 		this->_stockage.push_back(randomNumber);
 	}
 }
@@ -75,21 +79,16 @@ void	Span::addNumber(int n)
 	this->_stockage.push_back(n);
 }
 
-void	Span::betterAddNumber(int* begin, int* end)
+void	Span::addNumberIter(std::vector<int>::iterator first, std::vector<int>::iterator last)
 {
-	if (this->_stockage.size() >= this->getMaxN())
-		throw Span::SpanFullException();
-	//size_t	leftToFill = this->getMaxN() - this->_stockage.size();
-
-	while (begin != end)
-		this->addNumber(*begin);
-		++begin;
+	while (first != last)
+	{
+		this->addNumber(10);
+		++first;
+	}
 }
 
-/*
-	accumulate : additionne tous les éléments du vecteur
-*/
-unsigned int	Span::shortestSpan(void) const
+int	Span::shortestSpan(void) const
 {
 	if (this->_stockage.size() == 0)
 		throw Span::SpanEmptyException();
@@ -101,26 +100,25 @@ unsigned int	Span::shortestSpan(void) const
 
 	for (size_t i = 0; i < this->_stockage.size() - 1; ++i)
 	{
-		tmp = my_abs(this->_stockage[i] - this->_stockage[i + 1]);
+		tmp = abs(this->_stockage[i] - this->_stockage[i + 1]);
 		if (tmp == 0)
 			return 0;
 		if (tmp < min)
 			min = tmp;
 	}
-
 	return min;
 }
 
-unsigned int	Span::longestSpan(void) const
+int	Span::longestSpan(void) const
 {
 	if (this->_stockage.empty())
 		throw Span::SpanEmptyException();
 	if (this->_stockage.size() == 1)
 		throw Span::SpanDistanceException();
 
-	std::vector<unsigned int> sorted = this->_stockage;
+	std::vector<int> sorted = this->_stockage;
 	std::sort(sorted.begin(), sorted.end());
-	unsigned int diff = sorted.back() - sorted.front();
+	int diff = sorted.back() - sorted.front();
 
 	std::cout << sorted.back() << " - " << sorted.front() << " = ";
 
@@ -142,10 +140,21 @@ const char*	Span::SpanDistanceException::what() const throw()
 		return "Not enough elements to compare";
 }
 
+const char*	Span::NegativeParamException::what() const throw()
+{
+	return "Span can't be initialized with a negative amount of element. Nice try.";
+}
+
 unsigned int	Span::getMaxN(void) const
 {
 	return this->_max_n;
 }
+
+std::vector<int>&	Span::getStockage(void) const
+{
+	return this->_stockage;
+}
+
 
 void	Span::printVector(void) const
 {

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:48 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/05/31 00:03:51 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 17:36:48 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	main(void)
 {
-	{
-/* 		Span v(5);
+/*	{
+ 		Span v(5);
 		try
 		{
 			v.addNumber(6);
@@ -27,14 +27,14 @@ int	main(void)
 			v.addNumber(11);
 			//v.addNumber(); // uncomment to catch the SpanFullException
 			v.printVector();
+			std::cout << "min diff : " << v.shortestSpan() << std::endl;
+			std::cout << "max diff : " << v.longestSpan() << std::endl;
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << "Error : " << e.what() << "\n";
 		}
-		std::cout << "min diff : " << v.shortestSpan() << std::endl;
-		std::cout << "max diff : " << v.longestSpan() << std::endl; */
-	}
+	}*/
 
 /* 	{
 		Span v(10);
@@ -54,10 +54,10 @@ int	main(void)
 	} */
 
 	{
-		Span v(5);
 		try
 		{
-			v.betterAddNumber(numbers.begin(), numbers.end());
+			Span v(6);
+			v.addNumberIter(v.getStockage().begin(), v.getStockage().end());
 			v.printVector();
 		}
 		catch(const std::exception& e)

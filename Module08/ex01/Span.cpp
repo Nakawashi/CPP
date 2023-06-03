@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/03 17:52:18 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 18:03:50 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	Span::addNumber(int n)
 
 void	Span::addNumberIter(std::vector<int>::iterator first, std::vector<int>::iterator last)
 {
-	for (int i = first; i != last; ++i)
+	for (std::vector<int>::iterator i = first; i != last; ++i)
 	{
 		this->addNumber(*i);
 	}
@@ -149,7 +149,7 @@ unsigned int	Span::getMaxN(void) const
 	return this->_max_n;
 }
 
-const std::vector<int>&	Span::getStockage(void) const
+std::vector<int>&	Span::getStockage(void)
 {
 	return this->_stockage;
 }
@@ -160,7 +160,7 @@ void	Span::printVector(void) const
 	if (this->_stockage.empty())
 		return ;
 
-	for (size_t i = 0; i < this->getMaxN(); ++i)
+	for (size_t i = 0; i < this->_stockage.size(); ++i)
 	{
 		std::cout << i << " : " << this->_stockage[i] << std::endl;
 	}

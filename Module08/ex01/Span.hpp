@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:46 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/03 17:41:08 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 17:46:59 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 
 	Span&				operator=(const Span& rhs);
 	unsigned int		getMaxN(void) const;
-	std::vector<int>&	getStockage(void) const;
+	const std::vector<int>&	getStockage(void) const;
 	void				printVector(void) const;
 	void				addRandomNumbers(void);
 	void				addNumber(int n);

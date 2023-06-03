@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/03 19:05:55 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 19:44:58 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ unsigned int	my_abs(int a)
 //-------
 
 Span::Span(unsigned int max_n)
-: _max_n(max_n)
+: _max_n(max_n), _stockage(0)
 {
 	if (max_n <= 0)
 		throw Span::NegativeParamException(); // test : useless if max_n is unsigned int
@@ -74,24 +74,24 @@ void	Span::addRandomNumbers(void)
 
 void	Span::addNumber(int n)
 {
-	if (this->_stockage.size() >= this->getMaxN())
+	if (this->_stockage.size() > this->getMaxN())
 		throw Span::SpanFullException();
 	this->_stockage.push_back(n);
 }
 
 void	Span::addNumberIter(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-	if (_stockage.size() + std::distance(start, end) > _max_n)
-		throw Span::SpanFullException();
-	_stockage.insert(_stockage.end(), start, end);
+	size_t count = 0;
 
-/* 	if (this->_stockage.size() >= this->_max_n)
-		throw Span::SpanFullException();
-	//this->_stockage.insert(_stockage.end(), start, end);
-	for (std::vector<int>::iterator i = start; i != end; ++i)
+	while (start != end && _stockage.size() <= _max_n)
 	{
-		this->addNumber(*i);
-	} */
+		_stockage.push_back(50);
+		++count;
+	}
+	std::cout << "addNumberIter - count : " << count << '\n';
+	if (this->_stockage.size() > this->getMaxN())
+		throw Span::SpanFullException();
+
 }
 
 int	Span::shortestSpan(void) const

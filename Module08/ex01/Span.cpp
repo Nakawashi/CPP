@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/03 19:44:58 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/03 21:49:29 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Span::~Span(void) { }
 */
 void	Span::addRandomNumbers(void)
 {
-	if (this->_stockage.size() >= this->getMaxN())
+	if (_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
 
 	std::random_device random;
@@ -74,24 +74,21 @@ void	Span::addRandomNumbers(void)
 
 void	Span::addNumber(int n)
 {
-	if (this->_stockage.size() > this->getMaxN())
+	if (_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
 	this->_stockage.push_back(n);
 }
 
 void	Span::addNumberIter(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-	size_t count = 0;
-
-	while (start != end && _stockage.size() <= _max_n)
-	{
-		_stockage.push_back(50);
-		++count;
-	}
-	std::cout << "addNumberIter - count : " << count << '\n';
-	if (this->_stockage.size() > this->getMaxN())
+	//(void) start;
+	//(void) end;
+	if (_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
-
+	if (_stockage.size() + std::distance(start, end) > _max_n)
+		throw Span::SpanFullException();
+	std::cout << "size() : " << this->getStockage().size() << '\n';
+	//_stockage.insert(_stockage.end(), start, end);
 }
 
 int	Span::shortestSpan(void) const

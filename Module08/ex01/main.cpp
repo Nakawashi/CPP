@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:48 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/04 12:42:12 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/04 12:53:21 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,16 @@ int	main(void)
 		try
 		{
 			std::vector<int> v;
-			Span span(5);
+			Span span(3);
 
+			span.addNumber(78787878);
+			span.printVector();
 			v.push_back(1);
 			v.push_back(2);
 			v.push_back(4);
 			v.push_back(16);
 			//v.push_back(32);
-			span.addNumber(78787878);
-			
+
 			span.addNumberIter(v.begin(), v.end());
 			span.printVector();
 		}

@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 13:24:20 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/04 14:00:45 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/04 14:05:51 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ template<typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-	MutantStack(void) : std::stack<T>(void) {}
-	MutantStack(const MutantStack& src) : std::stack<T>(src) {}
-	virtual ~MutantStack(void);
+	MutantStack() : std::stack<T>() { }
+	MutantStack(const MutantStack& src) : std::stack<T>(src) { }
+	virtual ~MutantStack(void) { };
 
 	MutantStack&	operator=(const MutantStack& rhs)
 	{

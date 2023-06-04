@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:21:48 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/04 12:53:21 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/04 13:21:44 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 int	main(void)
 {
-/* 	{
+	std::cout << "\nBASIC TEST\n" << std::endl;
+
+	{
  		Span v(5);
 		try
 		{
@@ -34,9 +36,11 @@ int	main(void)
 		{
 			std::cerr << "Error : " << e.what() << "\n";
 		}
-	} */
+	}
 
-/* 	{
+	std::cout << "\nFILL WITH RANDOM TEST\n" << std::endl;
+
+	{
 		Span v(10);
 		try
 		{
@@ -53,7 +57,9 @@ int	main(void)
 		{
 			std::cerr << "Error : " << e.what() << '\n';
 		}
-	} */
+	}
+
+	std::cout << "\nLIMIT TEST\n" << std::endl;
 
 	{
 		try
@@ -61,16 +67,15 @@ int	main(void)
 			std::vector<int> v;
 			Span span(3);
 
-			span.addNumber(78787878);
-			span.printVector();
 			v.push_back(1);
 			v.push_back(2);
 			v.push_back(4);
-			v.push_back(16);
-			//v.push_back(32);
+			//v.push_back(16); // generate exception
 
 			span.addNumberIter(v.begin(), v.end());
 			span.printVector();
+			std::cout << "min diff : " << span.shortestSpan() << std::endl;
+			std::cout << "max diff : " << span.longestSpan() << std::endl;
 		}
 		catch(const std::exception& e)
 		{

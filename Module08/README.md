@@ -10,5 +10,6 @@ Ecrire une sorte de find() personnel qui prend un conteneur de type INT et l'NT 
 [Référence](cplusplus.com/reference/algorithm/find)
 
 ## Ex01
+Itérateurs, utilisation de fonctions membres du container vector pour ma part. Galérer à faire un main qui teste correctement la fonction addNumber() améliorée (addNumberIter()).
 
 ## Ex02

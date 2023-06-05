@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:22:04 by nakawashi         #+#    #+#             */
-/*   Updated: 2023/06/04 13:03:43 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/04 15:32:00 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ unsigned int	my_abs(int a)
 Span::Span(unsigned int max_n)
 : _max_n(max_n)
 {
-	_stockage.reserve(_max_n);
+	_stockage.reserve(_max_n); //equests that the vector capacity be at least enough to contain _max_n elements.
 }
 
 Span::Span(const Span& src)
@@ -73,14 +73,14 @@ void	Span::addRandomNumbers(void)
 
 void	Span::addNumber(int n)
 {
-	if (_stockage.size() >= _stockage.capacity())
+	if (_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
 	this->_stockage.push_back(n);
 }
 
 void	Span::addNumberIter(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-	if (_stockage.size() >= _stockage.capacity())
+	if (_stockage.size() >= this->getMaxN())
 		throw Span::SpanFullException();
 	if (_stockage.size() + std::distance(start, end) > _max_n)
 		throw Span::SpanFullException();

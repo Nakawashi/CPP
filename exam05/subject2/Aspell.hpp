@@ -3,19 +3,23 @@
 
 # include <string>
 
-class Aspell
+class ATarget;
+
+class ASpell
 {
 public:
-	Aspell(const std::string& newName, const std::string& newTitle);
-	Aspell(const Aspell& src);
-	~Aspell(void);
+	ASpell(void);
+	ASpell(const std::string& newName, const std::string& newEffect);
+	ASpell(const ASpell& src);
+	virtual ~ASpell(void);
 
-	Aspell&			operator=(const Aspell& rhs);
-	std::string&	getName(void) const;
-	std::string&	getEffects(void) const;
+	ASpell&				operator=(const ASpell& rhs);
+	const std::string&	getName(void) const;
+	const std::string&	getEffects(void) const;
+	virtual ASpell*		clone(void) const = 0;
+	void				launch(const ATarget& target) const;
 
 protected:
-	Aspell(void);
 	std::string	_name;
 	std::string	_effects;
 };

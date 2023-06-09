@@ -41,3 +41,24 @@ void	Warlock::introduce(void) const
 		<< this->_title
 		<< std::endl;
 }
+
+void	Warlock::learnSpell(ASpell* spell)
+{
+	if (spell)
+		_spellBook[this->getName()] = spell;
+}
+
+void	Warlock::forgetSpell(std::string spell)
+{
+	_it = _spellBook.find(spell);
+	if (_it != _spellBook.end())
+		_spellBook.erase(_it);
+}
+
+void	Warlock::launchSpell(std::string spellName, ATarget& target)
+{
+	_it = _spellBook.find(spellName);
+	if (_it != _spellBook.end())
+		_spellBook[spellName]->launch(target);
+}
+

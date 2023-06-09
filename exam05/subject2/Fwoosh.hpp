@@ -11,8 +11,6 @@ public:
 	virtual ~Fwoosh(void);
 
 	virtual ASpell*	clone(void) const;
-
-
 };
 
 #endif

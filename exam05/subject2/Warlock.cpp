@@ -45,7 +45,7 @@ void	Warlock::introduce(void) const
 void	Warlock::learnSpell(ASpell* spell)
 {
 	if (spell)
-		_spellBook[this->getName()] = spell;
+		_spellBook[spell->getName()] = spell;
 }
 
 void	Warlock::forgetSpell(std::string spell)
@@ -55,10 +55,18 @@ void	Warlock::forgetSpell(std::string spell)
 		_spellBook.erase(_it);
 }
 
-void	Warlock::launchSpell(std::string spellName, ATarget& target)
+void	Warlock::launchSpell(std::string spell, ATarget& target)
 {
-	_it = _spellBook.find(spellName);
+	_it = _spellBook.find(spell);
+	std::cout << "taille spellBook : " << _spellBook.size() << std::endl;
+
 	if (_it != _spellBook.end())
-		_spellBook[spellName]->launch(target);
+	{
+		std::cout << "_it->first : " << _it->first << std::endl;
+		std::cout << "_it->second : " << _it->second << std::endl;
+		(_it->second)->launch(target);
+	}
+	// if (_spellBook.find(spell) != _spellBook.end())
+	// 	_spellBook[spell]->launch(target);
 }
 

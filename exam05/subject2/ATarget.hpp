@@ -9,7 +9,6 @@ class ASpell;
 class ATarget
 {
 public:
-	ATarget(void);
 	ATarget(const std::string& newType);
 	ATarget(const ATarget& src);
 	virtual ~ATarget(void);

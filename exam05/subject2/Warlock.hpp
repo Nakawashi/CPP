@@ -18,7 +18,7 @@ public:
 	void				introduce(void) const;
 	void				learnSpell(ASpell* spell);
 	void				forgetSpell(std::string spell);
-	void				launchSpell(std::string spellName, ATarget& target);
+	void				launchSpell(std::string spell, ATarget& target);
 
 private:
 	Warlock(void);

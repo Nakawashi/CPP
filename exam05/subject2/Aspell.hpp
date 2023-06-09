@@ -2,6 +2,7 @@
 # define ASPELL_HPP
 
 # include <string>
+# include "ATarget.hpp"
 
 class ATarget;
 

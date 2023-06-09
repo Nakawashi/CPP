@@ -2,8 +2,6 @@
 #include "ATarget.hpp"
 #include <iostream>
 
-ATarget::ATarget() {}
-
 ATarget::ATarget(const std::string& newType)
 : _type(newType) {}
 
@@ -25,6 +23,6 @@ const std::string&	ATarget::getType(void) const
 
 void	ATarget::getHitBySpell(const ASpell& spell) const
 {
-	std::cout << this->_type << " has been " << spell.getEffects() << "!" << std::endl;
+	std::cout << _type << " has been " << spell.getEffects() << "!" << std::endl;
 }
 

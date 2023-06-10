@@ -16,13 +16,13 @@
 class RPN
 {
 public:
-	RPN(char)
+	RPN()
 	RPN(const RPN& src);
 	~RPN(void);
 
 	RPN&	operator=(const RPN& rhs);
 
-	class NbArgumentException : public std::exception
+	class CountNumbersInArgumentsException : public std::exception
 	{
 		public:
 			virtual const char* what() const throw();
@@ -31,6 +31,7 @@ public:
 private:
 	RPN(void);
 
+	std::stack<std::string>	arguments;
 	std::stack<int>	stack;
 };
 

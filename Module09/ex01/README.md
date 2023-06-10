@@ -31,4 +31,4 @@ Fonctionnement sur une pile (stack).
 ```
 6. On applique l'opérateur `+` sur 24 et 4 et on obtient bien 28.
 
-Source : (https://www.youtube.com/watch?v=S9ZaXZ5LAs8)[https://www.youtube.com/watch?v=S9ZaXZ5LAs8]
+Source : [https://www.youtube.com/watch?v=S9ZaXZ5LAs8](https://www.youtube.com/watch?v=S9ZaXZ5LAs8)

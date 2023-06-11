@@ -19,7 +19,7 @@ RPN&	RPN::operator=(const RPN& rhs)
 	return *this;
 }
 
-std::string&	RPN::getExpression(void) const
+std::string	RPN::getExpression(void) const
 {
 	return _expression;
 }

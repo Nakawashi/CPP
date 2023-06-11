@@ -35,28 +35,15 @@ int main(int argc, char** argv)
 	int	i = 2;
 	while (argv[i])
 	{
-		if (argv[i] != ' '
-			|| isdigit(argv[i])
-			|| argv[i] == '+'
-			|| argv[i] == '-'
-			|| argv[i] == '/'
-			|| argv[i] == '*')
-		{
-			av += ' ';
-			av += argv[i];
-			++i;
-		}
-		else
-		{
-			std::cout
-			<< RED
-			<< "Error : Invalid expression values"
-			<< NONE
-			<< std::endl;
-		}
-				return 1;
+		av += ' ';
+		av += argv[i];
+		++i;
 	}
 	RPN	rpnCalculator(av);
-	std::cout << "av : " << av << std::endl;
+	if (std::regex_match(av, std::regex("[0-9]+ \\s \\+ \\- \\* \\/")))
+	{
+		std::cout << "av : " << av << std::endl;
+
+	}
 	return 0;
 }

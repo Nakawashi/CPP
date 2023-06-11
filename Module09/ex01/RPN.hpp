@@ -30,8 +30,8 @@ public:
 	RPN(const RPN& src);
 	~RPN(void);
 
-	RPN&			operator=(const RPN& rhs);
-	std::string&	getExpression(void) const;
+	RPN&		operator=(const RPN& rhs);
+	std::string	getExpression(void) const;
 
 	// class NbArgumentsException : public std::exception
 	// {

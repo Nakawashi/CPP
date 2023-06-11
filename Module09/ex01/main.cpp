@@ -1,8 +1,13 @@
-#include <iostream>
-#include <string>
-// #include "RPN.hpp"
+# define RED		"\033[0;31m"
+# define GREEN		"\033[0;32m"
+# define YELLOW		"\033[0;33m"
+# define BLUE		"\033[0;34m"
+# define VIOLET		"\033[0;36m"
+# define NONE		"\033[0m"
+# define BOLDWHITE	"\033[1m\033[37m"
 
-# include <stack>
+#include <iostream>
+#include "RPN.hpp"
 
 
 // template<typename T>
@@ -17,18 +22,41 @@
 
 int main(int argc, char** argv)
 {
-	std::string		args = argv;
-	std::stack<int>	arguments;
-
-	for (int i = 1; i < argc; ++i)
+	if (argc == 1)
 	{
-		arguments.push(static_cast<int>(argv[i]));
+		std::cout
+			<< RED
+			<< "Error : Invalid number of arguments"
+			<< NONE
+			<< std::endl;
+		return 1;
 	}
-
-	while (!arguments.empty()) {
-	std::cout << arguments.top() << std::endl;
-	arguments.pop();
-}
-
+	std::string	av(argv[1]);
+	int	i = 2;
+	while (argv[i])
+	{
+		if (argv[i] != ' '
+			|| isdigit(argv[i])
+			|| argv[i] == '+'
+			|| argv[i] == '-'
+			|| argv[i] == '/'
+			|| argv[i] == '*')
+		{
+			av += ' ';
+			av += argv[i];
+			++i;
+		}
+		else
+		{
+			std::cout
+			<< RED
+			<< "Error : Invalid expression values"
+			<< NONE
+			<< std::endl;
+		}
+				return 1;
+	}
+	RPN	rpnCalculator(av);
+	std::cout << "av : " << av << std::endl;
 	return 0;
 }

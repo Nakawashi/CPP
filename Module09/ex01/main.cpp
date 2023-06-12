@@ -31,6 +31,7 @@ int main(int argc, char** argv)
 			<< std::endl;
 		return 1;
 	}
+
 	std::string	av(argv[1]);
 	int	i = 2;
 	while (argv[i])
@@ -39,12 +40,22 @@ int main(int argc, char** argv)
 		av += argv[i];
 		++i;
 	}
-	RPN	rpnCalculator(av);
+	//std::regex	regexRule("^\\d \\d(?: [\\d]|[\\+\\-\\/\\*])*");
+	std::regex	regexRule("^[0-9] [0-9][0-9+\\-*/+ ]*$");
 	std::cout << "av : " << av << std::endl;
-	if (std::regex_match(av, std::regex("[0-9]|[+-*\\/]|[ ]")))
+	if (std::regex_match(av, regexRule))
 	{
 		std::cout << "av regex ok : " << av << std::endl;
-
+		RPN	rpnCalculator(av);
+	}
+	else
+	{
+		std::cout
+		<< RED
+		<< "Error : Invalid given expression"
+		<< NONE
+		<< std::endl;
+		return 1;
 	}
 	return 0;
 }

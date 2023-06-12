@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 
 	int	nbOperator = 0;
 	int	nbOperand = 0;
-	int			operands[10] = {0, 1 , 2 , 3 , 4 , 5, 6, 7, 8, 9};
+	std::string	operands[10] = {"0", "1" , "2" , "3" , "4" , "5", "6", "7", "8", "9"};
 	std::string	operators[4] = {
 		"+",
 		"-",

@@ -11,7 +11,6 @@
 
 # include <stack>
 # include <string>
-# include <exception>
 # include <regex>
 
 /*

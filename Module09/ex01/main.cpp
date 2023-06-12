@@ -40,13 +40,27 @@ int main(int argc, char** argv)
 		av += argv[i];
 		++i;
 	}
-	//std::regex	regexRule("^\\d \\d(?: [\\d]|[\\+\\-\\/\\*])*");
-	std::regex	regexRule("^[0-9] [0-9][0-9+\\-*/+ ]*$");
+
 	std::cout << "av : " << av << std::endl;
-	if (std::regex_match(av, regexRule))
+
+	int	nbOperator = 0;
+	int	nbOperand = 0;
+	int			operands[10] = {0, 1 , 2 , 3 , 4 , 5, 6, 7, 8, 9};
+	std::string	operators[4] = {
+		"+",
+		"-",
+		"*",
+		"/"
+	};
+
+	for (int i = 0; i < av.length(); ++i)
 	{
-		std::cout << "av regex ok : " << av << std::endl;
-		RPN	rpnCalculator(av);
+
+	}
+
+	if (true)
+	{
+
 	}
 	else
 	{

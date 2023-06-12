@@ -43,8 +43,8 @@ int main(int argc, char** argv)
 
 	std::cout << "av : " << av << std::endl;
 
-	int	nbOperator = 0;
-	int	nbOperand = 0;
+	int	nbOperators = 0;
+	int	nbOperands = 0;
 	std::string	operands[10] = {"0", "1" , "2" , "3" , "4" , "5", "6", "7", "8", "9"};
 	std::string	operators[4] = {
 		"+",
@@ -55,7 +55,28 @@ int main(int argc, char** argv)
 
 	for (int i = 0; i < av.length(); ++i)
 	{
-
+		std::string	currentChar(1, av[i]);
+		bool		found = false;
+		// compare with operands
+		for (int j = 0; j < 10; ++j)
+		{
+			if (currentChar == operands[j])
+			{
+				found = true;
+				++nbOperands;
+				break ;
+			}
+		}
+		// compare with operators
+		for (int j = 0; j < 4; ++j)
+		{
+			if (currentChar == operands[j])
+			{
+				found = true;
+				++nbOperators;
+				break ;
+		}
+		il manque les espaces quelque part
 	}
 
 	if (true)

@@ -21,8 +21,6 @@
 	The operator will be applied to the two lasts operands :
 	d'abord l'avant dernier puis le dernier.
 */
-
-
 class RPN
 {
 public:

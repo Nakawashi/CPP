@@ -40,9 +40,10 @@ int main(int argc, char** argv)
 		++i;
 	}
 	RPN	rpnCalculator(av);
-	if (std::regex_match(av, std::regex("[0-9]+ \\s \\+ \\- \\* \\/")))
+	std::cout << "av : " << av << std::endl;
+	if (std::regex_match(av, std::regex("[0-9]|[+-*\\/]|[ ]")))
 	{
-		std::cout << "av : " << av << std::endl;
+		std::cout << "av regex ok : " << av << std::endl;
 
 	}
 	return 0;

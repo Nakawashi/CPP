@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:53:53 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/14 15:38:45 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:47:12 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,7 @@
 #include "RPN.hpp"
 #include <regex>
 
-
 bool	countValues(std::string expression);
-
-// template<typename T>
-// void	displayVector(const std::vector<T>& vector)
-// {
-// 	typename std::vector<T>::const_iterator	it;
-// 	for (it = vector.begin(); it != vector.end(); ++it)
-// 	{
-// 		std::cout << *it << std::endl;
-// 	}
-// }
 
 int	main(int argc, char** argv)
 {

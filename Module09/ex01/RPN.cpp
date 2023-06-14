@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:53:44 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/14 15:43:38 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:58:21 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@ RPN::RPN(std::string expression)
 		const char	c = expression[i];
 		if (isdigit(c))
 		{
-			// std::cout << "c : [" << c << "]" << std::endl;
 			_stack.push(std::atoi(&c)); // int bc we got 0-9
 		}
 		if (c != ' ' && !isdigit(c) && _stack.size() > 1)
 		{
-			// restult = avant dernier c dernier
-			_stack.push(this->calculate(c)); // on ajoute le resultat du calcul
+			_stack.push(this->calculate(c)); // add calculation result on stack's top
 		}
-			// _result += this->calculate(c);
 	}
 }
 

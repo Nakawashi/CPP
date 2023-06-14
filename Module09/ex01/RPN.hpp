@@ -9,10 +9,10 @@
 # define NONE		"\033[0m"
 # define BOLDWHITE	"\033[1m\033[37m"
 
+# include <iostream>
 # include <stack>
 # include <string>
 # include <exception>
-# include <regex>
 
 /*
 	<stack>
@@ -22,28 +22,15 @@
 	d'abord l'avant dernier puis le dernier.
 */
 
-
 class RPN
 {
 public:
 	RPN(std::string expression);
-	RPN(const RPN& src);
 	~RPN(void);
 
-	RPN&		operator=(const RPN& rhs);
-	std::string	getExpression(void) const;
+	double	calculate(const char c);
+	double	getResult(void) const;
 
-	// class NbArgumentsException : public std::exception
-	// {
-	// 	public:
-	// 		virtual const char* what() const throw();
-	// };
-
-	class NbOperandException : public std::exception
-	{
-		public:
-			virtual const char* what() const throw();
-	};
 
 	class DivisionZeroException : public std::exception
 	{
@@ -53,18 +40,11 @@ public:
 
 private:
 	RPN(void);
+	RPN(const RPN& src);
+	RPN&	operator=(const RPN& rhs);
 
-	std::string			_expression;
-	int					_nbTokens;
-	std::stack<double>	_operandStack;
+	int					_result;
+	std::stack<double>	_stack; // double bc of divisions
 };
 
 #endif
-
-/*
-	boucler sur la string, j'avance tant que j'ai un espace
-	char :
-		si c'est un digit entre 0 et 9 -> ajouter dans stack
-		si c'est une operation, effectuer le calcul et attention si on divise par zero
-		si c'est autre chose : lancer une exception
-*/

@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:53:40 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/14 14:53:41 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:32:34 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ public:
 	double	calculate(const char c);
 	double	getResult(void) const;
 
-
 	class DivisionZeroException : public std::exception
 	{
 		public:
@@ -54,8 +53,9 @@ private:
 	RPN(const RPN& src);
 	RPN&	operator=(const RPN& rhs);
 
-	int					_result;
 	std::stack<double>	_stack; // double bc of divisions
+	double				_op1;
+	double				_op2;
 };
 
 #endif

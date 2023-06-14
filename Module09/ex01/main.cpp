@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:53:53 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/14 14:53:57 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:38:45 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,15 @@ int	main(int argc, char** argv)
 		<< std::endl;
 		return 1;
 	}
-	//RPN	rpnCalculator(av);
-	//std::cout << rpnCalculator.getResult() << std::endl;
+	try
+	{
+		RPN	rpnCalculator(av);
+		std::cout << rpnCalculator.getResult() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
 	return 0;
 }

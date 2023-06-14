@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/14 14:53:40 by lgenevey          #+#    #+#             */
+/*   Updated: 2023/06/14 14:53:41 by lgenevey         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RPN_CPP
 # define RPN_CPP
 
@@ -21,7 +33,6 @@
 	The operator will be applied to the two lasts operands :
 	d'abord l'avant dernier puis le dernier.
 */
-
 class RPN
 {
 public:

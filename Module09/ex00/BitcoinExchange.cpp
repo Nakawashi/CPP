@@ -6,25 +6,47 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:22:05 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/19 14:32:15 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:18:52 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(std::ifstream infile)
-{
-	// _database["bonjour"] = 10;
-	// _database["guten tag"] = 20;
-	// _database["hola"] = 30;
-	// _database["ohio"] = 40;
+/*
+	struct tm : store YY, MM, DD
+	function mktime : check if tm values are valids. Returns -1 if not
 
-	std::string	row;
+*/
+
+BitcoinExchange::BitcoinExchange(std::ifstream& infile)
+{
+	std::tm		time = {};
+	int			year, month, day;
+	time_t		rawtime;
+	char		c;
 	float		value;
-	while (infile >> row >> value)
+	std::string	line;
+
+	std::getline(infile, line); // skip first line, the header meta data
+	while (std::getline(infile, line))
 	{
-		_database[row] = value;
+		std::istringstream	stream(line);
+		stream >> year >> c >> month >> c >> day >> c >> value;
+		time.tm_year = year;
+		time.tm_mon = month - 1; // [0-11]
+		time.tm_mday = day;
+		rawtime = mktime(&time);
+		if (rawtime != -1)
+			_database[rawtime] = value;
+		else
+		{
+			std::cout	<< RED
+			<< "Error : invalid date"
+			<< NONE
+			<< std::endl;
+		}
 	}
+
 	infile.close();
 }
 
@@ -32,7 +54,7 @@ BitcoinExchange::~BitcoinExchange(void) {}
 
 void	BitcoinExchange::printDatabase(void) const
 {
-	std::map<std::string, float>::const_iterator it;
+	std::map<std::time_t, float>::const_iterator it;
 
 	for (it = _database.begin(); it != _database.end(); ++it)
 	{

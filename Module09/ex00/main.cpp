@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:25:17 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/19 14:32:49 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:54:59 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,18 @@
 		valueValidation (float or integer)
 	3. Creer un objet de classe BitcoinExchange
 		constructeur : initialise map avec mon fichier de datas pour laisser la possibilite d'avoir d'autres données
-		fonctions membre : find date and returns value * exchange.
+		fonctions membre : find date avec lower_bound and returns value * exchange.
 			if no exact date found :
-				private member function which will get the previous date and return its value * exchange with a message
+				l'iterateur retourne par lower_bound -- sinon il retourne le suivant
 
 
 //stringstream
 //mktime
 //t_time
-
-
+//map::lower_bound
 */
 
 #include "BitcoinExchange.hpp"
-#include "colors.hpp"
 
 int	main(int argc, char **argv)
 {
@@ -49,17 +47,8 @@ int	main(int argc, char **argv)
 		return 1;
 	}
 
-	// std::map<std::string, float>	database;
-	// std::string	row;
-	// float		value;
-	// while (ifs >> row >> value)
-	// {
-	// 	database[row] = value;
-	// }
-	// ifs.close();
-
-
 	BitcoinExchange	test(ifs);
 	test.printDatabase();
+
 	return 0;
 }

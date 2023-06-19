@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:25:17 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/19 14:19:46 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:32:49 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 
 */
 
-#include <fstream>
 #include "BitcoinExchange.hpp"
 #include "colors.hpp"
 
@@ -39,6 +38,7 @@ int	main(int argc, char **argv)
 {
 	std::ifstream	ifs(argv[1]);
 	bool			isOpen = ifs.is_open();
+
 	if (argc != 2 || !isOpen)
 	{
 		std::cout	<< RED
@@ -48,7 +48,18 @@ int	main(int argc, char **argv)
 					<< std::endl;
 		return 1;
 	}
-	// BitcoinExchange	test;
-	// test.printDatabase();
+
+	// std::map<std::string, float>	database;
+	// std::string	row;
+	// float		value;
+	// while (ifs >> row >> value)
+	// {
+	// 	database[row] = value;
+	// }
+	// ifs.close();
+
+
+	BitcoinExchange	test(ifs);
+	test.printDatabase();
 	return 0;
 }

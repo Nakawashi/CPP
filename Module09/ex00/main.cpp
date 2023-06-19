@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:25:17 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/19 17:54:59 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:26:51 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@
 
 int	main(int argc, char **argv)
 {
-	std::ifstream	ifs(argv[1]);
-	bool			isOpen = ifs.is_open();
+	std::ifstream	database("data.csv");
+	std::ifstream	inputFile(argv[1]);
+	bool			isOpen = inputFile.is_open();
 
 	if (argc != 2 || !isOpen)
 	{
@@ -47,8 +48,9 @@ int	main(int argc, char **argv)
 		return 1;
 	}
 
-	BitcoinExchange	test(ifs);
-	test.printDatabase();
+	BitcoinExchange	test(database);
+	//test.printDatabase();
+	test.processInput(inputFile);
 
 	return 0;
 }

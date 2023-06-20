@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:22:05 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/19 21:18:35 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:30:58 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,26 +75,33 @@ void	BitcoinExchange::processInput(std::ifstream& infile)
 				>> time.tm_mday
 				>> c
 				>> value;
+
 		time.tm_year -= 1900;
 		time.tm_mon -= 1;
-		// no value reset if blank, keeps previous value
-		if (!value || c != '|')
-			std::cout << "Error: bad input => " << line << std::endl;
+
+		//!! variables are not reset so have to test c
+		if (!value || c != '|' || mktime(&time) == -1)
+			std::cout << RED <<  "Error: bad input => " << line.substr(0, 10) << NONE << std::endl;
 		else if (value < 0)
-			std::cout << "Error: not a positive number." << std::endl;
+			std::cout << RED << "Error: not a positive number." << NONE << std::endl;
 		else if (value > 1000)
-			std::cout << "Error: too large number." << std::endl;
-		else if (mktime(&time) == -1)
-			std::cout << "Error: bad input => " << line << std::endl;
+			std::cout << RED << "Error: too large number." << NONE << std::endl;
 		else
 		{
-			float	exchange = findDate(time);
-			std::cout << line << " => " << value << " = " << value * exchange << std::endl;
+			float	exchange = _findDate(time);
+			std::cout	<< GREEN
+						<< line.substr(0, 10)
+						<< " => "
+						<< value
+						<< " = "
+						<< value * exchange
+						<< NONE
+						<< std::endl;
 		}
 	}
 }
 
-float	BitcoinExchange::findDate(std::tm time)
+float	BitcoinExchange::_findDate(std::tm time)
 {
 	std::map<std::time_t, float>::const_iterator it;
 	it = _database.lower_bound(mktime(&time));
@@ -105,6 +112,6 @@ float	BitcoinExchange::findDate(std::tm time)
 }
 
 /*
-	time_t -> tm localtime()
-	tm -> string strftime()
+	time_t -> tm :  localtime()
+	tm -> string : strftime()
 */

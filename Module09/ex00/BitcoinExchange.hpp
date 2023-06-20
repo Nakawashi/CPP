@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:22:01 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/19 20:02:42 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:18:35 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ public:
 
 	void	printDatabase(void) const;
 	void	processInput(std::ifstream& infile);
-	float	findDate(std::tm time);
 
 private:
 	BitcoinExchange(void);
 	BitcoinExchange(const BitcoinExchange& src);
 	BitcoinExchange&	operator=(const BitcoinExchange& rhs);
+	float				_findDate(std::tm time);
 
 	std::map<std::time_t, float>	_database;
 };

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+         #
+#    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/06/04 13:55:51 by nakawashi        ###   ########.fr        #
+#    Updated: 2023/06/20 16:35:17 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ DIR_OBJ		=	obj
 
 ## Compiled Files ##
 
-NAME		=	containers
+NAME		=	PmergeMe
 
 # ----------------------------------------------------------------------------#
 

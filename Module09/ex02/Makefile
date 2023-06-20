@@ -6,7 +6,7 @@
 #    By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 14:00:42 by lgenevey          #+#    #+#              #
-#    Updated: 2023/06/20 16:35:17 by lgenevey         ###   ########.fr        #
+#    Updated: 2023/06/20 19:59:03 by lgenevey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ endif
 ## Files ##
 
 SRCS_FILES	=	main.cpp \
+				PmergeMe.cpp \
 
 ## Directories ##
 

@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/20 19:51:03 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:58:47 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@
 	 iterators and references than lists and forward_lists.
 */
 
-#include <ctime> /* clock_t, clock() */
 #include <iostream>
+#include <ctime>		/* clock_t, clock() */
 #include <list>
 #include <vector>
+#include "PmergeMe.hpp"
 #include "colors.hpp"
 
 int	main(int argc, char **argv)
@@ -69,5 +70,8 @@ int	main(int argc, char **argv)
 		av += argv[i];
 		++i;
 	}
+
+	argValidation(av);
+	// std::list<unsigned int> list;
 	return 0;
 }

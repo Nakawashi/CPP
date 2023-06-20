@@ -10,7 +10,7 @@ Le check des input se fait sur le fichier recu.
 
 ## Process
 
-1. Creation de deux objets ifstream (opere sur des fichiers entrants)
+1. Creation de deux objets ifstream (pour lire des données a partir d'un fichier entrant)
 - Un pour le fichier de base de données
 - Un pour l'input recu en argument
 

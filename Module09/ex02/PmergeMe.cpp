@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:56:04 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 22:18:15 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/23 22:34:37 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,8 @@ void	PmergeMe::_createPairs(std::list<int>& container)
 		}
 	}
 	_utilsList.sort(); //(step 3 wikipedia)
-
 	_utilsList.push_front(_findPairedElem(_pairList, _utilsList)); //(step 4 wikipedia)
-
+	
 
 	std::cout << "Paires : " << std::endl;
 	printPairs(_pairList);
@@ -73,17 +72,24 @@ void	PmergeMe::_createPairs(std::list<int>& container)
 
 /*
 	we search for the smallest of the group, which is an it->first for sure
+	deletes the group in pairList
 */
 int	PmergeMe::_findPairedElem(std::list<std::pair<int, int> >& pairList, std::list<int>& utilsList)
 {
-	std::list<int>::iterator					it = utilsList.begin();
 	std::list<std::pair<int, int> >::iterator	it_pair = pairList.begin();
+	int											research = *utilsList.begin();
+	int											result = -1;
 
-	for (it; it != utilsList.end(); ++it)
+
+	while (it_pair != pairList.end())
 	{
-		if (*it == it_pair->second) // valeur trouvée
-			return it_pair->first; // retourner le pointeur sur le groupe en question
+		if (research == it_pair->second) // valeur retrouvée
+		{
+			result = it_pair->first;
+			pairList.erase(it_pair);
+			break ;
+		}
+		++it_pair;
 	}
-	return -1;
+	return result;
 }
-

@@ -5,7 +5,7 @@
 	- Pas de doublons
 	- Recuperer la quantite de valeurs recues (pas besoin)
 
-2. Inserer les elements dans le container
+2. Inserer les elements dans le container [OK]
 
 3. Faire des paires
 	- sort "deux par deux" pour avoir le plus petit des deux devant

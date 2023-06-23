@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 15:58:18 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/23 16:49:56 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main(int argc, char **argv)
 	std::list<int>		list;
 	std::vector<int>	vector;
 	int					number;
+	int					prev;
 
 	try
 	{
@@ -59,17 +60,28 @@ int	main(int argc, char **argv)
 		for (int i = 1; i < argc; ++i)
 		{
 			number = std::atoi(argv[i]);
-			insertPositivesNumbersInContainer(number, list);
-			insertPositivesNumbersInContainer(number, vector);
+			prev = std::atoi(argv[i - 1]);
+			if (number == prev)
+				continue ;
+			if (std::find(list.begin(), list.end(), number) != list.end())
+				continue ;
+			if (std::find(vector.begin(), vector.end(), number) != vector.end())
+				continue ;
+			InsertNumbersInContainer(number, list);
+			InsertNumbersInContainer(number, vector);
 		}
+
+		PmergeMe	mergesorter;
+
+		mergesorter.sort_list(list);
+		mergesorter.sort_vector(vector);
+
 		printContainer(list);
 		printContainer(vector);
-
-		//PmergeMe	mergesorter
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 
 

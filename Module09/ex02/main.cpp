@@ -6,20 +6,9 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 16:49:56 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/23 17:30:32 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-	INPUT
-		only positive numbers
-
-	ALGO
-		merge-insert sort / Ford Johnson algo
-		list : splice
-		list.splice(insertion, list, it) :: insersion = position de l'insertion, list = container d'ou vient l'it, it = l'element qu'on insert
-
-*/
 
 /*
 	WHY LIST (liste doublement chainee)
@@ -73,9 +62,15 @@ int	main(int argc, char **argv)
 
 		PmergeMe	mergesorter;
 
+		std::cout << "Avant : " << std::endl;
+
+		printContainer(list);
+		printContainer(vector);
+
 		mergesorter.sort_list(list);
 		mergesorter.sort_vector(vector);
 
+		std::cout << "Après : " << std::endl;
 		printContainer(list);
 		printContainer(vector);
 	}

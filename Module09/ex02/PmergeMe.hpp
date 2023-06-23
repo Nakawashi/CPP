@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:53:02 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 17:15:08 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/23 17:29:01 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <ctime>		/* clock_t, clock() */
 # include <list>
 # include <vector>
-# include "colors.hpp"
+# include "whatever.hpp"
 
 class PmergeMe
 {
@@ -50,14 +50,14 @@ private:
 		}
 
 		// SORT PAIRS
-		std::list<std::pair<int, int> >::iterator pit;
-		for (pit = pairs.begin(); pit != pairs.end(); ++it)
+		std::list<std::pair<int, int> >::const_iterator pit;
+		for (pit = pairs.begin(); pit != pairs.end(); ++pit)
 		{
-			std::pair<int, int>&	pair = *it;
+			const std::pair<int, int>&	pair = *pit;
 			if (pair.first > pair.second)
-				std::swap(pair.first, pair.second);
+				swap(const_cast<int&>(pair.first), const_cast<int&>(pair.second)); // swap can't take const param
 		}
-
+		return container;
 	}
 };
 

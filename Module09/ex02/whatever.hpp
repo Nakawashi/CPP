@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/20 19:56:04 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 17:29:11 by nakawashi        ###   ########.fr       */
+/*   Created: 2023/05/19 20:25:01 by nakawashi         #+#    #+#             */
+/*   Updated: 2023/05/19 20:29:12 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-
-//------------------------------------------------------------------------------
-
-PmergeMe::PmergeMe(void) {}
-PmergeMe::~PmergeMe(void) {}
-
-void	PmergeMe::sort_list(std::list<int>& container)
+template<typename T>
+void	swap(T& a, T& b)
 {
-	this->sortingByPairs(container);
+	T	tmp;
+
+	tmp = a;
+	a = b;
+	b = tmp;
 }
 
-void	PmergeMe::sort_vector(std::vector<int>& container)
+template<typename T>
+T&	min(T& a, T& b)
 {
-	this->sortingByPairs(container);
+	if (a < b)
+		return a;
+	else
+		return b;
 }
 
+template<typename T>
+T&	max(T& a, T& b)
+{
+	if (a > b)
+		return a;
+	else
+		return b;
+}
+
+#endif

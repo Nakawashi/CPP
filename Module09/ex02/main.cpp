@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 17:30:32 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/23 20:46:10 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,27 @@ int	main(int argc, char **argv)
 			prev = std::atoi(argv[i - 1]);
 			if (number == prev)
 				continue ;
-			if (std::find(list.begin(), list.end(), number) != list.end())
+			if (std::find(list.begin(), list.end(), number) != list.end()) //list.unique() but found after
 				continue ;
 			if (std::find(vector.begin(), vector.end(), number) != vector.end())
 				continue ;
-			InsertNumbersInContainer(number, list);
-			InsertNumbersInContainer(number, vector);
+			fillContainerWithNumbers(number, list);
+			fillContainerWithNumbers(number, vector);
 		}
 
 		PmergeMe	mergesorter;
 
 		std::cout << "Avant : " << std::endl;
-
 		printContainer(list);
-		printContainer(vector);
+		//printContainer(vector);
 
 		mergesorter.sort_list(list);
-		mergesorter.sort_vector(vector);
+		//mergesorter.sort_vector(vector);
 
-		std::cout << "Après : " << std::endl;
-		printContainer(list);
-		printContainer(vector);
+		//std::cout << "Après : " << std::endl;
+
+		//printContainer(list);
+		//printContainer(vector);
 	}
 	catch(const std::exception& e)
 	{

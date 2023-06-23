@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 15:52:30 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/23 15:58:18 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,6 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc < 3)
-	{
-		std::cout
-			<< RED
-			<< "Error : Invalid arguments. You must give at least two positives numbers."
-			<< NONE
-			<< std::endl;
-		return 1;
-	}
 
 	std::list<int>		list;
 	std::vector<int>	vector;
@@ -62,6 +53,9 @@ int	main(int argc, char **argv)
 
 	try
 	{
+		if (argc < 3)
+			throw std::runtime_error("\033[0;31m Error [arguments]: you must enter at least 2 positives numbers\033[0m");
+
 		for (int i = 1; i < argc; ++i)
 		{
 			number = std::atoi(argv[i]);

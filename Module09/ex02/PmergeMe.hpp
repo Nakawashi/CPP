@@ -6,7 +6,7 @@
 /*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:53:02 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 15:54:15 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/23 15:58:25 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,8 @@ template<typename T>
 void	insertPositivesNumbersInContainer(int n, T& container)
 {
 	if (n <= 0)
-	{
-		throw std::runtime_error("\033[0;31mInvalid value: numbers must be positives\033[0m");
-	}
+		throw std::runtime_error("\033[0;31mError [unsigned values]: numbers must be positive\033[0m");
+
 	container.push_back(n);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/20 19:58:47 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:52:30 by nakawashi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,36 +42,42 @@
 	 iterators and references than lists and forward_lists.
 */
 
-#include <iostream>
-#include <ctime>		/* clock_t, clock() */
-#include <list>
-#include <vector>
 #include "PmergeMe.hpp"
-#include "colors.hpp"
 
 int	main(int argc, char **argv)
 {
-	if (argc == 1)
+	if (argc < 3)
 	{
 		std::cout
 			<< RED
-			<< "Error : Invalid number of arguments"
+			<< "Error : Invalid arguments. You must give at least two positives numbers."
 			<< NONE
 			<< std::endl;
 		return 1;
 	}
 
-	// MANAGE ONE OR MANY ARGUMENTS
-	std::string	av(argv[1]);
-	int	i = 2;
-	while (argv[i])
+	std::list<int>		list;
+	std::vector<int>	vector;
+	int					number;
+
+	try
 	{
-		av += ' ';
-		av += argv[i];
-		++i;
+		for (int i = 1; i < argc; ++i)
+		{
+			number = std::atoi(argv[i]);
+			insertPositivesNumbersInContainer(number, list);
+			insertPositivesNumbersInContainer(number, vector);
+		}
+		printContainer(list);
+		printContainer(vector);
+
+		//PmergeMe	mergesorter
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 
-	argValidation(av);
-	// std::list<unsigned int> list;
+
 	return 0;
 }

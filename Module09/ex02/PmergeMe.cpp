@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:56:04 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/24 20:52:38 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:05:00 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,22 @@ void	PmergeMe::_binarySearch(void)
 {
 	std::list<std::pair<int, int> >::iterator	itPair;
 	std::list<int>::iterator 					itPos;
+	std::list<int>::iterator 					itFirst;
 
 	for (itPair = _pairList.begin(); itPair != _pairList.end(); ++itPair)
 	{
-		_mainList.insert(lower_bound(_mainList.begin(), _mainList.end(), itPair->second), itPair->first); // inserer la petite valeur juste avant son binome
+		itPos = lower_bound(_mainList.begin(), _mainList.end(), itPair->second);
+		_mainList.insert(itPos, itPair->first); // inserer la petite valeur juste avant son binome
+		--itPos;
+		--itPos;
+		while (itPos != _mainList.begin())
+		{
+			if (itPair->first > *itPos) // comparer valeur du binome avec element precedent de _mainList
+				--itPos;
+		}
+		itFirst = std::find(_mainList.begin(), _mainList.end(), itPair->first);
+		_mainList.splice(itPos, _mainList, itFirst);
+
 		// std::cout << "itPair->first : " << itPair->first << std::endl;
 		// std::cout << "itPair->second : " << itPair->second << std::endl;
 		// std::cout << "print lst: " << std::endl;

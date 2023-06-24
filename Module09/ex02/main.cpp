@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/24 18:47:39 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:55:51 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 */
 
 // `jot -r 3000 1 1000 | tr '\n' ' '`
+// a tester ./PmergeMe 50 10 98 54 40 36 45 32 12 78 98 5 45 24 1
 #include "PmergeMe.hpp"
 
 int	main(int argc, char **argv)

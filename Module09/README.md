@@ -12,4 +12,10 @@ Besoin d'un contexte LIFO, j'ai choisi le container stack (sans container de pr√
 
 ## Ex02
 Reproduire l'algorithme merge-insert de Ford-Johnson
-Source : [https://en.wikipedia.org/wiki/Merge-insertion_sort](https://en.wikipedia.org/wiki/Merge-insertion_sort)
+Sources :
+- [https://en.wikipedia.org/wiki/Merge-insertion_sort](https://en.wikipedia.org/wiki/Merge-insertion_sort)
+- [https://codereview.stackexchange.com/questions/116367/ford-johnson-merge-insertion-sort](https://codereview.stackexchange.com/questions/116367/ford-johnson-merge-insertion-sort)
+
+On va economiser le insert en ne comparant pas avec chaque nombre de la main liste.
+Vu qu'on a fait des paires, qu'on les a chacunes triees pour avoir en first le plus petit des deux et en second le plus grand, on saura toujours qu'en inserant le first, il sera plus petit que son binome !!
+Donc, on prend le nombre dans la pendingList, on va chercher son binome dans la main list (avec lower_bound qui nous retourne l'iterateur de la valeur cherchee) et on sait qu'on va pouvoir comparer et inserer en-dessous de cette valeur.

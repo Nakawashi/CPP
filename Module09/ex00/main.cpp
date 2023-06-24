@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:25:17 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/20 16:33:16 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/24 15:24:56 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char **argv)
 	}
 
 	BitcoinExchange	test(database);
-	//test.printDatabase();
 	test.processInput(inputFile);
 
 	return 0;

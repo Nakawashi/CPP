@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 17:22:05 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/20 16:30:58 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:02:40 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,9 @@ void	BitcoinExchange::processInput(std::ifstream& infile)
 		time.tm_mon -= 1;
 
 		//!! variables are not reset so have to test c
-		if (!value || c != '|' || mktime(&time) == -1)
+		if (time.tm_mon > 11 || time.tm_mday > 31)
+			std::cout << RED << "Error: not a date" << NONE << std::endl;
+		else if (!value || c != '|' || mktime(&time) == -1)
 			std::cout << RED <<  "Error: bad input => " << line.substr(0, 10) << NONE << std::endl;
 		else if (value < 0)
 			std::cout << RED << "Error: not a positive number." << NONE << std::endl;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:53:02 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 22:18:04 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/24 18:45:03 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ private:
 	PmergeMe(const PmergeMe& src);
 	PmergeMe&			operator=(const PmergeMe& rhs);
 
-	int								_findPairedElem(std::list<std::pair<int, int> >& pairList, std::list<int>& utilsList);
+	int								_findPairedElem(std::list<std::pair<int, int> >& pairList, std::list<int>& secondList);
 	void							_createPairs(std::list<int>& container);
-	std::list<int>					_utilsList;
+	void							_binarySearch(void);
+	std::list<int>					_pendingList;
+	std::list<int>					_mainList;
 	std::list<std::pair<int, int> >	_pairList;
 	std::vector<int>				_utilsVector;
 };

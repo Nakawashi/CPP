@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakawashi <nakawashi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/23 20:46:10 by nakawashi        ###   ########.fr       */
+/*   Updated: 2023/06/24 18:47:39 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 	 iterators and references than lists and forward_lists.
 */
 
+// `jot -r 3000 1 1000 | tr '\n' ' '`
 #include "PmergeMe.hpp"
 
 int	main(int argc, char **argv)
@@ -62,10 +63,6 @@ int	main(int argc, char **argv)
 
 		PmergeMe	mergesorter;
 
-		std::cout << "Avant : " << std::endl;
-		printContainer(list);
-		//printContainer(vector);
-
 		mergesorter.sort_list(list);
 		//mergesorter.sort_vector(vector);
 
@@ -82,3 +79,8 @@ int	main(int argc, char **argv)
 
 	return 0;
 }
+/*
+b3 comparer a b1
+b3 comp a2
+
+*/

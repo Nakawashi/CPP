@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:56:04 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/25 14:08:21 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:26:06 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,45 @@ PmergeMe::~PmergeMe(void) {}
 
 void	PmergeMe::sort_list(std::list<int>& myContainer)
 {
-	std::cout << "Avant : " << std::endl;
+	std::cout << "\033[0;36mBefore : \033[0m" << std::endl;
 	printContainer(myContainer);
+
+	clock_t start = std::clock();
 	_createPairsList(myContainer);
 	_binarySearchList();
+	// float end = static_cast<float> (std::clock() - start);
+	start = std::clock() - start;
+
+	std::cout << "\033[0;36mAfter : \033[0m" << std::endl;
+	printContainer(_mainList);
+	std::cout	<<	"\033[0;36mTime to process a range of\t"
+				<< myContainer.size()
+				<< " elements with std::list<int> : "
+				<< start
+				<< " us"
+				<< "\033[0m" << std::endl;
 }
 
 void	PmergeMe::sort_vector(std::vector<int>& myContainer)
 {
-	std::cout << "Avant : " << std::endl;
+	std::cout << "\033[0;33m\nBefore : \033[0m" << std::endl;
 	printContainer(myContainer);
+
+	clock_t start = std::clock();
 	_createPairsVector(myContainer);
 	_binarySearchVector();
-}
+	// float end = static_cast<float> (std::clock() - start);
+	start = std::clock() - start;
 
+	std::cout << "\033[0;33mAfter : \033[0m" << std::endl;
+	printContainer(_mainList);
+	std::cout	<< "\033[0;33mTime to process a range of\t"
+				<< myContainer.size()
+				<< " elements with std::vector<int> : "
+				<< start
+				<< " us"
+				<< "\033[0m" << std::endl;
+}
 
 ////
 ///

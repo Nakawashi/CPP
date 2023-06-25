@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/25 14:06:03 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/25 15:28:06 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,11 @@ int	main(int argc, char **argv)
 
 		PmergeMe	mergesorter;
 
+		// LIST -----------------------------------------------------------
 		mergesorter.sort_list(lisa);
+		// VECTOR ---------------------------------------------------------
 		mergesorter.sort_vector(victor);
 
-		//std::cout << "Après : " << std::endl;
-
-		//printContainer(lisa);
-		//printContainer(victor);
 	}
 	catch(const std::exception& e)
 	{

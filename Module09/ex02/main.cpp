@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/25 15:28:06 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:40:11 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 	std::list<int>		lisa;
 	std::vector<int>	victor;
 	int					number;
-	int					prev;
+	std::string			str;
 
 	try
 	{
@@ -51,15 +51,14 @@ int	main(int argc, char **argv)
 		for (int i = 1; i < argc; ++i)
 		{
 			number = std::atoi(argv[i]);
-			prev = std::atoi(argv[i - 1]);
-			if (number == prev)
-				continue ;
+			str = argv[i];
 			if (std::find(lisa.begin(), lisa.end(), number) != lisa.end()) //list.unique() but found after
 				continue ;
 			if (std::find(victor.begin(), victor.end(), number) != victor.end())
 				continue ;
-			fillContainerWithNumbers(number, lisa);
-			fillContainerWithNumbers(number, victor);
+			fillContainerWithNumbers(number, lisa, str);
+			fillContainerWithNumbers(number, victor, str);
+
 		}
 
 		PmergeMe	mergesorter;

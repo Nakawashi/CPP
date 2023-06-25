@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:53:02 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/25 14:01:23 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:44:10 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ private:
 
 
 template<typename T>
-void	fillContainerWithNumbers(int n, T& container)
+void	fillContainerWithNumbers(int n, T& container, const std::string& str)
 {
-	if (n <= 0)
+	if (n < 0 || str.find_first_not_of("0123456789") != std::string::npos)
 		throw std::runtime_error("\033[0;31mError [unsigned values]: numbers must be positive\033[0m");
 
 	container.push_back(n);

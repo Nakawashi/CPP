@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:56:04 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/25 14:04:45 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/25 14:08:21 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,10 +144,10 @@ void	PmergeMe::_createPairsVector(std::vector<int>& myContainer)
 		}
 	}
 
-	std::sort(_mainList.begin(), _mainList.end()); //(step 3 wikipedia)
+	std::sort(_mainVector.begin(), _mainVector.end()); //(step 3 wikipedia)
 
-	if (_pendingList.size() % 2 == 0)
-		_mainVector.insert(_mainVector.begin(), _findPairedElemVector(_pairVector, _mainVector)) //(step 4 wikipedia)
+	if (_pendingVector.size() % 2 == 0)
+		_mainVector.insert(_mainVector.begin(), _findPairedElemVector(_pairVector, _mainVector)); //(step 4 wikipedia)
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:34:30 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/24 20:55:51 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/25 13:33:15 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 int	main(int argc, char **argv)
 {
 
-	std::list<int>		list;
-	std::vector<int>	vector;
+	std::list<int>		lisa;
+	std::vector<int>	victor;
 	int					number;
 	int					prev;
 
@@ -54,23 +54,23 @@ int	main(int argc, char **argv)
 			prev = std::atoi(argv[i - 1]);
 			if (number == prev)
 				continue ;
-			if (std::find(list.begin(), list.end(), number) != list.end()) //list.unique() but found after
+			if (std::find(lisa.begin(), lisa.end(), number) != lisa.end()) //list.unique() but found after
 				continue ;
-			if (std::find(vector.begin(), vector.end(), number) != vector.end())
+			if (std::find(victor.begin(), victor.end(), number) != victor.end())
 				continue ;
-			fillContainerWithNumbers(number, list);
-			fillContainerWithNumbers(number, vector);
+			fillContainerWithNumbers(number, lisa);
+			fillContainerWithNumbers(number, victor);
 		}
 
 		PmergeMe	mergesorter;
 
-		mergesorter.sort_list(list);
-		//mergesorter.sort_vector(vector);
+		mergesorter.sort_list(lisa);
+		//mergesorter.sort_vector(victor);
 
 		//std::cout << "Après : " << std::endl;
 
-		//printContainer(list);
-		//printContainer(vector);
+		//printContainer(lisa);
+		//printContainer(victor);
 	}
 	catch(const std::exception& e)
 	{

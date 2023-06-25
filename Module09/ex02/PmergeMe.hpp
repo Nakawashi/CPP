@@ -6,7 +6,7 @@
 /*   By: lgenevey <lgenevey@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:53:02 by lgenevey          #+#    #+#             */
-/*   Updated: 2023/06/24 18:45:03 by lgenevey         ###   ########.fr       */
+/*   Updated: 2023/06/25 14:01:23 by lgenevey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,27 @@ public:
 	PmergeMe(void);
 	~PmergeMe(void);
 
-	void				sort_list(std::list<int>& container);
-	void				sort_vector(std::vector<int>& container);
+	void								sort_list(std::list<int>& myContainer);
+	void								sort_vector(std::vector<int>& myContainer);
 
 private:
 	PmergeMe(const PmergeMe& src);
-	PmergeMe&			operator=(const PmergeMe& rhs);
+	PmergeMe&							operator=(const PmergeMe& rhs);
 
-	int								_findPairedElem(std::list<std::pair<int, int> >& pairList, std::list<int>& secondList);
-	void							_createPairs(std::list<int>& container);
-	void							_binarySearch(void);
-	std::list<int>					_pendingList;
-	std::list<int>					_mainList;
-	std::list<std::pair<int, int> >	_pairList;
-	std::vector<int>				_utilsVector;
+	// LIST
+	int									_findPairedElemList(std::list<std::pair<int, int> >& pairList, std::list<int>& mainList);
+	void								_createPairsList(std::list<int>& myContainer);
+	void								_binarySearchList(void);
+	std::list<int>						_pendingList;
+	std::list<int>						_mainList;
+	std::list<std::pair<int, int> >		_pairList;
+	// VECTOR
+	int									_findPairedElemVector(std::vector<std::pair<int, int> >& pairVector, std::vector<int>& mainVector);
+	void								_createPairsVector(std::vector<int>& myContainer);
+	void								_binarySearchVector(void);
+	std::vector<int>					_pendingVector;
+	std::vector<int>					_mainVector;
+	std::vector<std::pair<int, int> >	_pairVector;
 };
 
 //-----------------------------------------------------------------------------------------------------

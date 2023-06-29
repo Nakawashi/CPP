@@ -4,6 +4,7 @@
 # include <iostream>
 # include "ASpell.hpp"
 # include "ATarget.hpp"
+# include <map>
 
 
 class Warlock
@@ -28,6 +29,8 @@ private:
 
 	std::string	_name;
 	std::string	_title;
+	std::map<std::string, ASpell*>	_book;
+	std::map<std::string, ASpell*>	_it;
 };
 
 #endif

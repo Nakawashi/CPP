@@ -27,8 +27,8 @@ private:
 	Warlock(const Warlock& src);
 	Warlock&	operator=(const Warlock& rhs);
 
-	std::string	_name;
-	std::string	_title;
+	std::string									_name;
+	std::string									_title;
 	std::map<std::string, ASpell*>				_book;
 	std::map<std::string, ASpell*>::iterator	_it;
 };

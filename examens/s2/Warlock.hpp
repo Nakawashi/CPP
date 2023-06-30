@@ -29,8 +29,8 @@ private:
 
 	std::string	_name;
 	std::string	_title;
-	std::map<std::string, ASpell*>	_book;
-	std::map<std::string, ASpell*>	_it;
+	std::map<std::string, ASpell*>				_book;
+	std::map<std::string, ASpell*>::iterator	_it;
 };
 
 #endif

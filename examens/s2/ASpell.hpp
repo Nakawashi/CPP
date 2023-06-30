@@ -2,7 +2,7 @@
 # define ASPELL_HPP
 
 # include <iostream>
-# include <ATarget.hpp>
+# include "ATarget.hpp"
 
 class ATarget;
 

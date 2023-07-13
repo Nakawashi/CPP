@@ -8,22 +8,26 @@ class ATarget;
 
 class ASpell
 {
+
 public:
-    ASpell();
-    ASpell(std::string name, std::string effects);
-    ASpell(const ASpell& src);
-    ~ASpell();
+	ASpell(std::string name, std::string effects);
+	ASpell(const ASpell& src);
+	~ASpell();
 
-    ASpell& operator=(const ASpell& rhs);
+	ASpell&	operator=(const ASpell& rhs);
 
-    std::string     getName() const;
-    std::string     getEffects() const;
-    virtual ASpell* clone() const = 0;
-    void            launch(const ATarget& target) const;
+	std::string		getName() const;
+	std::string		getEffects() const;
+	virtual ASpell*	clone() const = 0;
+
+	void			launch(const ATarget& target) const;
 
 protected:
-    std::string _name;
-    std::string _effects;
+	ASpell();
+
+	std::string	_name;
+	std::string	_effects;
+
 };
 
 #endif

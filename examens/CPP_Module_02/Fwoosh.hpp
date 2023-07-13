@@ -5,6 +5,7 @@
 
 class Fwoosh : public ASpell
 {
+public:
 	Fwoosh();
 	~Fwoosh();
 
@@ -12,4 +13,3 @@ class Fwoosh : public ASpell
 };
 
 #endif
-

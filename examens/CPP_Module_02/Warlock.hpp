@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <map>
+# include "ASpell.hpp"
 
 class Warlock
 {
@@ -14,20 +15,20 @@ public:
     const std::string&  getTitle() const;
     void                setTitle(const std::string& title);
     void                introduce() const;
+
     void                learnSpell(ASpell* spell);
     void                forgetSpell(std::string spellName);
-    void                launchSpell(std::string spellName, ATarget& target);
+    void                launchSpell(std::string spellName,ATarget& target);
 
 private:
     Warlock();
     Warlock(const Warlock& src);
     Warlock&    operator=(const Warlock& rhs);
 
-    std::string                                 _name;
-    std::string                                 _title;
-    std::map<std::string, ASpell*>              _book;
-    std::map<std::string, ASpell*>::iterator    _it;
-
+    std::string _name;
+    std::string _title;
+    std::map<std::string, ASpell*>  _book;
+    std::map<std::string, ASpell*>::iterator  _it;
 };
 
 #endif

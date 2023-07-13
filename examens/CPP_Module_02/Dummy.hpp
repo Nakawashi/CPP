@@ -5,6 +5,7 @@
 
 class Dummy : public ATarget
 {
+public:
 	Dummy();
 	~Dummy();
 

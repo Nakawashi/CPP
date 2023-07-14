@@ -34,20 +34,18 @@ void    Warlock::setTitle(const std::string& title)
 void    Warlock::learnSpell(ASpell* spell)
 {
     if (spell)
-        _book[spell->getName()] = spell;
+        _book.learnSpell(spell);
 }
 
 void    Warlock::forgetSpell(std::string spellName)
 {
-    _it = _book.find(spellName);
-    if (_it != _book.end())
-        _book.erase(_it);
+    _book.forgetSpell(spellName);
 }
 
 void	Warlock::launchSpell(std::string spellName, ATarget& target)
 {
-    _it = _book.find(spellName);
-    if (_it != _book.end())
-        (_it->second)->launch(target);
+    ASpell* tmpSpell = _book.createSpell(spellName);
+    if (tmpSpell)
+        tmpSpell->launch(target);
 }
 

@@ -24,7 +24,7 @@ Ex04
 ----
 fstreams
 Read from a file
-Wrinte in a file
+Write in a file
 
 Ex05
 ----
